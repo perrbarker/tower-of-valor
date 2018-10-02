@@ -6,6 +6,6 @@ Jameson Dy
 Perry Barker
 Jeremy Noble
 
-# Description
+## Description
 For the game we are working on in CSE440 
 
