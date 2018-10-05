@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5368B8AB-C3A5-B5E2-A298-88EEF8C62C75}</ProjectGuid>
+    <ProjectGuid>{B936633E-9E94-4ECC-82DE-C936E0D0D8E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,20 +55,21 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera.cs" />
      <Compile Include="Assets\Scripts\Game Manager.cs" />
+     <Compile Include="Assets\Scripts\Platforms.cs" />
      <Compile Include="Assets\Scripts\Player Controller.cs" />
      <Compile Include="Assets\Scripts\PowerUps.cs" />
      <Compile Include="Assets\Scripts\Units.cs" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Climb of Valor/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Tower of Valor/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Climb of Valor/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Tower of Valor/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Climb of Valor/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Tower of Valor/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Climb of Valor/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Tower of Valor/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
