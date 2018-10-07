@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour {
+public class playerMovement : MonoBehaviour
+{
 
-    public float moveSpeed; 
+    public float moveSpeed;
     public float jumpHeight;
     private float moveVelocity, jumpVelocity;   // determines speed and direction of movement
     public KeyCode left, right, jump;   // player controls
     private Rigidbody2D body;
     public bool canJump;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         body = gameObject.GetComponent<Rigidbody2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         moveVelocity = 0f;
 
@@ -67,7 +70,7 @@ public class playerMovement : MonoBehaviour {
     public bool Grounded()
     {
         // round down
-        if (body.velocity.y == 0)
+        if (Mathf.Round(body.velocity.y) == 0f)
         {
             return true;
         }
