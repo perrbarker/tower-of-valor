@@ -7,6 +7,8 @@ public class CameraScript : MonoBehaviour {
     public Transform player1, player2;
     public Vector3 offset;
     private bool posReached;
+    public float smoothTime; // time it takes for camera to reach target
+    private Vector3 velocity = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +25,9 @@ public class CameraScript : MonoBehaviour {
         {
             // only follow in y axis
             Vector3 posY = new Vector3(0, higherPlayer().position.y, -1);
-            transform.position = posY; // + offset.y;
+            Vector3 targetPos = posY; // + offset.y;
+            // Smooth move position to target position
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         }
 	}
 
