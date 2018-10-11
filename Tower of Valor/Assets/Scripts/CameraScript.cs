@@ -6,6 +6,7 @@ public class CameraScript : MonoBehaviour {
 
     public Transform player1, player2;
     public Vector3 offset;
+    private bool posReached;
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +15,16 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        // only follow in y axis
-        Vector3 posY = new Vector3(0, higherPlayer().position.y, 0);
-        transform.position = posY + offset;
+        if (higherPlayer().position.y > offset.y)
+        {
+            posReached = true;
+        }
+        if (posReached)
+        {
+            // only follow in y axis
+            Vector3 posY = new Vector3(0, higherPlayer().position.y, -1);
+            transform.position = posY; // + offset.y;
+        }
 	}
 
     // check which player has higher height

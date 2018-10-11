@@ -8,6 +8,7 @@ public class playerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpHeight;
     private float moveVelocity, jumpVelocity; // determines speed and direction of movement
+    private bool movingLeft;    // checks to see which direction the player was previously moving
     public KeyCode left, right, jump; // player controls
     private Rigidbody2D body;
 
@@ -28,18 +29,31 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         moveVelocity = 0f;
 
         // Horizontal movement
-        if (Input.GetKey(left))
+        if (Input.GetKey(right) && Input.GetKey(left))  // if player is holding both left and right key
+        {
+            if (movingLeft == false)
+            {
+                moveVelocity = -moveSpeed;
+            }
+            else
+            {
+                moveVelocity = moveSpeed;
+            }
+        }
+        else if (Input.GetKey(left))
         {
             moveVelocity = -moveSpeed;
+            movingLeft = true;
         }
-        if (Input.GetKey(right))
+        else if (Input.GetKey(right))
         {
             moveVelocity = moveSpeed;
+            movingLeft = false;
         }
+       
 
         // Jump
         if (Input.GetKeyDown(jump))
@@ -86,6 +100,12 @@ public class playerMovement : MonoBehaviour
            // Debug.Log("Hit one feet");
             grounded = true;
         }
+        /*
+        else
+        {
+            grounded = false;
+        }
+        */
     }
 
     void Movement()
