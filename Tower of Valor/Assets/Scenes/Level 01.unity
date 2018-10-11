@@ -1197,7 +1197,7 @@ MonoBehaviour:
   player1: {fileID: 1684861901}
   player2: {fileID: 161628589}
   offset: {x: 0, y: 7, z: -1}
-  smoothTime: 1
+  smoothTime: 0.75
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

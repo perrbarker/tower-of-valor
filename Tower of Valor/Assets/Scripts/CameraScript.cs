@@ -21,6 +21,10 @@ public class CameraScript : MonoBehaviour {
         {
             posReached = true;
         }
+        else
+        {
+            posReached = false;
+        }
         if (posReached)
         {
             // only follow in y axis
@@ -28,6 +32,10 @@ public class CameraScript : MonoBehaviour {
             Vector3 targetPos = posY; // + offset.y;
             // Smooth move position to target position
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
+        }
+        else
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, offset, ref velocity, smoothTime);
         }
 	}
 
