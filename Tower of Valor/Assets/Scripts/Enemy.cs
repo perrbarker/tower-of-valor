@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
 			{
 				groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.left, detect);
 			}
-			if (groundInfo.collider == true)
+			if (groundInfo.collider == true && groundInfo.collider.gameObject.tag != "Player")
 			{
 				if (movingRight == true)
 				{
