@@ -11,7 +11,7 @@ public class playerMovement : MonoBehaviour
     private bool movingLeft;    // checks to see which direction the player was previously moving
     public KeyCode left, right, jump; // player controls
     private Rigidbody2D body;
-
+    public float slowDownForce; // determines how quick player movement stops
 
     public Transform Lfeet, Rfeet;
     public float range;
@@ -24,12 +24,14 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveVelocity = 0f;
+        // Slows down player velocity to 0 over time
+        moveVelocity = Mathf.MoveTowards(moveVelocity, 0f, slowDownForce * Time.deltaTime);
 
         // Horizontal movement
         if (Input.GetKey(right) && Input.GetKey(left))  // if player is holding both left and right key
@@ -50,7 +52,7 @@ public class playerMovement : MonoBehaviour
         }
         else if (Input.GetKey(right))
         {
-            moveVelocity = moveSpeed;
+            moveVelocity = +moveSpeed;
             movingLeft = false;
         }
        

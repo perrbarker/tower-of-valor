@@ -920,6 +920,16 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114445452853452092, guid: 5fd78bb47e6c6b1408a8242214d476f2,
+        type: 2}
+      propertyPath: slowDown
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114445452853452092, guid: 5fd78bb47e6c6b1408a8242214d476f2,
+        type: 2}
+      propertyPath: slowDownForce
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd78bb47e6c6b1408a8242214d476f2, type: 2}
   m_IsPrefabAsset: 0
@@ -4028,6 +4038,11 @@ Prefab:
     - target: {fileID: 1403061373509610, guid: 5fd78bb47e6c6b1408a8242214d476f2, type: 2}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114445452853452092, guid: 5fd78bb47e6c6b1408a8242214d476f2,
+        type: 2}
+      propertyPath: slowDown
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd78bb47e6c6b1408a8242214d476f2, type: 2}
