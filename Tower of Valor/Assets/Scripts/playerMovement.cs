@@ -103,6 +103,7 @@ public class playerMovement : MonoBehaviour
         {
            // Debug.Log("Hit one feet");
             grounded = true;
+            doubleJump = true;
         }
         else
         {
