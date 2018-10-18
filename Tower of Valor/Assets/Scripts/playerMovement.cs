@@ -30,8 +30,8 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Slows down player velocity to 0 over time
-        moveVelocity = Mathf.MoveTowards(moveVelocity, 0f, slowDownForce * Time.deltaTime);
+
+        SlowDown();
 
         // Horizontal movement
         if (Input.GetKey(right) && Input.GetKey(left))  // if player is holding both left and right key
@@ -60,6 +60,8 @@ public class playerMovement : MonoBehaviour
         // Jump
         if (Input.GetKeyDown(jump))
         {
+            checkRayCastHit();
+
             if (grounded)
             {
                 Jump();
@@ -102,12 +104,16 @@ public class playerMovement : MonoBehaviour
            // Debug.Log("Hit one feet");
             grounded = true;
         }
-        /*
         else
         {
             grounded = false;
         }
-        */
+    }
+
+    // Slows down player velocity to 0 over time
+    void SlowDown()
+    {
+        moveVelocity = Mathf.MoveTowards(moveVelocity, 0f, slowDownForce * Time.deltaTime);
     }
 
     void Movement()
