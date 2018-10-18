@@ -6,22 +6,19 @@ using UnityEngine;
 // TODO: need to determine which direction is facing
 public class Grab : MonoBehaviour {
 
-    private Vector3 vecRight;
+    private Vector3 vecDir;
+    private Vector2 vecSide;
     public KeyCode grab;
     public float grabRange;
     public Transform holdPosition;
-    public bool isGrab;
+    public bool isHolding;
     private Transform grabbedObject;
 
     public float throwForce;
     public float angle;
     private Vector3 directionThrow;
+    public bool facingLeft;
 
-
-	// Use this for initialization
-	void Start () {
-        directionThrow = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
-    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,26 +26,23 @@ public class Grab : MonoBehaviour {
 		if (Input.GetKeyUp(grab))
         {
             // grab
-            if (!isGrab)
+            if (!isHolding)
             {
                 CheckRayCastHit();
             }
             // toss
             else
             {
-                isGrab = false;
-                grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
-                StartCoroutine("DisableMovement");
+                Throw();
             }
 
         }
 
-       
-	}
+    }
 
     void FixedUpdate()
     {
-        if (isGrab)
+        if (isHolding)
         {
             grabbedObject.position = holdPosition.position;
         }
@@ -56,30 +50,66 @@ public class Grab : MonoBehaviour {
 
     void CheckRayCastHit()
     {
-        // Right vector position of object
-        vecRight = transform.position + new Vector3(.5f, 0f, 0f);
+        CheckDirFacing();
 
-        Debug.DrawRay(vecRight , Vector2.right * grabRange);
+        // Set which direction to cast ray
+        if (facingLeft)
+        {
+            vecSide = transform.position + new Vector3(-.5f, 0f, 0f);
+            vecDir = Vector2.left;
+        }
+        else
+        {
+            vecSide = transform.position + new Vector3(.5f, 0f, 0f);
+            vecDir = Vector2.right;
+        }
 
-        // fire ray at right
-        RaycastHit2D hit = Physics2D.Raycast(vecRight, Vector2.right, grabRange);
+
+        //Debug.DrawRay(vecSide, vecDir * grabRange);
+
+        // cast ray
+        RaycastHit2D hit = Physics2D.Raycast(vecSide, vecDir, grabRange);
         if (hit == true)
         {
             if (hit.transform.tag == "Player")
             {
                 grabbedObject = hit.transform;
-                isGrab = true;
+                isHolding = true;
+                grabbedObject.GetComponent<Throwable>().isGrabbed = true;
             }
         }       
     }
 
-
-    IEnumerator DisableMovement()
+    void Throw()
     {
-        grabbedObject.GetComponent<playerMovement>().enabled = false;
-        yield return new WaitForSeconds(1f);
-        grabbedObject.GetComponent<playerMovement>().enabled = true;
+        CheckDirFacing();
 
+        //  left
+        if (facingLeft)
+        {
+            directionThrow = Quaternion.AngleAxis(angle, Vector3.back) * Vector3.left;
+        }
+        //  right
+        else if (!facingLeft)
+        {
+            directionThrow = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+        }
+
+        // throw at direction throw
+        isHolding = false;
+
+        grabbedObject.GetComponent<Throwable>().isGrabbed = false;
+        grabbedObject.GetComponent<Throwable>().isThrown = true;
+
+        grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
+
+
+
+    }
+
+    void CheckDirFacing()
+    {
+        facingLeft = GetComponent<playerMovement>().movingLeft; // set direction facing
     }
 
 }

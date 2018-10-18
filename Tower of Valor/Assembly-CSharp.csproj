@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Grab.cs" />
     <Compile Include="Assets\Scripts\playerMovement.cs" />
     <Compile Include="Assets\Scripts\PropelObject.cs" />
+    <Compile Include="Assets\Scripts\Throwable.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity Projects/CSE440-Team-Retro/Tower of Valor/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

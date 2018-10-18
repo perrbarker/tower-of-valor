@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpHeight;
     private float moveVelocity, jumpVelocity; // determines speed and direction of movement
-    private bool movingLeft;    // checks to see which direction the player was previously moving
+    public bool movingLeft;    // checks to see which direction the player was previously moving
     public KeyCode left, right, jump; // player controls
     private Rigidbody2D body;
     public float slowDownForce; // determines how quick player movement stops
