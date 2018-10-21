@@ -923,6 +923,11 @@ Prefab:
       propertyPath: slowDownForce
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114445452853452092, guid: 5fd78bb47e6c6b1408a8242214d476f2,
+        type: 2}
+      propertyPath: powerDoubleJump
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd78bb47e6c6b1408a8242214d476f2, type: 2}
   m_IsPrefabAsset: 0
@@ -1895,11 +1900,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grab: 106
-  grabRange: 1
+  grabRange: 0.2
   holdPosition: {fileID: 81197414}
   isHolding: 0
-  throwForce: 650
-  angle: 45
+  throwForce: 700
+  angle: 40
   facingLeft: 0
 --- !u!114 &905963297
 MonoBehaviour:
@@ -1914,6 +1919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrabbed: 0
   isThrown: 0
+  left: 97
+  right: 100
+  maxStruggle: 10
 --- !u!1001 &923487258
 Prefab:
   m_ObjectHideFlags: 0
@@ -2595,6 +2603,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrabbed: 0
   isThrown: 0
+  left: 276
+  right: 275
+  maxStruggle: 10
 --- !u!114 &1285141142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2607,7 +2618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grab: 257
-  grabRange: 1
+  grabRange: 0.2
   holdPosition: {fileID: 1730583212}
   isHolding: 0
   throwForce: 650

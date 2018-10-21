@@ -46,6 +46,16 @@ public class Grab : MonoBehaviour {
         {
             grabbedObject.position = holdPosition.position;
         }
+
+        // check if enemy escaped
+        if (grabbedObject != null)
+        {
+            if (grabbedObject.GetComponent<Throwable>().isGrabbed == false)
+            {
+                isHolding = false;
+            }
+        }
+
     }
 
     void CheckRayCastHit()
@@ -76,6 +86,7 @@ public class Grab : MonoBehaviour {
                 grabbedObject = hit.transform;
                 isHolding = true;
                 grabbedObject.GetComponent<Throwable>().isGrabbed = true;
+                grabbedObject.GetComponent<Throwable>().ResetStrugglePoints();
             }
         }       
     }
@@ -102,7 +113,6 @@ public class Grab : MonoBehaviour {
         grabbedObject.GetComponent<Throwable>().isThrown = true;
 
         grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
-
 
 
     }
