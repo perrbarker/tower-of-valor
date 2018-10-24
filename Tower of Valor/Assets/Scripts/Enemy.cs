@@ -10,11 +10,13 @@ public class Enemy : MonoBehaviour
 	public bool isGargoyle;
 	public bool isBat;
 	public bool isSpiritArmor;
+	public Animator animator;
 
 	public float speed;
-	public float detect;
+	public float platformDetection;
 
 	private bool movingRight;
+	private float time;
 	public Transform groundDetection;
 	private RaycastHit2D groundInfo;
 
@@ -23,7 +25,10 @@ public class Enemy : MonoBehaviour
 		if (gameObject.GetComponent<Enemy> ().isBat || gameObject.GetComponent<Enemy> ().isSpiritArmor)
 		{
 			movingRight = true;
-			Debug.Log (speed);
+		}
+		if (gameObject.GetComponent<Enemy> ().isGargoyle)
+		{
+			
 		}
 	}
 
@@ -32,7 +37,7 @@ public class Enemy : MonoBehaviour
 		//SPIRIT ARMOR
 		if (gameObject.GetComponent<Enemy> ().isSpiritArmor)
 		{
-			groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.down, detect);
+			groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.down, platformDetection);
 			gameObject.transform.Translate (Vector2.right * speed * Time.deltaTime);
 
 			if (groundInfo.collider == false)
@@ -52,30 +57,36 @@ public class Enemy : MonoBehaviour
 		//BAT
 		else if (gameObject.GetComponent<Enemy>().isBat)
 		{
+			//move bat
 			gameObject.transform.Translate (Vector2.right * speed * Time.deltaTime);
+		
 			if (movingRight == true)
 			{
-				groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.right, detect);
+				//set LineOfSight to look right
+				groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.right, platformDetection);
 			}
 			else
 			{
-				groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.left, detect);
+				//set lineOfSight to left
+				groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.left, platformDetection);
 			}
+			//check to not fly into platforms or other enemies, change direction otherwise
 			if (groundInfo.collider == true && groundInfo.collider.gameObject.tag != "Player")
 			{
 				if (movingRight == true)
 				{
 					transform.eulerAngles = new Vector3 (0, -180, 0);
 					movingRight = false;
-					groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.left, detect);
+					groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.left, platformDetection);
 				}
 				else
 				{
 					transform.eulerAngles = Vector3.zero;
 					movingRight = true;
-					groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.right, detect);
+					groundInfo = Physics2D.Raycast (groundDetection.position, Vector2.right, platformDetection);
 				}
 			}
 		}
 	}
 }
+
