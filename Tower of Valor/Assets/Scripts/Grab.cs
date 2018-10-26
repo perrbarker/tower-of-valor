@@ -12,7 +12,7 @@ public class Grab : MonoBehaviour {
     public float grabRange;
     public Transform holdPosition;
     public bool isHolding;
-    private Transform grabbedObject;
+    private GameObject grabbedObject;
 
     public float throwForce;
     public float angle;
@@ -44,7 +44,7 @@ public class Grab : MonoBehaviour {
     {
         if (isHolding)
         {
-            grabbedObject.position = holdPosition.position;
+            grabbedObject.transform.position = holdPosition.position;
         }
 
         // check if enemy escaped
@@ -65,12 +65,12 @@ public class Grab : MonoBehaviour {
         // Set which direction to cast ray
         if (facingLeft)
         {
-            vecSide = transform.position + new Vector3(-.5f, 0f, 0f);
+            vecSide = transform.position + new Vector3(-1.25f, 0f, 0f);
             vecDir = Vector2.left;
         }
         else
         {
-            vecSide = transform.position + new Vector3(.5f, 0f, 0f);
+            vecSide = transform.position + new Vector3(1.25f, 0f, 0f);
             vecDir = Vector2.right;
         }
 
@@ -83,7 +83,7 @@ public class Grab : MonoBehaviour {
         {
             if (hit.transform.tag == "Player")
             {
-                grabbedObject = hit.transform;
+                grabbedObject = hit.collider.gameObject;
                 isHolding = true;
                 grabbedObject.GetComponent<Throwable>().isGrabbed = true;
                 grabbedObject.GetComponent<Throwable>().ResetStrugglePoints();
