@@ -20,6 +20,8 @@ public class playerMovement : MonoBehaviour
     public bool doubleJump; // doublejump enabler
     public bool powerDoubleJump; // doublejump powerup
 
+	public Animator animation;
+
     // Use this for initialization
     void Start()
     {
@@ -120,6 +122,7 @@ public class playerMovement : MonoBehaviour
     void Movement()
     {
         body.velocity = new Vector2(moveVelocity, body.velocity.y);
+
     }
 
     void Jump()

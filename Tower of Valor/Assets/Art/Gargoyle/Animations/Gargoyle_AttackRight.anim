@@ -242,4 +242,12 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 2.375
+    functionName: StopAnimation
+    data: AttackRight
+    objectReferenceParameter: {fileID: 11500000, guid: 25041da7b91122a419aefa1f3fe5e610,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

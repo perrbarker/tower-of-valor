@@ -1894,6 +1894,7 @@ GameObject:
   - component: {fileID: 887670737}
   - component: {fileID: 887670736}
   - component: {fileID: 887670739}
+  - component: {fileID: 887670740}
   m_Layer: 0
   m_Name: Gargoyle
   m_TagString: Untagged
@@ -2053,6 +2054,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.42741776, y: 0.15726167}
   m_EdgeRadius: 0
+--- !u!114 &887670740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887670733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25041da7b91122a419aefa1f3fe5e610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGargoyle: 1
+  isBat: 0
+  isSpiritArmor: 0
+  animator: {fileID: 887670738}
+  speed: 0
+  platformDetection: 0
+  groundDetection: {fileID: 0}
 --- !u!4 &891339272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc,

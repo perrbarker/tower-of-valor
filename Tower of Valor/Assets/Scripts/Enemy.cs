@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 		}
 		if (gameObject.GetComponent<Enemy> ().isGargoyle)
 		{
-			
+			StartCoroutine (GargAttack ());
 		}
 	}
 
@@ -88,5 +88,25 @@ public class Enemy : MonoBehaviour
 			}
 		}
 	}
-}
 
+
+	public IEnumerator GargAttack()
+	{
+		if(Random.Range(0.0f, 101.0f) % 2 == 0)
+		{
+			animator.SetBool ("AttackLeft", true);
+		}
+		else
+		{
+			animator.SetBool("AttackRight", true);
+		}
+
+		yield return new WaitForSeconds (2.0f);
+		StartCoroutine (GargAttack ());
+	}
+
+	public void StopAnimation(string animationParameter)
+	{
+		animator.SetBool(animationParameter, false);
+	}
+}
