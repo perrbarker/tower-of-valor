@@ -78,6 +78,7 @@ public class Grab : MonoBehaviour {
         //Debug.DrawRay(vecSide, vecDir * grabRange);
 
         // cast ray
+        Debug.DrawRay(vecSide, vecDir * grabRange);
         RaycastHit2D hit = Physics2D.Raycast(vecSide, vecDir, grabRange);
         if (hit == true)
         {

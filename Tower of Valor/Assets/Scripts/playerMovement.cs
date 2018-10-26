@@ -1,24 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
 
     public float moveSpeed;
-    public float jumpHeight;
-    private float moveVelocity, jumpVelocity; // determines speed and direction of movement
+    private float moveVelocity; // determines speed and direction of movement
     public bool movingLeft;    // checks to see which direction the player was previously moving
-    public KeyCode left, right, jump; // player controls
+    public KeyCode left, right;
     private Rigidbody2D body;
     public float slowDownForce; // determines how quick player movement stops
-
-    public Transform Lfeet, Rfeet;
-    public float range;
-    public bool grounded;
-    public bool canJump; // jump enabler
-    public bool doubleJump; // doublejump enabler
-    public bool powerDoubleJump; // doublejump powerup
 
 	public Animator animation;
 
@@ -58,26 +48,6 @@ public class playerMovement : MonoBehaviour
             movingLeft = false;
         }
        
-
-        // Jump
-        if (Input.GetKeyDown(jump))
-        {
-            checkRayCastHit();
-
-            if (grounded)
-            {
-                Jump();
-            }
-            // in air
-            else
-            {
-                if (doubleJump && powerDoubleJump)
-                {
-                    Jump();
-                    doubleJump = false;
-                }
-            }
-        }
     }
 
     // Do physics stuff
@@ -86,32 +56,6 @@ public class playerMovement : MonoBehaviour
         Movement();       
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // only check raycast when it hits something for improved performance, maybe ? ??
-        checkRayCastHit();
-    }
-
-    void checkRayCastHit()
-    {
-        Debug.DrawRay(Lfeet.position, Vector2.down * range);
-        Debug.DrawRay(Rfeet.position, Vector2.down * range);
-
-        // Fires a ray at feet position downwards to see if it hits(collides) with an object
-        RaycastHit2D LfeetHit = Physics2D.Raycast(Lfeet.position, Vector2.down, range);
-        RaycastHit2D RfeetHit = Physics2D.Raycast(Rfeet.position, Vector2.down, range);
-        // check if one of the foot hits something
-        if (LfeetHit == true || RfeetHit == true)
-        {
-           // Debug.Log("Hit one feet");
-            grounded = true;
-            doubleJump = true;
-        }
-        else
-        {
-            grounded = false;
-        }
-    }
 
     // Slows down player velocity to 0 over time
     void SlowDown()
@@ -123,13 +67,6 @@ public class playerMovement : MonoBehaviour
     {
         body.velocity = new Vector2(moveVelocity, body.velocity.y);
 
-    }
-
-    void Jump()
-    {
-        body.velocity = new Vector2(0, jumpHeight);
-        grounded = false;
-        doubleJump = true;
     }
 
 }

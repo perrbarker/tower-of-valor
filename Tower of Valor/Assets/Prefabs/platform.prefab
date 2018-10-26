@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4450779002203466}
   - component: {fileID: 212102517267263968}
-  - component: {fileID: 60344917456001096}
+  - component: {fileID: 61730599515598342}
   m_Layer: 0
   m_Name: platform
   m_TagString: Untagged
@@ -41,8 +41,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60344917456001096
-PolygonCollider2D:
+--- !u!61 &61730599515598342
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -63,16 +63,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.495, y: 0.49}
-      - {x: -0.49, y: 0.495}
-      - {x: 0.49, y: 0.495}
-      - {x: 0.495, y: 0.49}
-      - {x: 0.495, y: -0.49}
-      - {x: 0.49, y: -0.495}
-      - {x: -0.49, y: -0.495}
-      - {x: -0.495, y: -0.49}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!212 &212102517267263968
 SpriteRenderer:
   m_ObjectHideFlags: 1
