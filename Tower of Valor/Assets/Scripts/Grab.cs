@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Grabs, hold, and toss other gameObject
-// TODO: need to determine which direction is facing
 public class Grab : MonoBehaviour {
 
     private Vector3 vecDir;
@@ -19,9 +18,9 @@ public class Grab : MonoBehaviour {
     private Vector3 directionThrow;
     public bool facingLeft;
 
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 
 		if (Input.GetKeyUp(grab))
         {
@@ -30,29 +29,32 @@ public class Grab : MonoBehaviour {
             {
                 CheckRayCastHit();
             }
-            // toss
             else
             {
                 Throw();
             }
-
         }
+
+
 
     }
 
     void FixedUpdate()
     {
-        if (isHolding)
-        {
-            grabbedObject.transform.position = holdPosition.position;
-        }
-
         // check if enemy escaped
         if (grabbedObject != null)
         {
             if (grabbedObject.GetComponent<Throwable>().isGrabbed == false)
             {
                 isHolding = false;
+            }
+        }
+
+        if (isHolding)
+        {
+            if (grabbedObject != null)
+            {
+                grabbedObject.transform.position = holdPosition.position;
             }
         }
 
@@ -65,35 +67,42 @@ public class Grab : MonoBehaviour {
         // Set which direction to cast ray
         if (facingLeft)
         {
-            vecSide = transform.position + new Vector3(-1.25f, 0f, 0f);
+            vecSide = transform.position + new Vector3(-.65f, 0f, 0f);
             vecDir = Vector2.left;
         }
         else
         {
-            vecSide = transform.position + new Vector3(1.25f, 0f, 0f);
+            vecSide = transform.position + new Vector3(.65f, 0f, 0f);
             vecDir = Vector2.right;
         }
 
 
-        //Debug.DrawRay(vecSide, vecDir * grabRange);
-
         // cast ray
         Debug.DrawRay(vecSide, vecDir * grabRange);
         RaycastHit2D hit = Physics2D.Raycast(vecSide, vecDir, grabRange);
+
         if (hit == true)
         {
             if (hit.transform.tag == "Player")
             {
-                grabbedObject = hit.collider.gameObject;
+                Debug.Log("Hit player");
+                grabbedObject = hit.transform.gameObject;
                 isHolding = true;
+
                 grabbedObject.GetComponent<Throwable>().isGrabbed = true;
+                grabbedObject.GetComponent<Rigidbody2D>().mass = .05f;
                 grabbedObject.GetComponent<Throwable>().ResetStrugglePoints();
+
+
             }
         }       
     }
 
+
+
     void Throw()
     {
+        Debug.Log("THROW");
         CheckDirFacing();
 
         //  left
@@ -115,8 +124,8 @@ public class Grab : MonoBehaviour {
 
         grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
 
-
     }
+
 
     void CheckDirFacing()
     {

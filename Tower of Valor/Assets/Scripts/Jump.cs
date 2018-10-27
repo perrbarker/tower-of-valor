@@ -1,19 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Jump : MonoBehaviour {
 
     public KeyCode jump;
     public float jumpHeight;
     private Rigidbody2D body;
-    private float range = .3f;
 
-    private bool isGrounded;
-    private bool canJump;
-    private bool canDoubleJump;
+    public bool isGrounded;
+    public bool canJump;
+    public bool canDoubleJump;
     public bool doubleJumpPower;
 
-    public BoxCollider2D leftFootCollider;
-    public BoxCollider2D RightFootCollider;
+    public PolygonCollider2D leftFootCollider;
+    public PolygonCollider2D RightFootCollider;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +24,7 @@ public class Jump : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 
-        if (Input.GetKeyDown(jump))
+        if (Input.GetKey(jump))
         {
             if (isGrounded)
             {
@@ -48,8 +48,6 @@ public class Jump : MonoBehaviour {
     // While Colliding with object
     void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("ENTER");
-
         // check if feet colliders collision
         if (leftFootCollider.IsTouching(collision.collider) || RightFootCollider.IsTouching(collision.collider))
         {
@@ -64,4 +62,5 @@ public class Jump : MonoBehaviour {
     {
         isGrounded = false;
     }
+
 }

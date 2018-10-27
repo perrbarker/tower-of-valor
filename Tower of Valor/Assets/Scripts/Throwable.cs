@@ -18,58 +18,77 @@ public class Throwable : MonoBehaviour {
 
         if (isGrabbed)
         {
+            Struggle();
             DisableMovement();
         }
+    }
 
-        if (isGrabbed)
+    void LateUpdate()
+    {
+        if (strugglePoints >= maxStruggle)
         {
-            Struggle();
+            EnableMovement();
         }
 
-	}
+    }
 
     // player can press keys x amount of times to get out of grab
     void Struggle()
     {
         if (Input.GetKeyDown(left))
         {
-            body.velocity = new Vector2(-5, body.velocity.y);
+            body.velocity = new Vector2(-10, body.velocity.y);
             strugglePoints++;
         }
         if (Input.GetKeyDown(right))
         {
-            body.velocity = new Vector2(5, body.velocity.y);
+            body.velocity = new Vector2(10, body.velocity.y);
             strugglePoints++;
         }
 
         // acquired enough struggle points to escape grab
         if (strugglePoints >= maxStruggle)
         {
-            isGrabbed = false;
-            GetComponent<playerMovement>().enabled = true;
-
             // jumps a bit
-            body.velocity = new Vector2(0, 10);
+            body.velocity = new Vector2(body.velocity.x, 10);
 
+            isGrabbed = false;
+
+            EnableMovement();
         }
     }
 
     // disable movement script
-    void DisableMovement()
+    public void DisableMovement()
     {
-        gameObject.GetComponent<playerMovement>().enabled = false;  
+        GetComponent<playerMovement>().enabled = false;  
     }
+
+    public void EnableMovement()
+    {
+        GetComponent<playerMovement>().enabled = true;
+    }
+
+
 
     // Object regains movement if collided with something after being thrown
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isThrown)
+
+        if (collision.transform.root.tag == "Platform")
         {
-            GetComponent<playerMovement>().enabled = true;   // enable movement script
-            isThrown = false;
+            isGrabbed = false;
+            EnableMovement();
         }
 
+        if (isThrown)
+        {
+            EnableMovement();
+            isThrown = false;
+            GetComponent<Rigidbody2D>().mass = 1;
+        }
     }
+
 
     public void ResetStrugglePoints()
     {
