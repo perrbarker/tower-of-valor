@@ -64,6 +64,33 @@ public class Grab : MonoBehaviour {
     {
         CheckDirFacing();
 
+
+        // Cast two rays above player to check if there is a platform
+        Vector2 vecTop1 = transform.position + new Vector3(-.5f, 1f, 0);
+        Vector2 vecTop2 = transform.position + new Vector3(.5f, 1f, 0);
+
+        Debug.DrawRay(vecTop1, Vector3.up * grabRange);
+        Debug.DrawRay(vecTop2, Vector3.up * grabRange);
+
+        RaycastHit2D hitTop1 = Physics2D.Raycast(vecTop1, Vector3.up, grabRange);
+        RaycastHit2D hitTop2 = Physics2D.Raycast(vecTop2, Vector3.up, grabRange);
+
+        // If there is a platform, do nothing (do not grab)
+        if (hitTop1 == true)
+        {
+            if (hitTop1.transform.tag == "Platform")
+            {
+                return;
+            }
+        }
+        if (hitTop2 == true)
+        {
+            if (hitTop2.transform.tag == "Platform")
+            {
+                return;
+            }
+        }
+
         // Set which direction to cast ray
         if (facingLeft)
         {
@@ -90,7 +117,7 @@ public class Grab : MonoBehaviour {
                 isHolding = true;
 
                 grabbedObject.GetComponent<Throwable>().isGrabbed = true;
-                grabbedObject.GetComponent<Rigidbody2D>().mass = .05f;
+                grabbedObject.GetComponent<Rigidbody2D>().mass = .01f;
                 grabbedObject.GetComponent<Throwable>().ResetStrugglePoints();
 
 

@@ -29,7 +29,7 @@ public class Jump : MonoBehaviour {
             if (isGrounded)
             {
                 // Jump
-                body.velocity = new Vector2(0, jumpHeight);
+                body.velocity = new Vector2(body.velocity.x, jumpHeight);
                 isGrounded = false;
             }
             // on air
@@ -38,7 +38,7 @@ public class Jump : MonoBehaviour {
                 if (canDoubleJump && doubleJumpPower)
                 {
                     // Jump
-                    body.velocity = new Vector2(0, jumpHeight);
+                    body.velocity = new Vector2(body.velocity.x, jumpHeight);
                     canDoubleJump = false;
                 }
             }

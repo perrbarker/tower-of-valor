@@ -37,12 +37,12 @@ public class Throwable : MonoBehaviour {
     {
         if (Input.GetKeyDown(left))
         {
-            body.velocity = new Vector2(-10, body.velocity.y);
+            body.velocity = new Vector2(-1, body.velocity.y);
             strugglePoints++;
         }
         if (Input.GetKeyDown(right))
         {
-            body.velocity = new Vector2(10, body.velocity.y);
+            body.velocity = new Vector2(1, body.velocity.y);
             strugglePoints++;
         }
 
@@ -67,6 +67,8 @@ public class Throwable : MonoBehaviour {
     public void EnableMovement()
     {
         GetComponent<playerMovement>().enabled = true;
+        GetComponent<Rigidbody2D>().mass = 1;
+
     }
 
 
