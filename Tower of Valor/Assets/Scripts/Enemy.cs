@@ -6,7 +6,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour 
 {
 
-	//private Rigidbody2D unit;
 	public bool isGargoyle;
 	public bool isBat;
 	public bool isSpiritArmor;
@@ -59,7 +58,7 @@ public class Enemy : MonoBehaviour
 		{
 			//move bat
 			gameObject.transform.Translate (Vector2.right * speed * Time.deltaTime);
-		
+
 			if (movingRight == true)
 			{
 				//set LineOfSight to look right
@@ -89,13 +88,23 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D collision)
+	{	
+		//Debug.Log ("Collision");
+		//Debug.Log (collision.collider.name);
+		collision.gameObject.GetComponent<Health>().removeHitPoints(1);
+	}
 
 	public IEnumerator GargAttack()
 	{
-		if(Random.Range(0.0f, 101.0f) % 2 == 0)
+		//choose random number
+		float rng = Mathf.Round (Random.Range (0.0f, 1.0f));
+		//attack left
+		if(rng == 0.0)
 		{
 			animator.SetBool ("AttackLeft", true);
 		}
+		//attack right
 		else
 		{
 			animator.SetBool("AttackRight", true);

@@ -37,10 +37,11 @@ GameObject:
   - component: {fileID: 212742495135077730}
   - component: {fileID: 50303922502709048}
   - component: {fileID: 114746051145346476}
-  - component: {fileID: 95543532296662018}
   - component: {fileID: 114357335871579336}
   - component: {fileID: 114499532042634188}
   - component: {fileID: 114394550039352070}
+  - component: {fileID: 114441450019648212}
+  - component: {fileID: 95543532296662018}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -622,10 +623,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump: 32
-  jumpHeight: 10
+  jumpHeight: 15
+  isGrounded: 0
+  canJump: 1
+  canDoubleJump: 0
   doubleJumpPower: 0
   leftFootCollider: {fileID: 60631949701983542}
   RightFootCollider: {fileID: 60179096626013372}
+--- !u!114 &114441450019648212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408824122298378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11966861a92406c43819cae7caf1a765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 3
+  hitPoints: 0
+  timeToDestroy: 3
 --- !u!114 &114499532042634188
 MonoBehaviour:
   m_ObjectHideFlags: 1

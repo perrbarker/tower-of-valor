@@ -243,7 +243,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 2.375
+  - time: 2.625
     functionName: StopAnimation
     data: AttackRight
     objectReferenceParameter: {fileID: 11500000, guid: 25041da7b91122a419aefa1f3fe5e610,

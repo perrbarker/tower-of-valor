@@ -34,7 +34,13 @@ public class Health : MonoBehaviour {
     IEnumerator Death()
     {
         yield return new WaitForSeconds(timeToDestroy);
-
-        Destroy(gameObject);
+		if (gameObject.transform == null)
+		{
+			Debug.Log ("GAME OBJECT IS NULL");
+		}
+		else
+		{
+			Destroy (gameObject);
+		}
     }
 }
