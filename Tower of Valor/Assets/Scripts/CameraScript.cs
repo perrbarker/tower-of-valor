@@ -38,4 +38,20 @@ public class CameraScript : MonoBehaviour
             return player2.position.y;
         }
     }
+
+	public Transform SetPlayer1
+	{
+		set
+		{
+			player1 = value;
+		}
+	}
+
+	public Transform SetPlayer2
+	{
+		set
+		{ 
+			player2 = value;
+		}
+	}
 }

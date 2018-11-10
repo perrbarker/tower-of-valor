@@ -34,13 +34,15 @@ public class Health : MonoBehaviour {
     IEnumerator Death()
     {
         yield return new WaitForSeconds(timeToDestroy);
-		if (gameObject.transform == null)
+		if (gameObject.transform == Camera.main.GetComponent<CameraScript> ().player1)
 		{
-			Debug.Log ("GAME OBJECT IS NULL");
+			Camera.main.GetComponent<CameraScript> ().SetPlayer1 = Camera.main.GetComponent<CameraScript> ().player2;
+
 		}
-		else
+		else if (gameObject.transform == Camera.main.GetComponent<CameraScript> ().player2)
 		{
-			Destroy (gameObject);
+			Camera.main.GetComponent<CameraScript> ().SetPlayer2 = Camera.main.GetComponent<CameraScript> ().player1;
 		}
+		Destroy (gameObject);
     }
 }
