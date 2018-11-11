@@ -45,7 +45,26 @@ public class Jump : MonoBehaviour {
         }
     }
 
-    // While Colliding with object
+    /** While Colliding with object -- should check if lands on enemy
+										if bat, kill bat
+										else if enemy, player takes 1 damage
+	**/
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.collider.gameObject.GetComponent<Enemy> ().isBat)
+		{
+			if (leftFootCollider.IsTouching (col.collider) || RightFootCollider.IsTouching (col.collider))
+			{
+				gameObject.GetComponent<Health> ().removeHitPoints (-1);
+				col.collider.gameObject.GetComponent<Health> ().removeHitPoints (1);
+			}
+		}
+		else
+		{
+			isGrounded = true;
+			canDoubleJump = false;
+		}
+	}
     void OnCollisionStay2D(Collision2D collision)
     {
         // check if feet colliders collision
