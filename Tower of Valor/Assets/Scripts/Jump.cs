@@ -71,8 +71,12 @@ public class Jump : MonoBehaviour {
 
 		else
 		{
-			isGrounded = true;
-			canDoubleJump = false;
+            CheckBottomRaycast();
+            if (hitLeftFoot == true || hitRightFoot == true || hitLeftHeel == true || hitRightFoot == true)
+            {
+                isGrounded = true;
+                canDoubleJump = false;
+            }
 		}
 	}
     void OnCollisionStay2D(Collision2D collision)

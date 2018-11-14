@@ -2329,7 +2329,7 @@ MonoBehaviour:
   isGrounded: 0
   canJump: 1
   canDoubleJump: 0
-  doubleJumpPower: 0
+  doubleJumpPower: 1
   leftFoot: {fileID: 1824618470}
   rightFoot: {fileID: 1497896240}
   leftHeel: {fileID: 868233678}
