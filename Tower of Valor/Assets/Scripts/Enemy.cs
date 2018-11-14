@@ -87,12 +87,25 @@ public class Enemy : MonoBehaviour
 			}
 		}
 	}
+		
+	void OnCollisionExit2D(Collision2D collision)
+	{
+		GameObject collidedObject = collision.gameObject;
 
-	void OnCollisionEnter2D(Collision2D collision)
-	{	
-		//Debug.Log ("Collision");
-		//Debug.Log (collision.collider.name);
-		collision.gameObject.GetComponent<Health>().removeHitPoints(1);
+		//When leaving collision, if player, enable player health script
+		if (collidedObject.tag == "Player")
+		{
+			Debug.Log (collidedObject);
+			//if Gargoyle is being held, deal no damage
+			if (gameObject.GetComponent<Throwable> ().isGrabbed)
+			{
+				Debug.Log ("Enemy is being held");
+			}
+			else
+			{
+				collidedObject.GetComponent<Health> ().removeHitPoints (1);
+			}
+		}
 	}
 
 	public IEnumerator GargAttack()

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Jameson.unity
+- path: Assets/Scenes/Enemy Testing 1.unity
   isLoaded: 1
   isActive: 1

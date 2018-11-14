@@ -19,7 +19,10 @@ public class Throwable : MonoBehaviour {
         if (isGrabbed)
         {
             Struggle();
-            DisableMovement();
+			if (gameObject.tag == "Player")
+			{
+				DisableMovement ();
+			}
         }
     }
 
@@ -54,7 +57,10 @@ public class Throwable : MonoBehaviour {
 
             isGrabbed = false;
 
-            EnableMovement();
+			if (gameObject.tag == "Player")
+			{
+				EnableMovement ();
+			}
         }
     }
 
@@ -66,8 +72,11 @@ public class Throwable : MonoBehaviour {
 
     public void EnableMovement()
     {
-        GetComponent<playerMovement>().enabled = true;
-        GetComponent<Rigidbody2D>().mass = 1;
+		if (gameObject.GetComponent ("playerMovement") as playerMovement != null)
+		{
+			GetComponent<playerMovement> ().enabled = true;
+			GetComponent<Rigidbody2D> ().mass = 1;
+		}
 
     }
 

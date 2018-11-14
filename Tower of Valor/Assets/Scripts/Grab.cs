@@ -125,14 +125,13 @@ public class Grab : MonoBehaviour {
 			else if(hit.collider.gameObject.GetComponent<Enemy>().isGargoyle)
 			{
 				Debug.Log ("Hit Gargoyle");
-
-				gameObject.GetComponent<Health> ().removeHitPoints (-1);
 				grabbedObject = hit.transform.gameObject;
 				isHolding = true;
 
 				grabbedObject.GetComponent<Enemy> ().animator.enabled = false;
 				grabbedObject.GetComponent<Throwable> ().isGrabbed = true;
 				grabbedObject.GetComponent<Rigidbody2D> ().mass = .01f;
+				grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezePositionY;
 				grabbedObject.GetComponent<Throwable> ().ResetStrugglePoints ();
 			}
         }       
@@ -166,8 +165,10 @@ public class Grab : MonoBehaviour {
 
 		if (grabbedObject.GetComponent<Enemy> ().isGargoyle)
 		{
+			grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.None;
 			grabbedObject.GetComponent<Health> ().removeHitPoints (1);
 		}
+		gameObject.GetComponent<Health> ().enabled = true;
 
     }
 
