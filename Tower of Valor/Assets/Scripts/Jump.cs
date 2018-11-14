@@ -12,8 +12,9 @@ public class Jump : MonoBehaviour {
     public bool canDoubleJump;
     public bool doubleJumpPower;
 
-    public PolygonCollider2D leftFootCollider;
-    public PolygonCollider2D RightFootCollider;
+    public Transform leftFoot, rightFoot, leftHeel, rightHeel;
+
+    private RaycastHit2D hitLeftFoot, hitLeftHeel, hitRightFoot, hitRightHeel;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +25,7 @@ public class Jump : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 
-        if (Input.GetKey(jump))
+        if (Input.GetKeyDown(jump))
         {
             if (isGrounded)
             {
@@ -51,29 +52,52 @@ public class Jump : MonoBehaviour {
 	**/
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (col.collider.gameObject.GetComponent<Enemy> ().isBat)
-		{
-			if (leftFootCollider.IsTouching (col.collider) || RightFootCollider.IsTouching (col.collider))
-			{
-				gameObject.GetComponent<Health> ().removeHitPoints (-1);
-				col.collider.gameObject.GetComponent<Health> ().removeHitPoints (1);
-			}
-		}
+
+        // Check if gameobject has an Enemy script
+        if (col.gameObject.GetComponent("Enemy") as Enemy != null)
+        {
+            // Check if Enemy is bat
+            if (col.collider.gameObject.GetComponent<Enemy>().isBat)
+            {
+                CheckBottomRaycast();
+                if (hitLeftFoot == true || hitRightFoot == true || hitLeftHeel == true || hitRightFoot == true)
+                {
+                    gameObject.GetComponent<Health>().removeHitPoints(-1);
+                    col.collider.gameObject.GetComponent<Health>().removeHitPoints(1);
+                }
+            }
+
+        }
+
 		else
 		{
-			isGrounded = true;
-			canDoubleJump = false;
+            CheckBottomRaycast();
+            if (hitLeftFoot == true || hitRightFoot == true || hitLeftHeel == true || hitRightFoot == true)
+            {
+                isGrounded = true;
+                canDoubleJump = false;
+            }
 		}
 	}
     void OnCollisionStay2D(Collision2D collision)
     {
-        // check if feet colliders collision
-        if (leftFootCollider.IsTouching(collision.collider) || RightFootCollider.IsTouching(collision.collider))
+        CheckBottomRaycast();
+        if (hitLeftFoot == true || hitRightFoot == true || hitLeftHeel == true || hitRightFoot == true )
         {
             isGrounded = true;
             canDoubleJump = true;
         }
 
+    }
+
+    // Cast 4 downward raycasts on all 4 feet and heel positions
+    void CheckBottomRaycast()
+    {       
+        // check if bottom collider rays hit something
+        hitLeftFoot = Physics2D.Raycast(leftFoot.position, Vector2.down, .1f);
+        hitRightFoot = Physics2D.Raycast(rightFoot.position, Vector2.down, .1f);
+        hitLeftHeel = Physics2D.Raycast(leftHeel.position, Vector2.down, .1f);
+        hitRightFoot = Physics2D.Raycast(rightHeel.position, Vector2.down, .1f);
     }
 
     // When Object doesn't collide anymore

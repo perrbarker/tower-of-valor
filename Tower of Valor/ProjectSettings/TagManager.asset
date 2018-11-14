@@ -6,8 +6,11 @@ TagManager:
   tags:
   - Platform
   - Bat
+<<<<<<< HEAD
   - Gargoyle
   - Spirit
+=======
+>>>>>>> b21c86713252f1e33409f3e51a8dedbcff272c65
   layers:
   - Default
   - TransparentFX
