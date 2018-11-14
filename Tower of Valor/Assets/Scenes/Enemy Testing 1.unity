@@ -1672,9 +1672,12 @@ GameObject:
   - component: {fileID: 887670735}
   - component: {fileID: 887670734}
   - component: {fileID: 887670738}
+  - component: {fileID: 887670739}
   - component: {fileID: 887670737}
   - component: {fileID: 887670736}
   - component: {fileID: 887670740}
+  - component: {fileID: 887670741}
+  - component: {fileID: 887670742}
   m_Layer: 0
   m_Name: Gargoyle
   m_TagString: Untagged
@@ -1809,6 +1812,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &887670739
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887670733}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!114 &887670740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,6 +1850,36 @@ MonoBehaviour:
   speed: 0
   platformDetection: 0
   groundDetection: {fileID: 0}
+--- !u!114 &887670741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887670733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3c676fcedc94447b026e530eb865e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  isThrown: 0
+  left: 0
+  right: 0
+  maxStruggle: 100
+--- !u!114 &887670742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887670733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11966861a92406c43819cae7caf1a765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1
+  hitPoints: 0
+  timeToDestroy: 2
 --- !u!4 &891339272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc,
@@ -1851,9 +1904,10 @@ GameObject:
   - component: {fileID: 903498065}
   - component: {fileID: 903498064}
   - component: {fileID: 903498069}
+  - component: {fileID: 903498070}
   m_Layer: 0
   m_Name: Bat
-  m_TagString: Untagged
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1920,7 +1974,7 @@ MonoBehaviour:
   isGargoyle: 0
   isBat: 1
   isSpiritArmor: 0
-  animator: {fileID: 0}
+  animator: {fileID: 903498069}
   speed: 5
   platformDetection: 0.5
   groundDetection: {fileID: 573376840}
@@ -2005,6 +2059,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &903498070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903498063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11966861a92406c43819cae7caf1a765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1
+  hitPoints: 0
+  timeToDestroy: 0
 --- !u!1001 &923487258
 Prefab:
   m_ObjectHideFlags: 0
@@ -2401,6 +2469,27 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e722c7b0b94794ea3007941489c96d, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1132449215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1997132214259006, guid: 76e722c7b0b94794ea3007941489c96d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1126975658}
+--- !u!114 &1132449221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132449215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3c676fcedc94447b026e530eb865e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrabbed: 0
+  isThrown: 0
+  left: 0
+  right: 0
+  maxStruggle: 0
 --- !u!1001 &1136544225
 Prefab:
   m_ObjectHideFlags: 0
@@ -3249,6 +3338,10 @@ Prefab:
         type: 2}
       propertyPath: m_Size.y
       value: 0.54888344
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659580947673884, guid: 6fe0206ea4e7d824ca4bd173ca93a2ad, type: 2}
+      propertyPath: m_TagString
+      value: Bat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe0206ea4e7d824ca4bd173ca93a2ad, type: 2}

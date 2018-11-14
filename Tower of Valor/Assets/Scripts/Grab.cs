@@ -75,7 +75,7 @@ public class Grab : MonoBehaviour {
         RaycastHit2D hitTop1 = Physics2D.Raycast(vecTop1, Vector3.up, grabRange);
         RaycastHit2D hitTop2 = Physics2D.Raycast(vecTop2, Vector3.up, grabRange);
 
-        // If there is a platform, do nothing (do not grab)
+        // If there is a platform above you, do nothing (do not grab)
         if (hitTop1 == true)
         {
             if (hitTop1.transform.tag == "Platform")
@@ -122,6 +122,19 @@ public class Grab : MonoBehaviour {
 
 
             }
+			else if(hit.collider.gameObject.GetComponent<Enemy>().isGargoyle)
+			{
+				Debug.Log ("Hit Gargoyle");
+
+				gameObject.GetComponent<Health> ().removeHitPoints (-1);
+				grabbedObject = hit.transform.gameObject;
+				isHolding = true;
+
+				grabbedObject.GetComponent<Enemy> ().animator.enabled = false;
+				grabbedObject.GetComponent<Throwable> ().isGrabbed = true;
+				grabbedObject.GetComponent<Rigidbody2D> ().mass = .01f;
+				grabbedObject.GetComponent<Throwable> ().ResetStrugglePoints ();
+			}
         }       
     }
 
@@ -150,6 +163,11 @@ public class Grab : MonoBehaviour {
         grabbedObject.GetComponent<Throwable>().isThrown = true;
 
         grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
+
+		if (grabbedObject.GetComponent<Enemy> ().isGargoyle)
+		{
+			grabbedObject.GetComponent<Health> ().removeHitPoints (1);
+		}
 
     }
 
