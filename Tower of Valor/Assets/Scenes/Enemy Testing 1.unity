@@ -1940,6 +1940,7 @@ MonoBehaviour:
   speed: 0
   platformDetection: 0
   groundDetection: {fileID: 0}
+  attackRate: 1.5
 --- !u!114 &887670741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,6 +2069,7 @@ MonoBehaviour:
   speed: 5
   platformDetection: 0.5
   groundDetection: {fileID: 573376840}
+  attackRate: 0
 --- !u!212 &903498067
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4791,6 +4793,7 @@ MonoBehaviour:
   speed: 1
   platformDetection: 3
   groundDetection: {fileID: 303465193}
+  attackRate: 0
 --- !u!212 &2024154572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5024,7 +5027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11966861a92406c43819cae7caf1a765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 10
   hitPoints: 0
   timeToDestroy: 3
 --- !u!114 &2107246304
@@ -5045,10 +5048,12 @@ MonoBehaviour:
   canJump: 1
   canDoubleJump: 0
   doubleJumpPower: 1
+  jumpedOnBat: 0
   leftFoot: {fileID: 699864065}
   rightFoot: {fileID: 777399212}
   leftHeel: {fileID: 54011396}
   rightHeel: {fileID: 1004113084}
+  feetCheck: 1
 --- !u!114 &2107246305
 MonoBehaviour:
   m_ObjectHideFlags: 0

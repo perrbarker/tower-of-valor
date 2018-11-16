@@ -163,13 +163,14 @@ public class Grab : MonoBehaviour {
 
         grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
 
-		if (grabbedObject.GetComponent<Enemy> ().isGargoyle)
+		if(grabbedObject.GetComponent("Enemy") as Enemy != null)
 		{
-			grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.None;
-			grabbedObject.GetComponent<Health> ().removeHitPoints (1);
+			if (grabbedObject.GetComponent<Enemy> ().isGargoyle)
+			{
+				grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.None;
+		
+			}grabbedObject.GetComponent<Health> ().removeHitPoints (1);
 		}
-		gameObject.GetComponent<Health> ().enabled = true;
-
     }
 
 

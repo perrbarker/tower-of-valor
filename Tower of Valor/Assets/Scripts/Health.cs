@@ -29,7 +29,7 @@ public class Health : MonoBehaviour {
     public void removeHitPoints(int i)
     {
         hitPoints -= i;
-		Debug.Log(gameObject.tag + "'s is at " + gameObject.GetComponent<Health>().HitPoints);
+		Debug.Log(gameObject.tag + "'s HP is at " + gameObject.GetComponent<Health>().HitPoints);
     }
 
     IEnumerator Death()
