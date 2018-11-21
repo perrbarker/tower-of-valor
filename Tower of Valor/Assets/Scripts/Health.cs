@@ -100,7 +100,11 @@ public class Health : MonoBehaviour {
 		}
 		else
 		{
+<<<<<<< HEAD
 			Destroy (gameObject);
+=======
+            Destroy(gameObject);
+>>>>>>> 40e689189b36576ef9fdefa635b8d6dcf609b91f
 		}
     }
 
