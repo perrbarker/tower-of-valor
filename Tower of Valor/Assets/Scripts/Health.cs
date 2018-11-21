@@ -7,7 +7,13 @@ public class Health : MonoBehaviour {
     public int hitPoints;
 	public int lives;
     public float timeToDestroy;
-	public GameObject spawn;
+	private GameObject spawn;
+	public GameObject[] spawnPoints;
+	private float distanceFromPlayer;
+	private int closestSpawn;
+	private float tmpDistance;
+	private float tmpX;
+	private float tmpY;
 
     void Start()
     {
@@ -66,13 +72,35 @@ public class Health : MonoBehaviour {
 			}
 			else
 			{
-				Spawn respawn = spawn.GetComponent<Spawn> ();
+				//SPAWNS BASED ON THE POSITION OF THE PLAYER, WILL FIND CLOSEST SPAWN POINT FROM DEATH
+				//NEEDS TO BE MODIFYIED TO BASE SPAWN POINT ON PLAYER 2 POSITION
+				//SPAWNER NEEDS TO SPAWN EITHER PLAYER 1 OR PLAYER 2 NOT JUST GAMEOBJECT GIVEN
+
+				tmpX = Mathf.Abs (gameObject.transform.position.x - spawnPoints [0].transform.position.x);
+				tmpY = Mathf.Abs (gameObject.transform.position.y - spawnPoints [0].transform.position.y);
+				tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
+				distanceFromPlayer = tmpDistance;
+				closestSpawn = 0;
+
+				for (int i = 1; i < spawnPoints.Length; ++i)
+				{
+					tmpX = Mathf.Abs (gameObject.transform.position.x - spawnPoints [i].transform.position.x);
+					tmpY = Mathf.Abs (gameObject.transform.position.y - spawnPoints [i].transform.position.y);
+					tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
+
+					if (tmpDistance < distanceFromPlayer)
+					{
+						distanceFromPlayer = tmpDistance;
+						closestSpawn = i;
+					}
+				}
+				Spawn respawn = spawnPoints[closestSpawn].GetComponent<Spawn> ();
 				respawn.Respawn ();
 			}
 		}
 		else
 		{
-			Destroy(gameObject
+			Destroy (gameObject);
 		}
     }
 
