@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-    public int maxHP;
-    public int hitPoints;
-    public float timeToDestroy;
-<<<<<<< HEAD
+	public int maxHP;
+	public int hitPoints;
+	public int lives;
+	public float timeToDestroy;
 	private GameObject spawn;
 	public GameObject[] spawnPoints;
 	private float distanceFromPlayer;
@@ -14,42 +14,56 @@ public class Health : MonoBehaviour {
 	private float tmpDistance;
 	private float tmpX;
 	private float tmpY;
-=======
->>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 
-    void Start()
-    {
-        hitPoints = maxHP;
-    }
+	void Start()
+	{
+		hitPoints = maxHP;
+	}
 
-    void LateUpdate()
-    {
-        if (hitPoints <= 0)
-        {
-            StartCoroutine(Death());
-        }
-    }
-
-    public int HitPoints
-    {
-        get { return hitPoints; }
-
-    }
-
-    public void removeHitPoints(int i)
-    {
-        hitPoints -= i;
-		Debug.Log(gameObject.tag + "'s is at " + gameObject.GetComponent<Health>().HitPoints);
-    }
-
-    IEnumerator Death()
-    {
-        yield return new WaitForSeconds(timeToDestroy);
-		if (gameObject.transform == Camera.main.GetComponent<CameraScript> ().player1)
+	void LateUpdate()
+	{
+		if (hitPoints <= 0)
 		{
-			Camera.main.GetComponent<CameraScript> ().SetPlayer1 = Camera.main.GetComponent<CameraScript> ().player2;
+			StartCoroutine(Death());
+		}
+	}
 
-<<<<<<< HEAD
+	public int HitPoints
+	{
+		get { return hitPoints; }
+		set
+		{
+			hitPoints += value;
+			if (hitPoints > maxHP)
+			{
+				hitPoints = maxHP;
+			}
+		}
+
+	}
+
+	public void removeHitPoints(int i)
+	{
+		hitPoints -= i;
+		Debug.Log(gameObject.tag + "'s HP is at " + gameObject.GetComponent<Health>().HitPoints);
+	}
+
+	IEnumerator Death()
+	{
+		yield return new WaitForSeconds(timeToDestroy);
+
+		if (gameObject.tag == "Player")
+		{
+			hitPoints = maxHP;
+			--lives;
+			if (lives < 0)
+			{
+				Destroy (gameObject);
+
+				if (gameObject.transform == Camera.main.GetComponent<CameraScript> ().player1)
+				{
+					Camera.main.GetComponent<CameraScript> ().SetPlayer1 = Camera.main.GetComponent<CameraScript> ().player2;
+
 				}
 				else if (gameObject.transform == Camera.main.GetComponent<CameraScript> ().player2)
 				{
@@ -83,21 +97,19 @@ public class Health : MonoBehaviour {
 				Spawn respawn = spawnPoints[closestSpawn].GetComponent<Spawn> ();
 				respawn.Respawn ();
 			}
-=======
->>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 		}
-		else if (gameObject.transform == Camera.main.GetComponent<CameraScript> ().player2)
+		else
 		{
-<<<<<<< HEAD
-<<<<<<< HEAD
 			Destroy (gameObject);
-=======
-            Destroy(gameObject);
->>>>>>> 40e689189b36576ef9fdefa635b8d6dcf609b91f
-=======
-			Camera.main.GetComponent<CameraScript> ().SetPlayer2 = Camera.main.GetComponent<CameraScript> ().player1;
->>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 		}
-		Destroy (gameObject);
-    }
+	}
+
+	public GameObject Spawn
+	{
+		get { return spawn; }
+		set
+		{
+			spawn = value;
+		}
+	}
 }
