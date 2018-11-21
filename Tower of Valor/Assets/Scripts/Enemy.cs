@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
 	private float time;
 	public Transform groundDetection;
 	private RaycastHit2D groundInfo;
-	public float attackRate;
 
 	void Start()
 	{
@@ -98,30 +97,14 @@ public class Enemy : MonoBehaviour
 		{
 			Debug.Log (collidedObject);
 			//if Gargoyle is being held, deal no damage
-			if (isGargoyle)
+			if (gameObject.GetComponent<Throwable> ().isGrabbed)
 			{
-				if (gameObject.GetComponent<Throwable> ().isGrabbed)
-				{
-					Debug.Log ("Gargoyle is being held");
-				}
-				else
-				{
-					collidedObject.GetComponent<Health> ().removeHitPoints (1);
-				}
+				Debug.Log ("Enemy is being held");
 			}
-			//if Bat, is being jumped on, deal no damage
-			else if (isBat)
+			else
 			{
-				if (collidedObject.GetComponent<Jump>().jumpedOnBat)
-				{
-					Debug.Log ("Bat has been jumped on");
-				}
-				else
-				{
-					collidedObject.GetComponent<Health> ().removeHitPoints (1);
-				}
+				collidedObject.GetComponent<Health> ().removeHitPoints (1);
 			}
-				
 		}
 	}
 
@@ -139,7 +122,8 @@ public class Enemy : MonoBehaviour
 		{
 			animator.SetBool("AttackRight", true);
 		}
-		yield return new WaitForSeconds (attackRate);
+
+		yield return new WaitForSeconds (2.0f);
 		StartCoroutine (GargAttack ());
 	}
 

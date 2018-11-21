@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 43
     width: 1366
@@ -21,8 +22,46 @@ MonoBehaviour:
   m_Title: 
   m_RootView: {fileID: 6}
   m_MinSize: {x: 950, y: 542}
+=======
+    x: 67
+    y: 55
+    width: 1853
+    height: 1001
+  m_ShowMode: 4
+  m_Title: 
+  m_RootView: {fileID: 8}
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+<<<<<<< HEAD
+=======
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 415
+    width: 1056
+    height: 204
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
+  m_Panes:
+  - {fileID: 16}
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,12 +73,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+  - {fileID: 13}
+  - {fileID: 2}
+  m_Position:
+    serializedVersion: 2
+    x: 422
+    y: 0
+    width: 1056
+    height: 619
+  m_MinSize: {x: 204, y: 321}
+  m_MaxSize: {x: 4004, y: 8021}
+  vertical: 1
+  controlID: 60
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+<<<<<<< HEAD
   - {fileID: 9}
   - {fileID: 3}
+=======
+  - {fileID: 11}
+  - {fileID: 5}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1366
     height: 635
   m_MinSize: {x: 683, y: 492}
@@ -47,6 +117,15 @@ MonoBehaviour:
   vertical: 0
   controlID: 9
 --- !u!114 &3
+=======
+    width: 1853
+    height: 951
+  m_MinSize: {x: 679, y: 592}
+  m_MaxSize: {x: 14002, y: 18042}
+  vertical: 0
+  controlID: 154
+--- !u!114 &5
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,6 +139,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1089
     y: 0
     width: 277
@@ -72,6 +152,20 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &4
+=======
+    x: 1478
+    y: 0
+    width: 375
+    height: 951
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 19}
+  m_Panes:
+  - {fileID: 19}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &6
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,16 +181,28 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 269
     height: 364
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
+=======
+    width: 422
+    height: 619
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 20}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_Panes:
   - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
+<<<<<<< HEAD
 --- !u!114 &5
+=======
+--- !u!114 &7
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,9 +217,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 364
     width: 1089
     height: 271
+=======
+    y: 619
+    width: 1478
+    height: 332
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 13}
@@ -121,8 +233,13 @@ MonoBehaviour:
   - {fileID: 13}
   - {fileID: 18}
   m_Selected: 0
+<<<<<<< HEAD
   m_LastSelected: 1
 --- !u!114 &6
+=======
+  m_LastSelected: 2
+--- !u!114 &8
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,18 +251,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+<<<<<<< HEAD
   - {fileID: 7}
   - {fileID: 2}
   - {fileID: 8}
+=======
+  - {fileID: 9}
+  - {fileID: 4}
+  - {fileID: 10}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1366
     height: 685
   m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
+=======
+    width: 1853
+    height: 1001
+  m_MinSize: {x: 950, y: 300}
+  m_MaxSize: {x: 10000, y: 10000}
+--- !u!114 &9
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,12 +292,20 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1366
+=======
+    width: 1853
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
+<<<<<<< HEAD
 --- !u!114 &8
+=======
+--- !u!114 &10
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,12 +320,21 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 665
     width: 1366
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
 --- !u!114 &9
+=======
+    y: 981
+    width: 1853
+    height: 20
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+--- !u!114 &11
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,12 +346,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+<<<<<<< HEAD
   - {fileID: 10}
   - {fileID: 5}
+=======
+  - {fileID: 12}
+  - {fileID: 7}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1089
     height: 635
   m_MinSize: {x: 406, y: 492}
@@ -211,6 +365,15 @@ MonoBehaviour:
   vertical: 1
   controlID: 10
 --- !u!114 &10
+=======
+    width: 1478
+    height: 951
+  m_MinSize: {x: 404, y: 592}
+  m_MaxSize: {x: 10002, y: 18042}
+  vertical: 1
+  controlID: 108
+--- !u!114 &12
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,12 +385,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+<<<<<<< HEAD
   - {fileID: 4}
   - {fileID: 11}
+=======
+  - {fileID: 6}
+  - {fileID: 3}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1089
     height: 364
   m_MinSize: {x: 406, y: 221}
@@ -235,6 +404,15 @@ MonoBehaviour:
   vertical: 0
   controlID: 11
 --- !u!114 &11
+=======
+    width: 1478
+    height: 619
+  m_MinSize: {x: 404, y: 321}
+  m_MaxSize: {x: 8004, y: 8021}
+  vertical: 0
+  controlID: 32
+--- !u!114 &13
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,7 +426,11 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 269
+=======
+    x: 0
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     y: 0
     width: 820
     height: 364
@@ -261,7 +443,143 @@ MonoBehaviour:
   - {fileID: 12}
   m_Selected: 0
   m_LastSelected: 1
+<<<<<<< HEAD
 --- !u!114 &12
+=======
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12362, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 360, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Sprite Editor
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 67
+    y: 747
+    width: 1476
+    height: 311
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_ResetOnNextRepaint: 0
+  m_SelectedAssetPath: 
+  m_SelectedSpriteRectGUID: 
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12914, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Animator
+    m_Image: {fileID: 663490763026382308, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 491
+    y: 543
+    width: 1052
+    height: 183
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_ViewTransforms:
+    m_KeySerializationHelper:
+    - {fileID: 1107993042404899790, guid: 08082a8165e4f61459ddc17e3b0bde50, type: 2}
+    - {fileID: 1107898919998414720, guid: 2a8a02cc640f24dc2b4c142a702bdc45, type: 2}
+    m_ValueSerializationHelper:
+    - e00: 0.5412844
+      e01: 0
+      e02: 0
+      e03: 83.01378
+      e10: 0
+      e11: 0.5412844
+      e12: 0
+      e13: 21.495415
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.50427353
+      e01: 0
+      e02: 0
+      e03: 73.75644
+      e10: 0
+      e11: 0.50427353
+      e12: 0
+      e13: 4.914528
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  m_PreviewAnimator: {fileID: 0}
+  m_AnimatorController: {fileID: 0}
+  m_BreadCrumbs: []
+  stateMachineGraph: {fileID: 0}
+  stateMachineGraphGUI: {fileID: 0}
+  blendTreeGraph: {fileID: 0}
+  blendTreeGraphGUI: {fileID: 0}
+  m_AutoLiveLink: 1
+  m_MiniTool: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_CurrentEditor: 1
+  m_LayerEditor:
+    m_SelectedLayerIndex: 0
+--- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12071, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Animation
+    m_Image: {fileID: 1561878555887300916, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 491
+    y: 543
+    width: 1052
+    height: 183
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_AnimEditor: {fileID: 0}
+  m_LockTracker:
+    m_IsLocked: 0
+  m_LastSelectedObjectID: -28844
+--- !u!114 &17
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,7 +604,11 @@ MonoBehaviour:
     width: 973
     height: 501
   m_PersistentViewDataDictionary: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &13
+=======
+--- !u!114 &18
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,10 +628,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 456
     width: 1087
     height: 250
+=======
+    x: 67
+    y: 747
+    width: 1476
+    height: 311
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -325,6 +654,7 @@ MonoBehaviour:
     m_Folders:
     - Assets/Scenes
   m_ViewMode: 1
+<<<<<<< HEAD
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/Scenes
@@ -338,6 +668,20 @@ MonoBehaviour:
     m_SelectedIDs: 122d0000
     m_LastClickedID: 11538
     m_ExpandedIDs: 00000000d22c0000122d00004a2d00007e2d0000822d0000e22d0000f82d00009e2f000086330000883300008a3300008c3300008e33000000ca9a3b
+=======
+  m_StartGridSize: 36
+  m_LastFolders:
+  - Assets/Art/Player/Sprites/Lava
+  m_LastFoldersGridSize: 36
+  m_LastProjectPath: /home/jeremy/Desktop/CSE 440/CSE440-Team-Retro/Tower of Valor
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 78}
+    m_SelectedIDs: fe460000
+    m_LastClickedID: 18174
+    m_ExpandedIDs: 000000005c09000090090000ca090000f6090000fa0900006a0a0000800a0000260c0000b8300000ba300000bc300000be300000c030000000ca9a3b
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -365,7 +709,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000d22c0000122d00004a2d00007e2d0000822d0000e22d0000f82d00009e2f000086330000883300008a3300008c3300008e330000
+=======
+    m_ExpandedIDs: 000000005c09000090090000ca090000f6090000fa0900006a0a0000800a0000260c0000b8300000ba300000bc300000be300000c0300000
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -393,7 +741,11 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
+<<<<<<< HEAD
     m_ExpandedInstanceIDs: c6230000
+=======
+    m_ExpandedInstanceIDs: c62300000c5600007c680000d2100000be3400004a0b0000120a0000520b00000a3d00001c3d0000163d0000103d0000124700001e4700002a4700003647000006470000
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -418,9 +770,15 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
+<<<<<<< HEAD
     m_GridSize: 64
   m_DirectoriesAreaWidth: 172
 --- !u!114 &14
+=======
+    m_GridSize: 36
+  m_DirectoriesAreaWidth: 208
+--- !u!114 &19
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,10 +798,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1091
     y: 92
     width: 275
     height: 614
+=======
+    x: 1547
+    y: 128
+    width: 373
+    height: 930
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
@@ -454,7 +819,11 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &15
+=======
+--- !u!114 &20
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,6 +843,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 92
     width: 267
@@ -484,6 +854,18 @@ MonoBehaviour:
     m_SelectedIDs: b42f0000
     m_LastClickedID: 0
     m_ExpandedIDs: 1cbafffff4baffff64bcffff10f7ffff8af7ffff00000000
+=======
+    x: 67
+    y: 128
+    width: 420
+    height: 598
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 548fffff
+    m_LastClickedID: -28844
+    m_ExpandedIDs: 7ef2ffffe6fbffff00000000bc0d0000
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: g86960
@@ -499,7 +881,11 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 0
       m_IsRenamingFilename: 0
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 4}
+=======
+      m_ClientGUIView: {fileID: 6}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_SearchString: 
   m_ExpandedScenes:
   - Enemy Testing 1
@@ -507,7 +893,11 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_CurrentSortingName: TransformSorting
+<<<<<<< HEAD
 --- !u!114 &16
+=======
+--- !u!114 &21
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -527,10 +917,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 271
     y: 92
     width: 816
     height: 343
+=======
+    x: 491
+    y: 128
+    width: 1052
+    height: 394
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
   lastFramingTime: 284.55011572387957
@@ -538,9 +935,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 1.29, y: -1.82, z: 0}
     speed: 2
     m_Value: {x: 1.29, y: -1.82, z: 0}
+=======
+    m_Target: {x: 3.3083286, y: 1.9680399, z: -0.90557045}
+    speed: 2
+    m_Value: {x: 3.3083286, y: 1.9680399, z: -0.90557045}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -572,9 +975,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 22
     speed: 2
     m_Value: 22
+=======
+    m_Target: 13.078622
+    speed: 2
+    m_Value: 13.078622
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -586,7 +995,11 @@ MonoBehaviour:
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
+<<<<<<< HEAD
 --- !u!114 &17
+=======
+--- !u!114 &22
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -606,10 +1019,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 507
     y: 94
     width: 1532
     height: 790
+=======
+    x: 491
+    y: 128
+    width: 1052
+    height: 394
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
@@ -621,10 +1041,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -766
     m_HBaseRangeMax: 766
     m_VBaseRangeMin: -386.5
     m_VBaseRangeMax: 386.5
+=======
+    m_HBaseRangeMin: -263
+    m_HBaseRangeMax: 263
+    m_VBaseRangeMin: -94.25
+    m_VBaseRangeMax: 94.25
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -633,7 +1060,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -642,30 +1069,53 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
       width: 1532
       height: 773
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 766, y: 386.5}
+=======
+      width: 1052
+      height: 377
+    m_Scale: {x: 2, y: 2}
+    m_Translation: {x: 526, y: 188.5}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -766
       y: -386.5
       width: 1532
       height: 773
+=======
+      x: -263
+      y: -94.25
+      width: 526
+      height: 188.5
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
+<<<<<<< HEAD
   m_CurrentColorSpace: 1
   m_LastWindowPixelSize: {x: 1532, y: 790}
+=======
+  m_CurrentColorSpace: 0
+  m_LastWindowPixelSize: {x: 2104, y: 788}
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
   m_XRRenderMode: 0
+<<<<<<< HEAD
 --- !u!114 &18
+=======
+--- !u!114 &23
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -685,8 +1135,15 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 456
     width: 1087
     height: 250
+=======
+    x: 67
+    y: 747
+    width: 1476
+    height: 311
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
   m_PersistentViewDataDictionary: {fileID: 0}

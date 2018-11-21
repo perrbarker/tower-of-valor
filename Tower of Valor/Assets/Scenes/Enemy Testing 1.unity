@@ -2024,7 +2024,6 @@ MonoBehaviour:
   speed: 0
   platformDetection: 0
   groundDetection: {fileID: 0}
-  attackRate: 1.5
 --- !u!114 &887670741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2054,13 +2053,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 1
   hitPoints: 0
-  lives: 0
   timeToDestroy: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
   spawnPoints: []
 =======
   spawn: {fileID: 0}
 >>>>>>> 40e689189b36576ef9fdefa635b8d6dcf609b91f
+=======
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 --- !u!4 &891339272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc,
@@ -2159,7 +2160,6 @@ MonoBehaviour:
   speed: 5
   platformDetection: 0.5
   groundDetection: {fileID: 573376840}
-  attackRate: 0
 --- !u!212 &903498067
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2254,13 +2254,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 1
   hitPoints: 0
-  lives: 0
   timeToDestroy: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   spawnPoints: []
 =======
   spawn: {fileID: 0}
 >>>>>>> 40e689189b36576ef9fdefa635b8d6dcf609b91f
+=======
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 --- !u!1001 &923487258
 Prefab:
   m_ObjectHideFlags: 0
@@ -4905,10 +4907,9 @@ GameObject:
   - component: {fileID: 2024154576}
   - component: {fileID: 2024154572}
   - component: {fileID: 2024154571}
-  - component: {fileID: 2024154578}
   m_Layer: 0
   m_Name: SpirtArmor
-  m_TagString: SpiritArmor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4932,7 +4933,6 @@ MonoBehaviour:
   speed: 1
   platformDetection: 3
   groundDetection: {fileID: 303465193}
-  attackRate: 0
 --- !u!212 &2024154572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5084,22 +5084,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4385172, y: 0.27366734}
   m_EdgeRadius: 0
---- !u!114 &2024154578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2024154570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11966861a92406c43819cae7caf1a765, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 6
-  hitPoints: 0
-  lives: 0
-  timeToDestroy: 0
-  spawn: {fileID: 0}
 --- !u!1 &2107246299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,7 +5102,6 @@ GameObject:
   - component: {fileID: 2107246305}
   - component: {fileID: 2107246304}
   - component: {fileID: 2107246303}
-  - component: {fileID: 2107246301}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -5152,21 +5135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39244604, y: 0.59745157}
   m_EdgeRadius: 0
---- !u!114 &2107246301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2107246299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c1b160026e5394fa93405ea6c142bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  punch: 107
-  punchRange: 1
-  pushBackForce: 120
-  facingLeft: 0
 --- !u!95 &2107246302
 Animator:
   serializedVersion: 3
@@ -5198,8 +5166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11966861a92406c43819cae7caf1a765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
+  maxHP: 3
   hitPoints: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   lives: 3
   timeToDestroy: 1
@@ -5212,6 +5181,9 @@ MonoBehaviour:
   timeToDestroy: 3
   spawn: {fileID: 0}
 >>>>>>> 40e689189b36576ef9fdefa635b8d6dcf609b91f
+=======
+  timeToDestroy: 3
+>>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
 --- !u!114 &2107246304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5230,12 +5202,10 @@ MonoBehaviour:
   canJump: 1
   canDoubleJump: 0
   doubleJumpPower: 1
-  jumpedOnBat: 0
   leftFoot: {fileID: 699864065}
   rightFoot: {fileID: 777399212}
   leftHeel: {fileID: 54011396}
   rightHeel: {fileID: 1004113084}
-  feetCheck: 1
 --- !u!114 &2107246305
 MonoBehaviour:
   m_ObjectHideFlags: 0
