@@ -7,6 +7,8 @@ public class Jump : MonoBehaviour {
     public float jumpHeight;
     private Rigidbody2D body;
 
+    public Animator animation;
+
     public bool isGrounded;
     public bool canJump;
     public bool canDoubleJump;
@@ -32,6 +34,7 @@ public class Jump : MonoBehaviour {
                 // Jump
                 body.velocity = new Vector2(body.velocity.x, jumpHeight);
                 isGrounded = false;
+                animation.SetFloat("Vertical", body.velocity.x); // jump animation
             }
             // on air
             else
