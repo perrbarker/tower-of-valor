@@ -25,6 +25,8 @@ public class playerMovement : MonoBehaviour
 
         SlowDown();
 
+        animation.SetFloat("Speed", moveVelocity);
+
         // Horizontal movement
         if (Input.GetKey(right) && Input.GetKey(left))  // if player is holding both left and right key
         {
@@ -37,12 +39,12 @@ public class playerMovement : MonoBehaviour
                 moveVelocity = moveSpeed;
             }
         }
-        else if (Input.GetKey(left))
+        else if (Input.GetKey(left)) // move left
         {
             moveVelocity = -moveSpeed;
             movingLeft = true;
         }
-        else if (Input.GetKey(right))
+        else if (Input.GetKey(right)) // move right
         {
             moveVelocity = +moveSpeed;
             movingLeft = false;
