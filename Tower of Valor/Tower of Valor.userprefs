@@ -1,29 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Health.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Health.cs" Line="103" Column="1" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Jump.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\playerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PropelObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Punch.cs" Line="49" Column="19" />
+      <File FileName="Assets\Scripts\Health.cs" Line="116" Column="1" />
+      <File FileName="Assets\Scripts\playerMovement.cs" Line="28" Column="1" />
       <File FileName="Assets\Scripts\Grab.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Throwable.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Spawn.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Grab.cs">
-    <Files>
-      <File FileName="Assets\Scripts\CameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Health.cs" Line="32" Column="1" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="107" Column="5" />
-      <File FileName="Assets\Scripts\playerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PropelObject.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Grab.cs" Line="127" Column="32" />
-      <File FileName="Assets\Scripts\Throwable.cs" Line="63" Column="5" />
-      <File FileName="Assets\Scripts\Jump.cs" Line="57" Column="48" />
->>>>>>> parent of 40e6891... Merge remote-tracking branch 'origin/master'
+      <File FileName="Assets\Scripts\Enemy.cs" Line="131" Column="67" />
+      <File FileName="Assets\Scripts\Jump.cs" Line="122" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

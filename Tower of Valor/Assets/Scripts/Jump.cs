@@ -78,7 +78,7 @@ public class Jump : MonoBehaviour {
 					{
 						if (!isGrounded)
 						{
-							if (hitLeftFoot.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitLeftFoot.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
@@ -88,7 +88,7 @@ public class Jump : MonoBehaviour {
 					{
 						if (!isGrounded)
 						{
-							if (hitLeftHeel.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitLeftHeel.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
@@ -98,7 +98,7 @@ public class Jump : MonoBehaviour {
 					{
 						if (!isGrounded)
 						{
-							if (hitRightFoot.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitRightFoot.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
@@ -108,7 +108,7 @@ public class Jump : MonoBehaviour {
 					{
 						if (!isGrounded)
 						{
-							if (hitRightHeel.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitRightHeel.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
@@ -118,7 +118,6 @@ public class Jump : MonoBehaviour {
 					{
 						Debug.Log ("Jumped on Bat");
 						col.collider.gameObject.GetComponent<Health> ().removeHitPoints (1);
-						jumpedOnBat = false;
 					}
 				}
             }
