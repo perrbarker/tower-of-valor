@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Enemy Testing 1.unity
+- path: Assets/Scenes/Lava.unity
   isLoaded: 1
   isActive: 1
