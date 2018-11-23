@@ -316,7 +316,7 @@ Transform:
   m_PrefabInternal: {fileID: 1752621446}
   m_GameObject: {fileID: 1210855911}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 1, z: 0}
+  m_LocalPosition: {x: 0.91, y: 8.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1724405267}
@@ -1505,7 +1505,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10005f9d1ce984a9258fd02a44c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 2107246299}
+  entities:
+  - {fileID: 2107246299}
+  - {fileID: 1210855911}
   time: 1
 --- !u!4 &756168630
 Transform:
@@ -1687,7 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10005f9d1ce984a9258fd02a44c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 2107246299}
+  entities: []
   time: 1
 --- !u!4 &796360534
 Transform:
@@ -2500,6 +2502,7 @@ GameObject:
   - component: {fileID: 1210855913}
   - component: {fileID: 1210855912}
   - component: {fileID: 1210855916}
+  - component: {fileID: 1210855917}
   m_Layer: 0
   m_Name: player2
   m_TagString: Player
@@ -2642,6 +2645,27 @@ MonoBehaviour:
   left: 276
   right: 275
   maxStruggle: 6
+--- !u!114 &1210855917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210855911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11966861a92406c43819cae7caf1a765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 3
+  hitPoints: 0
+  lives: 3
+  timeToDestroy: 1
+  spawnPoints:
+  - {fileID: 756168628}
+  - {fileID: 1678661150}
+  - {fileID: 796360532}
+  player1Died: 0
+  player2Died: 0
 --- !u!1001 &1241446609
 Prefab:
   m_ObjectHideFlags: 0
@@ -3595,7 +3619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e10005f9d1ce984a9258fd02a44c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 2107246299}
+  entities:
+  - {fileID: 2107246299}
+  - {fileID: 1210855911}
   time: 1
 --- !u!4 &1678661152
 Transform:
@@ -3604,7 +3630,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1678661150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.07, y: 5.61, z: 0.016601562}
+  m_LocalPosition: {x: 2.77, y: 5.84, z: 0.016601562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3970,11 +3996,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992681726959454, guid: 5fd78bb47e6c6b1408a8242214d476f2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 4992681726959454, guid: 5fd78bb47e6c6b1408a8242214d476f2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 8.11
       objectReference: {fileID: 0}
     - target: {fileID: 4992681726959454, guid: 5fd78bb47e6c6b1408a8242214d476f2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4470,7 +4496,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4579625820894264, guid: 64d9d9868852a3a479e82e6567dd5304, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9.01
+      value: 9.27
       objectReference: {fileID: 0}
     - target: {fileID: 4579625820894264, guid: 64d9d9868852a3a479e82e6567dd5304, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4744,6 +4770,8 @@ MonoBehaviour:
   lives: 0
   timeToDestroy: 0
   spawnPoints: []
+  player1Died: 0
+  player2Died: 0
 --- !u!1 &2107246299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +4879,8 @@ MonoBehaviour:
   - {fileID: 756168628}
   - {fileID: 1678661150}
   - {fileID: 796360532}
+  player1Died: 0
+  player2Died: 0
 --- !u!114 &2107246304
 MonoBehaviour:
   m_ObjectHideFlags: 0
