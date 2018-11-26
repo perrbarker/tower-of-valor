@@ -22,10 +22,9 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         SlowDown();
-
-        animation.SetFloat("Speed", moveVelocity);
+	
+		animation.SetFloat ("Speed", moveVelocity);
 
         // Horizontal movement
         if (Input.GetKey(right) && Input.GetKey(left))  // if player is holding both left and right key

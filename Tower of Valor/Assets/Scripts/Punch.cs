@@ -11,6 +11,7 @@ public class Punch : MonoBehaviour {
 
     private Vector3 vecDir;
     private Vector2 vecSide;
+	public bool hitSpiritArmor;
 
     // Update is called once per frame
     void Update()
@@ -22,15 +23,14 @@ public class Punch : MonoBehaviour {
             // Set which direction to cast ray
             if (facingLeft)
             {
-                vecSide = transform.position + new Vector3(-.65f, 0f, 0f);
+                vecSide = transform.position + new Vector3(-.5f, 0f, 0f);
                 vecDir = Vector2.left;
             }
             else
             {
-                vecSide = transform.position + new Vector3(.65f, 0f, 0f);
+                vecSide = transform.position + new Vector3(.5f, 0f, 0f);
                 vecDir = Vector2.right;
             }
-
 
             Debug.DrawRay(vecSide, vecDir * punchRange);
 
@@ -38,20 +38,16 @@ public class Punch : MonoBehaviour {
 
             if (hitPunch == true)
             {
-
                 // Pushback?
                 hitPunch.transform.GetComponent<Rigidbody2D>().AddForce(vecSide * pushBackForce);
 
                 // Damages SpiritArmor
                 if (hitPunch.transform.tag == "SpiritArmor")
                 {
-                    hitPunch.transform.GetComponent<Health>().removeHitPoints(3);
-                }
-
-                
+					hitSpiritArmor = true;
+                    hitPunch.transform.GetComponent<Health>().removeHitPoints(1);
+                } 
             }
-
-
         }
     }
 

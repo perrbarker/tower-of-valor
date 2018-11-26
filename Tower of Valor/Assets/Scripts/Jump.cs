@@ -14,6 +14,8 @@ public class Jump : MonoBehaviour {
     public bool canDoubleJump;
     public bool doubleJumpPower;
 	public bool jumpedOnBat;
+	private bool landedOnPlayer;
+	public float stunDelay;
 
     public Transform leftFoot, rightFoot, leftHeel, rightHeel;
 
@@ -57,18 +59,18 @@ public class Jump : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col)
 	{
         // Check if gameobject has an Enemy script
-        if (col.gameObject.GetComponent("Enemy") as Enemy != null)
-        {
-            // Check if Enemy landed on is a bat
-            if (col.collider.gameObject.GetComponent<Enemy>().isBat)
-            {
-                CheckBottomRaycast();
+		if (col.gameObject.GetComponent ("Enemy") as Enemy != null)
+		{
+			// Check if Enemy landed on is a bat
+			if (col.collider.gameObject.GetComponent<Enemy> ().isBat)
+			{
+				CheckBottomRaycast ();
 				//Check if grounded
 				if (isGrounded)
 				{
-					Debug.Log("Player is grounded");
+					Debug.Log ("Player is grounded");
 				}
-				else if(!hitLeftFoot.collider && !hitLeftHeel.collider && !hitRightFoot.collider && !hitRightHeel.collider)
+				else if (!hitLeftFoot.collider && !hitLeftHeel.collider && !hitRightFoot.collider && !hitRightHeel.collider)
 				{
 					Debug.Log ("Feet Raycast NOT detecting a collider. Did not land on Bat.");
 				}
@@ -78,37 +80,37 @@ public class Jump : MonoBehaviour {
 					{
 						if (!isGrounded)
 						{
-							if (hitLeftFoot.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitLeftFoot.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
 						}
 					}
-					else if(hitLeftHeel.collider)
+					else if (hitLeftHeel.collider)
 					{
 						if (!isGrounded)
 						{
-							if (hitLeftHeel.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitLeftHeel.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
 						}
 					}
-					else if(hitRightFoot.collider)
+					else if (hitRightFoot.collider)
 					{
 						if (!isGrounded)
 						{
-							if (hitRightFoot.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitRightFoot.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
 						}
 					}
-					else if(hitRightHeel.collider)
+					else if (hitRightHeel.collider)
 					{
 						if (!isGrounded)
 						{
-							if (hitRightHeel.collider.gameObject.GetComponent<Enemy> ().isBat)
+							if (hitRightHeel.collider.gameObject.tag == "Bat")
 							{
 								jumpedOnBat = true;
 							}
@@ -121,14 +123,22 @@ public class Jump : MonoBehaviour {
 						jumpedOnBat = false;
 					}
 				}
-            }
-        }
+			}
+		}
 		else if (col.gameObject.tag == "Platform")
 		{
 			isGrounded = true;
 			//canDoubleJump = false;
 		}
+		else if (col.gameObject.tag == "Player")
+		{
+			GameObject stunnedPlayer = col.collider.gameObject;
+			Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
+
+			StartCoroutine (Stun (stunnedPlayer));
+		}
 	}
+
     void OnCollisionStay2D(Collision2D collision)
     {
         CheckBottomRaycast();
@@ -137,7 +147,6 @@ public class Jump : MonoBehaviour {
             isGrounded = true;
             canDoubleJump = true;
         }
-
     }
     // Cast 4 downward raycasts on all 4 feet and heel positions
     void CheckBottomRaycast()
@@ -153,4 +162,14 @@ public class Jump : MonoBehaviour {
     {
         isGrounded = false;
     }
+
+	IEnumerator Stun(GameObject prey)
+	{
+		float tmp = prey.GetComponent<playerMovement> ().moveSpeed;
+		prey.GetComponent<playerMovement> ().moveSpeed = 0;
+
+		yield return new WaitForSeconds (stunDelay);
+
+		prey.GetComponent<playerMovement> ().moveSpeed = tmp;
+	}
 }

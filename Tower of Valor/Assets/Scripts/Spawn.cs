@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-	public GameObject entity;
+	public GameObject[] entities;
 	public float time;
 	public WaitForSeconds spawnTime;
 
@@ -21,13 +21,27 @@ public class Spawn : MonoBehaviour
 
 	public IEnumerator SpawnEntity()
 	{
-		entity.transform.position = gameObject.transform.position;
+		for (int i = 0; i < entities.Length; ++i)
+		{
+			//spawns player1
+			if (entities [i].GetComponent<Health> ().player1Died)
+			{
+				entities[i].transform.position = gameObject.transform.position;
+				entities[i].SetActive(false);
+				yield return spawnTime;
+				entities[i].SetActive(true);
+				entities [i].GetComponent<Health> ().player1Died = false;
+			}
+			//spawns player2 -> works if both players died at same time
+			if (entities [i].GetComponent<Health> ().player2Died)
+			{
+				entities[i].transform.position = gameObject.transform.position;
+				entities[i].SetActive(false);
+				yield return spawnTime;
+				entities[i].SetActive(true);
+				entities [i].GetComponent<Health> ().player2Died = false;
+			}
+		}
 
-		entity.SetActive(false);
-
-		yield return spawnTime;
-
-		//Instantiate(entity, gameObject.transform.position, gameObject.transform.rotation);
-		entity.SetActive(true);
 	}
 }

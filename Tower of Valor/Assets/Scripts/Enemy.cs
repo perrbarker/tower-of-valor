@@ -112,9 +112,23 @@ public class Enemy : MonoBehaviour
 			//if Bat, is being jumped on, deal no damage
 			else if (isBat)
 			{
-				if (collidedObject.GetComponent<Jump>().jumpedOnBat)
+				if (collidedObject.GetComponent<Jump> ().jumpedOnBat)
 				{
 					Debug.Log ("Bat has been jumped on");
+					collidedObject.GetComponent<Jump> ().jumpedOnBat = false;
+
+				}
+				else
+				{
+					collidedObject.GetComponent<Health> ().removeHitPoints (1);
+				}
+			}
+			else
+			{
+				if (collidedObject.GetComponent<Punch> ().hitSpiritArmor)
+				{
+					Debug.Log ("Punched SpiritArmor");
+					collidedObject.GetComponent<Punch> ().hitSpiritArmor = false;
 				}
 				else
 				{
