@@ -2042,7 +2042,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 3
   hitPoints: 0
+  lives: 0
   timeToDestroy: 3
+  spawn: {fileID: 0}
 --- !u!114 &639717929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2062,10 +2064,12 @@ MonoBehaviour:
   canJump: 1
   canDoubleJump: 0
   doubleJumpPower: 0
+  jumpedOnBat: 0
   leftFoot: {fileID: 1505709809}
   rightFoot: {fileID: 1426090783}
   leftHeel: {fileID: 843875890}
   rightHeel: {fileID: 547187558}
+  feetCheck: 0
 --- !u!114 &639717930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,7 +2158,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 5
   hitPoints: 0
+  lives: 0
   timeToDestroy: 0
+  spawn: {fileID: 0}
 --- !u!212 &639717935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2301,7 +2307,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 5
   hitPoints: 0
+  lives: 0
   timeToDestroy: 0
+  spawn: {fileID: 0}
 --- !u!95 &652929275
 Animator:
   serializedVersion: 3
@@ -2335,7 +2343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 3
   hitPoints: 0
+  lives: 0
   timeToDestroy: 3
+  spawn: {fileID: 0}
 --- !u!114 &652929277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,10 +2365,12 @@ MonoBehaviour:
   canJump: 1
   canDoubleJump: 0
   doubleJumpPower: 1
+  jumpedOnBat: 0
   leftFoot: {fileID: 1824618470}
   rightFoot: {fileID: 1497896240}
   leftHeel: {fileID: 868233678}
   rightHeel: {fileID: 295256361}
+  feetCheck: 0
 --- !u!114 &652929278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3309,6 +3321,7 @@ MonoBehaviour:
   speed: 0
   platformDetection: 0
   groundDetection: {fileID: 0}
+  attackRate: 0
 --- !u!4 &891339272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc,
@@ -3407,6 +3420,7 @@ MonoBehaviour:
   speed: 5
   platformDetection: 0.5
   groundDetection: {fileID: 573376840}
+  attackRate: 0
 --- !u!212 &903498067
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3501,7 +3515,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 1
   hitPoints: 0
+  lives: 0
   timeToDestroy: 0
+  spawn: {fileID: 0}
 --- !u!1001 &923487258
 Prefab:
   m_ObjectHideFlags: 0
@@ -3852,11 +3868,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 60f88f306ae0f4949997fd1cd01606c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.56
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 60f88f306ae0f4949997fd1cd01606c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.03
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 60f88f306ae0f4949997fd1cd01606c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6295,6 +6311,7 @@ MonoBehaviour:
   speed: 1
   platformDetection: 3
   groundDetection: {fileID: 303465193}
+  attackRate: 0
 --- !u!212 &2024154572
 SpriteRenderer:
   m_ObjectHideFlags: 0
