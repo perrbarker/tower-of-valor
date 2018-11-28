@@ -69,7 +69,7 @@ public class Health : MonoBehaviour {
 				{
 					Camera.main.GetComponent<CameraScript> ().SetPlayer2 = Camera.main.GetComponent<CameraScript> ().player1;
 				}
-
+				//WE SHOULD ADD A GAMEOVER CHECK TO SEE IF BOTH PLAYERS ARE DEAD.
 				Destroy (gameObject);
 			}
 			else

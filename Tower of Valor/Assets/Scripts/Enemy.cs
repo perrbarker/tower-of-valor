@@ -107,6 +107,7 @@ public class Enemy : MonoBehaviour
 				else
 				{
 					collidedObject.GetComponent<Health> ().removeHitPoints (1);
+					FindObjectOfType<AudioManager>().Play("PlayerHit");
 				}
 			}
 			//if Bat, is being jumped on, deal no damage
@@ -116,11 +117,11 @@ public class Enemy : MonoBehaviour
 				{
 					Debug.Log ("Bat has been jumped on");
 					collidedObject.GetComponent<Jump> ().jumpedOnBat = false;
-
 				}
 				else
 				{
 					collidedObject.GetComponent<Health> ().removeHitPoints (1);
+					FindObjectOfType<AudioManager>().Play("PlayerHit");
 				}
 			}
 			else
@@ -133,9 +134,9 @@ public class Enemy : MonoBehaviour
 				else
 				{
 					collidedObject.GetComponent<Health> ().removeHitPoints (1);
+					FindObjectOfType<AudioManager>().Play("PlayerHit");
 				}
 			}
-				
 		}
 	}
 

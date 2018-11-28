@@ -46,6 +46,7 @@ public class Punch : MonoBehaviour {
                 {
 					hitSpiritArmor = true;
                     hitPunch.transform.GetComponent<Health>().removeHitPoints(1);
+					FindObjectOfType<AudioManager>().Play("HitArmor");
                 } 
             }
         }

@@ -161,7 +161,9 @@ public class Grab : MonoBehaviour {
         grabbedObject.GetComponent<Throwable>().isGrabbed = false;
         grabbedObject.GetComponent<Throwable>().isThrown = true;
 
+		FindObjectOfType<AudioManager>().Play("Whoosh");
         grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
+
 
 		if(grabbedObject.GetComponent("Enemy") as Enemy != null)
 		{
@@ -169,7 +171,9 @@ public class Grab : MonoBehaviour {
 			{
 				grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.None;
 		
-			}grabbedObject.GetComponent<Health> ().removeHitPoints (1);
+			}
+			grabbedObject.GetComponent<Health> ().removeHitPoints (1);
+			FindObjectOfType<AudioManager>().Play("RockCrumble");
 		}
     }
 
