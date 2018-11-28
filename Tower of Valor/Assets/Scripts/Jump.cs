@@ -58,70 +58,54 @@ public class Jump : MonoBehaviour {
 	**/
 	void OnCollisionEnter2D(Collision2D col)
 	{
-        // Check if gameobject has an Enemy script
-		if (col.gameObject.GetComponent ("Enemy") as Enemy != null)
+		// Check if gameobject has an Enemy script
+		if (col.gameObject.tag == "Bat")
 		{
-			// Check if Enemy landed on is a bat
-			if (col.collider.gameObject.GetComponent<Enemy> ().isBat)
+			CheckBottomRaycast ();
+			//Check if grounded
+			if (isGrounded)
 			{
-				CheckBottomRaycast ();
-				//Check if grounded
-				if (isGrounded)
+				Debug.Log ("Player is grounded");
+			}
+			else if (!hitLeftFoot.collider && !hitLeftHeel.collider && !hitRightFoot.collider && !hitRightHeel.collider)
+			{
+				Debug.Log ("Feet Raycast NOT detecting a collider.");
+			}
+			else
+			{
+				if (hitLeftFoot.collider)
 				{
-					Debug.Log ("Player is grounded");
+					if (hitLeftFoot.collider.gameObject.tag == "Bat")
+					{
+						jumpedOnBat = true;
+					}
 				}
-				else if (!hitLeftFoot.collider && !hitLeftHeel.collider && !hitRightFoot.collider && !hitRightHeel.collider)
+				else if (hitLeftHeel.collider)
 				{
-					Debug.Log ("Feet Raycast NOT detecting a collider. Did not land on Bat.");
+					if (hitLeftHeel.collider.gameObject.tag == "Bat")
+					{
+						jumpedOnBat = true;
+					}
 				}
-				else
+				else if (hitRightFoot.collider)
 				{
-					if (hitLeftFoot.collider)
+					if (hitRightFoot.collider.gameObject.tag == "Bat")
 					{
-						if (!isGrounded)
-						{
-							if (hitLeftFoot.collider.gameObject.tag == "Bat")
-							{
-								jumpedOnBat = true;
-							}
-						}
+						jumpedOnBat = true;
 					}
-					else if (hitLeftHeel.collider)
+				}
+				else if (hitRightHeel.collider)
+				{
+					if (hitRightHeel.collider.gameObject.tag == "Bat")
 					{
-						if (!isGrounded)
-						{
-							if (hitLeftHeel.collider.gameObject.tag == "Bat")
-							{
-								jumpedOnBat = true;
-							}
-						}
+						jumpedOnBat = true;
 					}
-					else if (hitRightFoot.collider)
-					{
-						if (!isGrounded)
-						{
-							if (hitRightFoot.collider.gameObject.tag == "Bat")
-							{
-								jumpedOnBat = true;
-							}
-						}
-					}
-					else if (hitRightHeel.collider)
-					{
-						if (!isGrounded)
-						{
-							if (hitRightHeel.collider.gameObject.tag == "Bat")
-							{
-								jumpedOnBat = true;
-							}
-						}
-					}
-					if (jumpedOnBat)
-					{
-						Debug.Log ("Jumped on Bat");
-						col.collider.gameObject.GetComponent<Health> ().removeHitPoints (1);
-						jumpedOnBat = false;
-					}
+				}
+				if (jumpedOnBat)
+				{
+					Debug.Log ("Jumped on Bat");
+					col.collider.gameObject.GetComponent<Health> ().removeHitPoints (1);
+					FindObjectOfType<AudioManager> ().Play ("SquishedBat");
 				}
 			}
 		}
@@ -132,10 +116,55 @@ public class Jump : MonoBehaviour {
 		}
 		else if (col.gameObject.tag == "Player")
 		{
-			GameObject stunnedPlayer = col.collider.gameObject;
-			Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
-
-			StartCoroutine (Stun (stunnedPlayer));
+			CheckBottomRaycast ();
+			//Check if grounded
+			if (isGrounded)
+			{
+				Debug.Log ("Player is grounded");
+			}
+			else if (!hitLeftFoot.collider && !hitLeftHeel.collider && !hitRightFoot.collider && !hitRightHeel.collider)
+			{
+				Debug.Log ("Feet Raycast NOT detecting a collider.");
+			}
+			else
+			{
+				if (hitLeftFoot.collider)
+				{
+					if (hitLeftFoot.collider.gameObject.tag == "Player")
+					{
+						landedOnPlayer = true;
+					}
+				}
+				else if (hitLeftHeel.collider)
+				{
+					if (hitLeftHeel.collider.gameObject.tag == "Player")
+					{
+						landedOnPlayer = true;
+					}
+				}
+				else if (hitRightFoot.collider)
+				{
+					if (hitRightFoot.collider.gameObject.tag == "Player")
+					{
+						landedOnPlayer = true;
+					}
+				}
+				else if (hitRightHeel.collider)
+				{
+					if (hitRightHeel.collider.gameObject.tag == "Player")
+					{
+						landedOnPlayer = true;
+					}
+				}
+				if (landedOnPlayer)
+				{
+					GameObject stunnedPlayer = col.collider.gameObject;
+					Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
+					FindObjectOfType<AudioManager> ().Play ("Bonk");
+					StartCoroutine (Stun (stunnedPlayer));
+					landedOnPlayer = false;
+				}
+			}
 		}
 	}
 

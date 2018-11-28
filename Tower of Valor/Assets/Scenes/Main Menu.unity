@@ -996,7 +996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 139.25}
+  m_AnchoredPosition: {x: 0, y: 207}
   m_SizeDelta: {x: 198.3, y: 57.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699186329
@@ -1329,8 +1329,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Game created by: Perry Barker, Jameson Dy, Brandon Dickerson, Demonte Martin,
-    Jeremy Noble, Daniel Saenz'
+  m_text: 'Game created by:
+
+    Perry Barker, Jameson Dy, Brandon Dickerson,
+
+    Demonte Martin, Jeremy Noble
+
+    Music by: Daniel Saenz
+
+    Menu Image by: Cody Crawford'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13dc787702775db458688cd88a2001f9, type: 2}
   m_sharedMaterial: {fileID: 21601130094933304, guid: 13dc787702775db458688cd88a2001f9,
@@ -1407,11 +1414,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1937,7 +1944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 175}
+  m_AnchoredPosition: {x: 0, y: 223}
   m_SizeDelta: {x: 420.9, y: 90.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635751928
@@ -2116,8 +2123,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 286f5260684e7334aac0d699644b92c3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2425,7 +2432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -149.75}
+  m_AnchoredPosition: {x: 0, y: -203}
   m_SizeDelta: {x: 126.3, y: 36.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083231199
