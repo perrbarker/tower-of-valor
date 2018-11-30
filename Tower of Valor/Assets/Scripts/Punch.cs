@@ -13,11 +13,22 @@ public class Punch : MonoBehaviour {
     private Vector2 vecSide;
 	public bool hitSpiritArmor;
 
+    Animator punchAnim;
+
+    void Start() {
+        punchAnim = gameObject.GetComponent<Animator>();
+    }
+
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(punch))
         {
+            // set punch animation trigger
+            punchAnim.SetTrigger("Punch");
+            
+
             CheckDirFacing();
 
             // Set which direction to cast ray

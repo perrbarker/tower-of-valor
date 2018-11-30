@@ -209,8 +209,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 1311
-        width: 314
-        height: 430
+        width: 352
+        height: 426
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,8 +309,8 @@ TextureImporter:
         serializedVersion: 2
         x: 63
         y: 895
-        width: 228
-        height: 371
+        width: 225
+        height: 416
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,11 +329,11 @@ TextureImporter:
         serializedVersion: 2
         x: 382
         y: 895
-        width: 308
-        height: 371
+        width: 312
+        height: 411
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -349,8 +349,8 @@ TextureImporter:
         serializedVersion: 2
         x: 895
         y: 895
-        width: 227
-        height: 403
+        width: 224
+        height: 416
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,8 +369,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1199
         y: 895
-        width: 307
-        height: 371
+        width: 304
+        height: 416
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,8 +389,8 @@ TextureImporter:
         serializedVersion: 2
         x: 79
         y: 463
-        width: 308
-        height: 371
+        width: 307
+        height: 432
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,8 +409,8 @@ TextureImporter:
         serializedVersion: 2
         x: 463
         y: 463
-        width: 227
-        height: 404
+        width: 226
+        height: 425
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,10 +427,10 @@ TextureImporter:
       name: Player1_SpriteSheet_16
       rect:
         serializedVersion: 2
-        x: 895
-        y: 463
-        width: 307
-        height: 371
+        x: 897
+        y: 461
+        width: 301
+        height: 434
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,9 +448,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1263
-        y: 463
+        y: 461
         width: 227
-        height: 371
+        height: 439
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -469,8 +469,8 @@ TextureImporter:
         serializedVersion: 2
         x: 63
         y: 0
-        width: 228
-        height: 402
+        width: 225
+        height: 470
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,10 +487,10 @@ TextureImporter:
       name: Player1_SpriteSheet_19
       rect:
         serializedVersion: 2
-        x: 335
+        x: 337
         y: 0
-        width: 227
-        height: 402
+        width: 224
+        height: 458
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

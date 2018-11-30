@@ -17,6 +17,11 @@ public class Grab : MonoBehaviour {
     public float angle;
     private Vector3 directionThrow;
     public bool facingLeft;
+    Animator grabAnim;
+
+    void Start() {
+        grabAnim = gameObject.GetComponent<Animator>();
+    }
 
 
     // Update is called once per frame
@@ -24,6 +29,9 @@ public class Grab : MonoBehaviour {
 
 		if (Input.GetKeyUp(grab))
         {
+            // set animation parameter for grab
+            grabAnim.SetBool("Grab", isHolding);
+
             // grab
             if (!isHolding)
             {
@@ -34,13 +42,13 @@ public class Grab : MonoBehaviour {
                 Throw();
             }
         }
-
-
-
     }
 
     void FixedUpdate()
     {
+        // set animation parameter for grab
+        grabAnim.SetBool("Grab", isHolding);
+
         // check if enemy escaped
         if (grabbedObject != null)
         {
@@ -136,8 +144,6 @@ public class Grab : MonoBehaviour {
 			}
         }       
     }
-
-
 
     void Throw()
     {
