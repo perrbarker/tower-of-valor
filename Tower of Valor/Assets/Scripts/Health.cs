@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 
@@ -17,7 +18,11 @@ public class Health : MonoBehaviour {
 	public bool player1Died;
 	public bool player2Died;
 
-	void Start()
+
+    public Image[] hearts, livesDisplay;
+    public Sprite fullHeart;
+
+    void Start()
 	{
 		hitPoints = maxHP;
 	}
@@ -29,7 +34,7 @@ public class Health : MonoBehaviour {
 			StartCoroutine(Death());
 		}
 	}
-
+    
 	public int HitPoints
 	{
 		get { return hitPoints; }
@@ -43,11 +48,12 @@ public class Health : MonoBehaviour {
 		}
 
 	}
+    
 
 	public void removeHitPoints(int i)
 	{
 		hitPoints -= i;
-		Debug.Log(gameObject.tag + "'s HP is at " + gameObject.GetComponent<Health>().HitPoints);
+		Debug.Log(gameObject.tag + "'s HP is at " + gameObject.GetComponent<Health>().hitPoints);
 	}
 
 	IEnumerator Death()
@@ -137,12 +143,54 @@ public class Health : MonoBehaviour {
 		}
 	}
 
-	public GameObject Spawn
-	{
-		get { return spawn; }
-		set
-		{
-			spawn = value;
-		}
-	}
+    public GameObject Spawn
+    {
+        get { return spawn; }
+        set
+        {
+            spawn = value;
+        }
+    }
+
+    void Update()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            /*
+            if (hitPoints > maxHP)
+            {
+                hitPoints = maxHP;
+            }
+            
+            if (i < hitPoints)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                // hearts[i].sprite = emptyHeart;
+            }
+            */
+            if (i < hitPoints)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+        for (int i = 0; i < livesDisplay.Length; i++)
+        {
+            if (i < lives)
+            {
+                livesDisplay[i].enabled = true;
+            }
+            else
+            {
+                livesDisplay[i].enabled = false;
+            }
+        }
+    }
+
 }
