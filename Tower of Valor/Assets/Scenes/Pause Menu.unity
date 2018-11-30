@@ -210,6 +210,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1997132214259006, guid: 76e722c7b0b94794ea3007941489c96d, type: 2}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e722c7b0b94794ea3007941489c96d, type: 2}
   m_IsPrefabAsset: 0

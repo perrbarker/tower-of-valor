@@ -5,6 +5,8 @@ using UnityEngine;
 public class FallingPlatforms : MonoBehaviour 
 {
 	Rigidbody2D rb;
+    public float fallTimer;
+    private GameObject p1;
 
 	// Use this for initialization
 	void Start () 
@@ -16,9 +18,15 @@ public class FallingPlatforms : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			print ("FallingPlatforms");
-			Invoke ("DropPlatform", 0.5f);
-			Destroy (gameObject, 2f);
+            Debug.Log("collided with player test 1");
+            //p1 = col.gameObject;
+            //if (col.collider.GetComponent<Jump>().isGrounded == true)
+            {
+                Debug.Log("collided with player test 2");
+                print("FallingPlatforms");
+                Invoke("DropPlatform", fallTimer);
+                Destroy(gameObject, 2f);
+            }
 		}
 	}
 
