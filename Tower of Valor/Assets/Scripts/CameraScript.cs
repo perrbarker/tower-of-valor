@@ -21,6 +21,7 @@ public class CameraScript : MonoBehaviour
 		if (player1 == null && player2 == null)
 		{
 			Debug.Log ("GAMEOVER");
+            FindObjectOfType<GameManager>().GameOver();
 		}
 		else
 		{
