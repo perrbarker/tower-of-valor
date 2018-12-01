@@ -14,7 +14,9 @@ public class Jump : MonoBehaviour {
     public bool canDoubleJump;
     public bool doubleJumpPower;
 	public bool jumpedOnBat;
-	private bool landedOnPlayer;
+    public bool jumpedOnWizard;
+
+    private bool landedOnPlayer;
 	public float stunDelay;
 	private float origSpeed;
 
@@ -116,7 +118,50 @@ public class Jump : MonoBehaviour {
 			isGrounded = true;
 			//canDoubleJump = false;
 		}
-		else if (col.gameObject.tag == "Player")
+        else if (col.gameObject.tag == "Wizard")
+        {
+            CheckBottomRaycast();
+            isGrounded = true;
+
+            if (hitLeftFoot.collider)
+            {
+                if (hitLeftFoot.collider.gameObject.tag == "Wizard")
+                {
+                    jumpedOnWizard = true;
+                }
+            }
+            else if (hitLeftHeel.collider)
+            {
+                if (hitLeftHeel.collider.gameObject.tag == "Wizard")
+                {
+                    jumpedOnWizard = true;
+                }
+            }
+            else if (hitRightFoot.collider)
+            {
+                if (hitRightFoot.collider.gameObject.tag == "Wizard")
+                {
+                    jumpedOnWizard = true;
+                }
+            }
+            else if (hitRightHeel.collider)
+            {
+                if (hitRightHeel.collider.gameObject.tag == "Wizard")
+                {
+                    jumpedOnWizard = true;
+                }
+            }
+
+            if (jumpedOnWizard)
+            {
+                Debug.Log("Jumped on Wizard");
+                col.collider.gameObject.GetComponent<Health>().removeHitPoints(1);
+                col.collider.gameObject.GetComponent<Wizard>().Teleport();
+            }
+
+            jumpedOnWizard = false;
+        }
+        else if (col.gameObject.tag == "Player")
 		{
 			CheckBottomRaycast ();
 			//Check if grounded

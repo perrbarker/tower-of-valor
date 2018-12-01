@@ -7,6 +7,7 @@ TagManager:
   - Platform
   - Bat
   - SpiritArmor
+  - Wizard
   layers:
   - Default
   - TransparentFX

@@ -23,6 +23,7 @@ public class Health : MonoBehaviour {
     public Image[] hearts, livesDisplay;
     public Sprite fullHeart;
 
+
     void Start()
 	{
 		hitPoints = maxHP;
@@ -203,6 +204,7 @@ public class Health : MonoBehaviour {
 		{
 			StartCoroutine (Death ());
 		}
+
     }
 
 }
