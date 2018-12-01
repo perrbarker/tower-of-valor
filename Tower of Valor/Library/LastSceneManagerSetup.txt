@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Demo/Final Demo 2P.unity
+- path: Assets/Scenes/Wizard.unity
   isLoaded: 1
   isActive: 1
