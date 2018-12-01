@@ -17,6 +17,7 @@ public class Health : MonoBehaviour {
 	private float tmpY;
 	public bool player1Died;
 	public bool player2Died;
+	private Transform player1, player2, entity;
 
 
     public Image[] hearts, livesDisplay;
@@ -25,14 +26,8 @@ public class Health : MonoBehaviour {
     void Start()
 	{
 		hitPoints = maxHP;
-	}
-
-	void LateUpdate()
-	{
-		if (hitPoints <= 0)
-		{
-			StartCoroutine(Death());
-		}
+		player1 = Camera.main.GetComponent<CameraScript>().player1;
+		player2 = Camera.main.GetComponent<CameraScript> ().player2;
 	}
     
 	public int HitPoints
@@ -49,23 +44,22 @@ public class Health : MonoBehaviour {
 
 	}
     
-
 	public void removeHitPoints(int i)
 	{
-		hitPoints -= i;
-		Debug.Log(gameObject.tag + "'s HP is at " + gameObject.GetComponent<Health>().hitPoints);
+		hitPoints -= i;		
+		Debug.Log(gameObject.tag + "'s HP is at " + hitPoints);
 	}
 
 	IEnumerator Death()
 	{
-		yield return new WaitForSeconds(timeToDestroy);
+		yield return new WaitForSeconds (timeToDestroy);
 
 		if (gameObject.tag == "Player")
 		{
-			hitPoints = maxHP;
 			--lives;
-			if (lives < 0)
+			if (lives <= 0)
 			{
+				/*
 				if (gameObject.transform == Camera.main.GetComponent<CameraScript> ().player1)
 				{
 					Camera.main.GetComponent<CameraScript> ().SetPlayer1 = Camera.main.GetComponent<CameraScript> ().player2;
@@ -75,66 +69,43 @@ public class Health : MonoBehaviour {
 				{
 					Camera.main.GetComponent<CameraScript> ().SetPlayer2 = Camera.main.GetComponent<CameraScript> ().player1;
 				}
+				*/
 				//WE SHOULD ADD A GAMEOVER CHECK TO SEE IF BOTH PLAYERS ARE DEAD.
+				livesDisplay [0].enabled = false;
 				Destroy (gameObject);
 			}
 			else
 			{
+				hitPoints = maxHP;
 				//SPAWNS BASED ON THE POSITION OF THE PLAYER, WILL FIND CLOSEST SPAWN POINT FROM DEATH
 				//NEEDS TO BE MODIFYIED TO BASE SPAWN POINT ON PLAYER 2 POSITION
 				//SPAWNER NEEDS TO SPAWN EITHER PLAYER 1 OR PLAYER 2 NOT JUST GAMEOBJECT GIVEN
-				Transform player1 = Camera.main.GetComponent<CameraScript>().player1;
-				Transform player2 = Camera.main.GetComponent<CameraScript> ().player2;
 
 				if (gameObject.transform == player1)
 				{
 					player1Died = true;
-
-					tmpX = Mathf.Abs (player2.position.x - spawnPoints [0].transform.position.x);
-					tmpY = Mathf.Abs (player2.position.y - spawnPoints [0].transform.position.y);
-					tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
-					distanceFromPlayer = tmpDistance;
-					closestSpawn = 0;
-
-					for (int i = 1; i < spawnPoints.Length; ++i)
+					if (player2 == null)
 					{
-						tmpX = Mathf.Abs (player2.position.x - spawnPoints [i].transform.position.x);
-						tmpY = Mathf.Abs (player2.position.y - spawnPoints [i].transform.position.y);
-						tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
-
-						if (tmpDistance < distanceFromPlayer)
-						{
-							distanceFromPlayer = tmpDistance;
-							closestSpawn = i;
-						}
+						entity = player1;
 					}
+					else
+					{
+						entity = player2;
+					}	
 				}
-				else if (gameObject.transform == player2)
+				else
 				{
 					player2Died = true;
-
-					tmpX = Mathf.Abs (player1.position.x - spawnPoints [0].transform.position.x);
-					tmpY = Mathf.Abs (player1.position.y - spawnPoints [0].transform.position.y);
-					tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
-					distanceFromPlayer = tmpDistance;
-					closestSpawn = 0;
-
-					for (int i = 1; i < spawnPoints.Length; ++i)
+					if (player1 == null)
 					{
-						tmpX = Mathf.Abs (player1.position.x - spawnPoints [i].transform.position.x);
-						tmpY = Mathf.Abs (player1.position.y - spawnPoints [i].transform.position.y);
-						tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
-
-						if (tmpDistance < distanceFromPlayer)
-						{
-							distanceFromPlayer = tmpDistance;
-							closestSpawn = i;
-						}
+						entity = player2;
 					}
+					else
+					{
+						entity = player1;
+					}	
 				}
-			
-				Spawn respawn = spawnPoints[closestSpawn].GetComponent<Spawn> ();
-				respawn.Respawn ();
+				FindSpawn (entity);
 			}
 		}
 		else
@@ -143,6 +114,43 @@ public class Health : MonoBehaviour {
 		}
 	}
 
+	public void FindSpawn (Transform obj)
+	{
+			
+		tmpX = Mathf.Abs (obj.position.x - spawnPoints [0].transform.position.x);
+		tmpY = Mathf.Abs (obj.position.y - spawnPoints [0].transform.position.y);
+		tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
+		distanceFromPlayer = tmpDistance;
+		closestSpawn = 0;
+
+		for (int i = 1; i < spawnPoints.Length; ++i)
+		{
+			tmpX = Mathf.Abs (obj.position.x - spawnPoints [i].transform.position.x);
+			tmpY = Mathf.Abs (obj.position.y - spawnPoints [i].transform.position.y);
+			tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
+
+			if (tmpDistance < distanceFromPlayer)
+			{
+				distanceFromPlayer = tmpDistance;
+				closestSpawn = i;
+			}
+		}
+		if(obj.position.y < spawnPoints[closestSpawn].transform.position.y)
+		{
+			--closestSpawn;
+		}
+		Spawn respawn = spawnPoints [0].GetComponent<Spawn> ();
+		if (closestSpawn < 0)
+		{
+			 respawn = spawnPoints [0].GetComponent<Spawn> ();
+		}
+		else
+		{
+			 respawn = spawnPoints [closestSpawn].GetComponent<Spawn> ();
+		}
+		respawn.Respawn ();
+	}
+		
     public GameObject Spawn
     {
         get { return spawn; }
@@ -153,7 +161,7 @@ public class Health : MonoBehaviour {
     }
 
     void Update()
-    {
+	{
         for (int i = 0; i < hearts.Length; i++)
         {
             /*
@@ -161,13 +169,13 @@ public class Health : MonoBehaviour {
             {
                 hitPoints = maxHP;
             }
-            
             if (i < hitPoints)
             {
                 hearts[i].sprite = fullHeart;
             }
             else
             {
+            	Debug.Log("No Hearts");
                 // hearts[i].sprite = emptyHeart;
             }
             */
@@ -191,6 +199,10 @@ public class Health : MonoBehaviour {
                 livesDisplay[i].enabled = false;
             }
         }
+		if (hitPoints <= 0)
+		{
+			StartCoroutine (Death ());
+		}
     }
 
 }

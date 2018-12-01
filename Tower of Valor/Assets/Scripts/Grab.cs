@@ -147,7 +147,7 @@ public class Grab : MonoBehaviour {
 
     void Throw()
     {
-        Debug.Log("THROW");
+        //Debug.Log("THROW");
         CheckDirFacing();
 
         //  left

@@ -16,8 +16,13 @@ public class Lava : MonoBehaviour {
     public Transform player1, player2;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () 
+	{
+		FindObjectOfType<AudioManager>().Play("LavaRising");
+		FindObjectOfType<AudioManager>().Play("FireBurning");
 
+		FindObjectOfType<AudioManager>().Mute("LavaRising");
+		FindObjectOfType<AudioManager>().Mute("FireBurning");
 	}
 	
 	// Update is called once per frame
@@ -64,13 +69,17 @@ public class Lava : MonoBehaviour {
         // if object has health script, deal massive damage to it
         if (collision.GetComponent<Health>() != null)
         {
-            print("Touched player");
-            collision.GetComponent<Health>().removeHitPoints(100);
+            //print("Touched player");
+            collision.GetComponent<Health>().removeHitPoints(3);
         }
     }
 
     void RiseLava()
     {
-        transform.position = transform.position + new Vector3(0f, riseSpeed * Time.deltaTime);
+		FindObjectOfType<AudioManager> ().Mute("Theme");
+		//FindObjectOfType<AudioManager> ().sounds [2].source.Play ();
+		FindObjectOfType<AudioManager>().UnMute("LavaRising");
+		FindObjectOfType<AudioManager>().UnMute("FireBurning");
+		transform.position = transform.position + new Vector3(0f, riseSpeed * Time.deltaTime);
     }
 }
