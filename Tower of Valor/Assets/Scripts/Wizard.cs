@@ -12,8 +12,13 @@ public class Wizard : MonoBehaviour {
     public float aggroDistance;
     public float attackCoolDown;
     private float timer;
-    public GameObject projectile;
+    private int health;
 
+    public GameObject projectile;
+    private bool enraged;
+
+    public Transform[] teleportPos;
+    private int lastPos;
 
     private void Start()
     {
@@ -23,6 +28,7 @@ public class Wizard : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
+        health = GetComponent<Health>().hitPoints;
         timer += Time.deltaTime;
 
         if (p1 != null)
@@ -34,6 +40,11 @@ public class Wizard : MonoBehaviour {
         {
             dist2 = (Vector2.Distance(p2.position, transform.position));
             health2 = p2.GetComponent<Health>().hitPoints;
+        }
+
+        if (health < 3)
+        {
+            enraged = true;
         }
 
 
@@ -87,7 +98,53 @@ public class Wizard : MonoBehaviour {
                 }
             }
         }   
+    }
 
+    void FireballAOE()
+    {
+        anim.SetBool("isAttack", true);
+
+        GameObject[] projectileInstances = new GameObject[8];
+        Vector2[] directions = new Vector2[8];
+
+
+        directions[0] = Vector2.up;
+        directions[1] = Vector2.down;
+        directions[2] = Vector2.left;
+        directions[3] = Vector2.right;
+        directions[4] = Vector2.up + Vector2.left;
+        directions[5] = Vector2.up + Vector2.right;
+        directions[6] = Vector2.down + Vector2.left;
+        directions[7] = Vector2.down + Vector2.right;
+
+
+        // Instantiate projectile
+        for (int i = 0; i < 8; i++)
+        {
+            projectileInstances[i] = Instantiate(projectile, transform.position, transform.rotation);
+            projectileInstances[i].GetComponent<Fireball>().SetTargetDirection(directions[i]);
+        }
+    }
+
+    public void Teleport()
+    {
+        switch (Random.Range(0,2))
+        {
+            case 0:
+                    transform.position = teleportPos[0].position;
+                    lastPos = 0;
+                break;
+            case 1:
+                    transform.position = teleportPos[1].position;
+                    lastPos = 1;
+                break;
+        }
+
+
+        if (enraged)
+        {
+            Invoke("FireballAOE", 1.5f);
+        }
     }
 
 
