@@ -32,8 +32,8 @@ public class Wizard : MonoBehaviour {
         }
         if (p2 != null)
         {
-            dist2 = (Vector2.Distance(p1.position, transform.position));
-            health2 = p1.GetComponent<Health>().hitPoints;
+            dist2 = (Vector2.Distance(p2.position, transform.position));
+            health2 = p2.GetComponent<Health>().hitPoints;
         }
 
 
@@ -86,9 +86,8 @@ public class Wizard : MonoBehaviour {
                     timer = 0;
                 }
             }
+        }   
 
-
-        }       
     }
 
 
