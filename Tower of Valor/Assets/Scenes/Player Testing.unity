@@ -1001,14 +1001,14 @@ CompositeCollider2D:
         Y: 65000000
   - m_Collider: {fileID: 115778353}
     m_ColliderPaths:
-    - - X: -65000000
-        Y: 95000000
-      - X: -75000000
-        Y: 95000000
-      - X: -75000000
-        Y: 85000000
-      - X: -65000000
-        Y: 85000000
+    - - X: 34000000
+        Y: 613899968
+      - X: 24000000
+        Y: 613899968
+      - X: 24000000
+        Y: 603899968
+      - X: 34000000
+        Y: 603899968
   - m_Collider: {fileID: 58574447}
     m_ColliderPaths:
     - - X: -55000000
@@ -1151,24 +1151,24 @@ CompositeCollider2D:
         Y: 155000000
   - m_Collider: {fileID: 1166370259}
     m_ColliderPaths:
-    - - X: 65000000
-        Y: 165000000
-      - X: 55000000
-        Y: 165000000
-      - X: 55000000
-        Y: 155000000
-      - X: 65000000
-        Y: 155000000
+    - - X: 83600008
+        Y: 559900032
+      - X: 73600000
+        Y: 559900032
+      - X: 73600000
+        Y: 549900032
+      - X: 83600008
+        Y: 549900032
   - m_Collider: {fileID: 1481712942}
     m_ColliderPaths:
-    - - X: 65000000
-        Y: 577000000
-      - X: 55000000
-        Y: 577000000
-      - X: 55000000
-        Y: 567000000
-      - X: 65000000
-        Y: 567000000
+    - - X: 34000000
+        Y: 520400000
+      - X: 24000000
+        Y: 520400000
+      - X: 24000000
+        Y: 510400000
+      - X: 34000000
+        Y: 510400000
   - m_Collider: {fileID: 1875804277}
     m_ColliderPaths:
     - - X: -74000000
@@ -1221,10 +1221,18 @@ CompositeCollider2D:
         Y: 85000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 6.5, y: 57.7}
-      - {x: 5.5, y: 57.7}
-      - {x: 5.5, y: 56.7}
-      - {x: 6.5, y: 56.7}
+    - - {x: 3.4, y: 61.39}
+      - {x: 2.4, y: 61.39}
+      - {x: 2.4, y: 60.39}
+      - {x: 3.4, y: 60.39}
+    - - {x: 8.360001, y: 55.990005}
+      - {x: 7.36, y: 55.990005}
+      - {x: 7.36, y: 54.990005}
+      - {x: 8.360001, y: 54.990005}
+    - - {x: 3.4, y: 52.04}
+      - {x: 2.4, y: 52.04}
+      - {x: 2.4, y: 51.04}
+      - {x: 3.4, y: 51.04}
     - - {x: -7.4, y: 42.3}
       - {x: -8.400001, y: 42.3}
       - {x: -8.400001, y: 41.3}
@@ -1253,10 +1261,10 @@ CompositeCollider2D:
       - {x: -5.5, y: 16.5}
       - {x: -5.5, y: 15.5}
       - {x: -4.5, y: 15.5}
-    - - {x: 4.5, y: 15.5}
-      - {x: 6.5, y: 15.5}
-      - {x: 6.5, y: 16.5}
+    - - {x: 5.5, y: 16.5}
       - {x: 4.5, y: 16.5}
+      - {x: 4.5, y: 15.5}
+      - {x: 5.5, y: 15.5}
     - - {x: -0.5, y: 15.5}
       - {x: 1.5, y: 15.5}
       - {x: 1.5, y: 16.5}
@@ -1269,12 +1277,14 @@ CompositeCollider2D:
       - {x: 7.5, y: 10.5}
       - {x: 7.5, y: 9.5}
       - {x: 6.5, y: 9.5}
-    - - {x: -4.5, y: 8.5}
+    - - {x: -7.5, y: 7.5}
+      - {x: -4.5, y: 7.5}
+      - {x: -4.5, y: 8.5}
       - {x: -5.5, y: 8.5}
       - {x: -5.5, y: 9.5}
-      - {x: -7.5, y: 9.5}
-      - {x: -7.5, y: 7.5}
-      - {x: -4.5, y: 7.5}
+      - {x: -6.5, y: 9.5}
+      - {x: -6.5, y: 8.5}
+      - {x: -7.5, y: 8.5}
     - - {x: -1.5, y: 6.5}
       - {x: 1.5, y: 6.5}
       - {x: 1.5, y: 7.5}
@@ -2075,6 +2085,9 @@ MonoBehaviour:
   spawnPoints: []
   player1Died: 0
   player2Died: 0
+  hearts: []
+  livesDisplay: []
+  fullHeart: {fileID: 0}
 --- !u!114 &639717929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2194,6 +2207,9 @@ MonoBehaviour:
   spawnPoints: []
   player1Died: 0
   player2Died: 0
+  hearts: []
+  livesDisplay: []
+  fullHeart: {fileID: 0}
 --- !u!212 &639717935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2346,6 +2362,9 @@ MonoBehaviour:
   spawnPoints: []
   player1Died: 0
   player2Died: 0
+  hearts: []
+  livesDisplay: []
+  fullHeart: {fileID: 0}
 --- !u!95 &652929275
 Animator:
   serializedVersion: 3
@@ -2384,6 +2403,9 @@ MonoBehaviour:
   spawnPoints: []
   player1Died: 0
   player2Died: 0
+  hearts: []
+  livesDisplay: []
+  fullHeart: {fileID: 0}
 --- !u!114 &652929277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3647,6 +3669,9 @@ MonoBehaviour:
   spawnPoints: []
   player1Died: 0
   player2Died: 0
+  hearts: []
+  livesDisplay: []
+  fullHeart: {fileID: 0}
 --- !u!1001 &923487258
 Prefab:
   m_ObjectHideFlags: 0
@@ -4091,7 +4116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 60f88f306ae0f4949997fd1cd01606c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 60f88f306ae0f4949997fd1cd01606c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5039,11 +5064,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 7.86
       objectReference: {fileID: 0}
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 16
+      value: 55.49
       objectReference: {fileID: 0}
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5753,11 +5778,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 57.2
+      value: 51.54
       objectReference: {fileID: 0}
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6246,11 +6271,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 60.89
       objectReference: {fileID: 0}
     - target: {fileID: 4450779002203466, guid: c6782df0cdcdd3d4cb8df3e0f7013ccc, type: 2}
       propertyPath: m_LocalPosition.z
