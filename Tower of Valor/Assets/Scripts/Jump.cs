@@ -16,6 +16,7 @@ public class Jump : MonoBehaviour {
 	public bool jumpedOnBat;
 	private bool landedOnPlayer;
 	public float stunDelay;
+	private float origSpeed;
 
     public Transform leftFoot, rightFoot, leftHeel, rightHeel;
 
@@ -25,6 +26,7 @@ public class Jump : MonoBehaviour {
     // Use this for initialization
     void Start () 
 	{
+		origSpeed = GetComponent<playerMovement> ().moveSpeed;
         body = GetComponent<Rigidbody2D>();
         canJump = true;
 	}
@@ -38,7 +40,7 @@ public class Jump : MonoBehaviour {
                 // Jump
                 body.velocity = new Vector2(body.velocity.x, jumpHeight);
                 isGrounded = false;
-                animation.SetFloat("Vertical", body.velocity.x); // jump animation
+                //animation.SetFloat("Vertical", body.velocity.x); // jump animation
             }
             // on air
             else
@@ -170,12 +172,11 @@ public class Jump : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        CheckBottomRaycast();
-        if (hitLeftFoot == true || hitRightFoot == true || hitLeftHeel == true || hitRightFoot == true )
-        {
-            isGrounded = true;
-            canDoubleJump = true;
-        }
+		if (collision.collider.tag == "Platform")
+		{
+			isGrounded = true;
+			canDoubleJump = true;
+		}
     }
     // Cast 4 downward raycasts on all 4 feet and heel positions
     void CheckBottomRaycast()
@@ -194,11 +195,10 @@ public class Jump : MonoBehaviour {
 
 	IEnumerator Stun(GameObject prey)
 	{
-		float tmp = prey.GetComponent<playerMovement> ().moveSpeed;
 		prey.GetComponent<playerMovement> ().moveSpeed = 0;
-
+		prey.GetComponent<Jump> ().jumpHeight = 0;
 		yield return new WaitForSeconds (stunDelay);
-
-		prey.GetComponent<playerMovement> ().moveSpeed = tmp;
+		prey.GetComponent<Jump> ().jumpHeight = jumpHeight;
+		prey.GetComponent<playerMovement> ().moveSpeed = origSpeed;
 	}
 }

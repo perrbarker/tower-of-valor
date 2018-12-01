@@ -24,22 +24,29 @@ public class Spawn : MonoBehaviour
 		for (int i = 0; i < entities.Length; ++i)
 		{
 			//spawns player1
-			if (entities [i].GetComponent<Health> ().player1Died)
+			if (entities [i] == null)
 			{
-				entities[i].transform.position = gameObject.transform.position;
-				entities[i].SetActive(false);
-				yield return spawnTime;
-				entities[i].SetActive(true);
-				entities [i].GetComponent<Health> ().player1Died = false;
+				Debug.LogWarning ("Spawning, a player is dead.");
 			}
-			//spawns player2 -> works if both players died at same time
-			if (entities [i].GetComponent<Health> ().player2Died)
+			else //check if current player in array died
 			{
-				entities[i].transform.position = gameObject.transform.position;
-				entities[i].SetActive(false);
-				yield return spawnTime;
-				entities[i].SetActive(true);
-				entities [i].GetComponent<Health> ().player2Died = false;
+				if (entities [i].GetComponent<Health> ().player1Died)
+				{
+					entities [i].transform.position = gameObject.transform.position;
+					entities [i].SetActive (false);
+					yield return spawnTime;
+					entities [i].SetActive (true);
+					entities [i].GetComponent<Health> ().player1Died = false;
+				}
+				//spawns player2 -> works if both players died at same time
+				if (entities [i].GetComponent<Health> ().player2Died)
+				{
+					entities [i].transform.position = gameObject.transform.position;
+					entities [i].SetActive (false);
+					yield return spawnTime;
+					entities [i].SetActive (true);
+					entities [i].GetComponent<Health> ().player2Died = false;
+				}
 			}
 		}
 

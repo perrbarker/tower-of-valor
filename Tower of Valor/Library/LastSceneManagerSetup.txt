@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Player Testing.unity
-=======
-- path: Assets/Scenes/platforms.unity
->>>>>>> master
+- path: Assets/Demo/Final Demo 2P.unity
   isLoaded: 1
   isActive: 1

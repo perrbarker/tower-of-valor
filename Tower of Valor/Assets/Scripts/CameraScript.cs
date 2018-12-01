@@ -15,29 +15,54 @@ public class CameraScript : MonoBehaviour
     {
         transform.position = offset;
 	}
-    void Update()
-    {
-        if (higherPlayer() > offset.y)
-        {
-            Vector3 camPosY = new Vector3(offset.x, higherPlayer(), offset.z);
-            transform.position = Vector3.SmoothDamp(transform.position, camPosY, ref velocity, smoothTime);
-        }
-        else
-        {
-            transform.position = Vector3.SmoothDamp(transform.position, offset, ref velocity, smoothTime);
-        }
-    }
+
+    void LateUpdate()
+	{
+		if (player1 == null && player2 == null)
+		{
+			Debug.Log ("GAMEOVER");
+		}
+		else
+		{
+			trackPlayer ();
+		}
+	}
+
     public float higherPlayer()     // returns Y position of highest player.
-    {
-        if (player1.position.y >= player2.position.y)
-        {
-            return player1.position.y;
-        }
-        else
-        {
-            return player2.position.y;
-        }
-    }
+	{
+		if (player1 == null)
+		{
+			return player2.position.y;
+		}
+		else if (player2 == null)
+		{
+			return player1.position.y;
+		}
+		else
+		{
+			if (player1.position.y >= player2.position.y)
+			{
+				return player1.position.y;
+			}
+			else
+			{
+				return player2.position.y;
+			}
+		}
+	}
+
+	void trackPlayer()
+	{
+		if (higherPlayer () > offset.y)
+		{
+			Vector3 camPosY = new Vector3 (offset.x, higherPlayer (), offset.z);
+			transform.position = Vector3.SmoothDamp (transform.position, camPosY, ref velocity, smoothTime);
+		}
+		else
+		{
+			transform.position = Vector3.SmoothDamp (transform.position, offset, ref velocity, smoothTime);
+		}
+	}
 
 	public Transform SetPlayer1
 	{

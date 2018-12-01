@@ -18,14 +18,15 @@ public class FallingPlatforms : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-            Debug.Log("collided with player test 1");
+            //Debug.Log("collided with player test 1");
             //p1 = col.gameObject;
             //if (col.collider.GetComponent<Jump>().isGrounded == true)
             {
-                Debug.Log("collided with player test 2");
-                print("FallingPlatforms");
+                //Debug.Log("collided with player test 2");
+                //print("FallingPlatforms");
                 Invoke("DropPlatform", fallTimer);
                 Destroy(gameObject, 2f);
+				FindObjectOfType<AudioManager>().Play("Whoosh");
             }
 		}
 	}
