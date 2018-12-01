@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Player Testing.unity
-=======
-- path: Assets/Demo/Final Demo 2P.unity
->>>>>>> master
+- path: Assets/Scenes/Enemy Testing 1.unity
   isLoaded: 1
   isActive: 1
