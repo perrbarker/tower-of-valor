@@ -16,7 +16,7 @@ public class Lava : MonoBehaviour {
     public Transform player1, player2;
 
 	// Use this for initialization
-	void Awake () 
+	void Start() 
 	{
 		FindObjectOfType<AudioManager>().Play("LavaRising");
 		FindObjectOfType<AudioManager>().Play("FireBurning");

@@ -50,6 +50,10 @@ public class Punch : MonoBehaviour {
             if (hitPunch == true)
             {
                 // Pushback?
+				if (hitPunch.transform.GetComponent<Rigidbody2D> () == null)
+				{
+					return;
+				}
                 hitPunch.transform.GetComponent<Rigidbody2D>().AddForce(vecSide * pushBackForce);
 
                 // Damages SpiritArmor
