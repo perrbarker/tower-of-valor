@@ -205,10 +205,12 @@ public class Jump : MonoBehaviour {
 				}
 				if (landedOnPlayer)
 				{
+					isGrounded = true;
 					GameObject stunnedPlayer = col.collider.gameObject;
-					Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
+			
 					FindObjectOfType<AudioManager> ().Play ("Bonk");
 					StartCoroutine (Stun (stunnedPlayer));
+			
 					landedOnPlayer = false;
 				}
 			}
@@ -240,10 +242,11 @@ public class Jump : MonoBehaviour {
 
 	IEnumerator Stun(GameObject prey)
 	{
-		prey.GetComponent<playerMovement> ().moveSpeed = 0;
-		prey.GetComponent<Jump> ().jumpHeight = 0;
+		prey.GetComponentInParent<playerMovement> ().moveSpeed = 0;
+		prey.GetComponentInParent<Jump> ().jumpHeight = 0;
+		Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
 		yield return new WaitForSeconds (stunDelay);
-		prey.GetComponent<Jump> ().jumpHeight = jumpHeight;
-		prey.GetComponent<playerMovement> ().moveSpeed = origSpeed;
+		prey.GetComponentInParent<Jump> ().jumpHeight = jumpHeight;
+		prey.GetComponentInParent<playerMovement> ().moveSpeed = origSpeed;
 	}
 }

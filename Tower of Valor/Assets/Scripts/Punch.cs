@@ -54,8 +54,8 @@ public class Punch : MonoBehaviour {
 				{
 					return;
 				}
-                hitPunch.transform.GetComponent<Rigidbody2D>().AddForce(vecSide * pushBackForce);
-
+			
+				hitPunch.transform.GetComponent<Rigidbody2D>().AddForce(vecDir * pushBackForce);
                 // Damages SpiritArmor
                 if (hitPunch.transform.tag == "SpiritArmor")
                 {

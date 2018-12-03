@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4284197660383622
 Transform:
   m_ObjectHideFlags: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Theme
-    clip: {fileID: 8300000, guid: 0755464a2fd40df4f92af7d76bd5d0b0, type: 3}
+    clip: {fileID: 8300000, guid: 9d24554fa7d791849829a48ec76b3933, type: 3}
     volume: 1
     pitch: 1
     mixer: {fileID: 243880963055838274, guid: 597d869247e770f4fbd6902913200eac, type: 2}
@@ -78,10 +78,10 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: FireBurning
     clip: {fileID: 8300000, guid: 1aa8e5cd272520541a1e96fee1b35b10, type: 3}
-    volume: 1
-    pitch: 1
-    mixer: {fileID: 243996581340711970, guid: 597d869247e770f4fbd6902913200eac, type: 2}
-    loop: 0
+    volume: 0.05
+    pitch: 0.43
+    mixer: {fileID: 243479603336522164, guid: 597d869247e770f4fbd6902913200eac, type: 2}
+    loop: 1
     source: {fileID: 0}
   - name: HitArmor
     clip: {fileID: 8300000, guid: 192054080ab165d42877d6246777cf36, type: 3}
@@ -113,8 +113,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Bonk
     clip: {fileID: 8300000, guid: c540bfb290e6f8a4581ba558f7ca7976, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.1
+    pitch: 2
     mixer: {fileID: 243459986211500986, guid: 597d869247e770f4fbd6902913200eac, type: 2}
     loop: 0
+    source: {fileID: 0}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 44e01b26add3ddb408fdbcd63156b1e6, type: 3}
+    volume: 1
+    pitch: 1
+    mixer: {fileID: 243880963055838274, guid: 597d869247e770f4fbd6902913200eac, type: 2}
+    loop: 1
     source: {fileID: 0}

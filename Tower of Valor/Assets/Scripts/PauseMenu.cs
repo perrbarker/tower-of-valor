@@ -49,6 +49,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("mainmenu");
+		FindObjectOfType<AudioManager>().Stop("Theme");
+		FindObjectOfType<AudioManager>().Play("MainMenu");
         SceneManager.LoadScene(0);
     }
 

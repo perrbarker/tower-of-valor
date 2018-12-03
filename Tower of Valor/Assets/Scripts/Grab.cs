@@ -12,36 +12,45 @@ public class Grab : MonoBehaviour {
     public Transform holdPosition;
     public bool isHolding;
     private GameObject grabbedObject;
+	public Transform head;
 
     public float throwForce;
     public float angle;
     private Vector3 directionThrow;
     public bool facingLeft;
     Animator grabAnim;
+	private BoxCollider2D headCollider;
 
-    void Start() {
+    void Start() 
+	{
         grabAnim = gameObject.GetComponent<Animator>();
+		headCollider = head.GetComponent<BoxCollider2D> ();
     }
 
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+	{
 
-		if (Input.GetKeyUp(grab))
-        {
-            // set animation parameter for grab
-            grabAnim.SetBool("Grab", isHolding);
+		if (Input.GetKeyUp (grab))
+		{
+			// set animation parameter for grab
+			grabAnim.SetBool ("Grab", isHolding);
 
-            // grab
-            if (!isHolding)
-            {
-                CheckRayCastHit();
-            }
-            else
-            {
-                Throw();
-            }
-        }
+			// grab
+			if (!isHolding)
+			{
+				CheckRayCastHit ();
+			}
+			else
+			{
+				Throw ();
+			}
+		}
+		if (!isHolding)
+		{
+			headCollider.enabled = true;
+		}
     }
 
     void FixedUpdate()
@@ -123,7 +132,9 @@ public class Grab : MonoBehaviour {
                 Debug.Log("Hit player");
                 grabbedObject = hit.transform.gameObject;
                 isHolding = true;
-
+				headCollider.enabled = false;
+				grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+				grabbedObject.GetComponent<Jump>().enabled = false;
                 grabbedObject.GetComponent<Throwable>().isGrabbed = true;
                 grabbedObject.GetComponent<Rigidbody2D>().mass = .01f;
                 grabbedObject.GetComponent<Throwable>().ResetStrugglePoints();
@@ -134,8 +145,10 @@ public class Grab : MonoBehaviour {
 			{
 				Debug.Log ("Hit Gargoyle");
 				grabbedObject = hit.transform.gameObject;
+				grabbedObject.GetComponent<BoxCollider2D> ().enabled = false;
 				isHolding = true;
-
+				head.GetComponent<BoxCollider2D> ().enabled = false;
+				 
 				grabbedObject.GetComponent<Enemy> ().animator.enabled = false;
 				grabbedObject.GetComponent<Throwable> ().isGrabbed = true;
 				grabbedObject.GetComponent<Rigidbody2D> ().mass = .01f;
@@ -169,9 +182,10 @@ public class Grab : MonoBehaviour {
 
 		FindObjectOfType<AudioManager>().Play("Whoosh");
         grabbedObject.GetComponent<Rigidbody2D>().AddForce(directionThrow * throwForce);
+		gameObject.GetComponent<Grab> ().head.GetComponent<BoxCollider2D> ().enabled = true;
 
 
-		if(grabbedObject.GetComponent("Enemy") as Enemy != null)
+		if (grabbedObject.GetComponent ("Enemy") as Enemy != null)
 		{
 			if (grabbedObject.GetComponent<Enemy> ().isGargoyle)
 			{
@@ -179,7 +193,12 @@ public class Grab : MonoBehaviour {
 		
 			}
 			grabbedObject.GetComponent<Health> ().removeHitPoints (1);
-			FindObjectOfType<AudioManager>().Play("RockCrumble");
+			FindObjectOfType<AudioManager> ().Play ("RockCrumble");
+		}
+		else
+		{
+			//grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.None;
+			grabbedObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation;
 		}
     }
 

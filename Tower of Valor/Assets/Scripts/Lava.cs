@@ -18,11 +18,11 @@ public class Lava : MonoBehaviour {
 	// Use this for initialization
 	void Start() 
 	{
-		FindObjectOfType<AudioManager>().Play("LavaRising");
-		FindObjectOfType<AudioManager>().Play("FireBurning");
+		//FindObjectOfType<AudioManager>().Play("LavaRising");
+		//FindObjectOfType<AudioManager>().Play("FireBurning");
 
-		FindObjectOfType<AudioManager>().Mute("LavaRising");
-		FindObjectOfType<AudioManager>().Mute("FireBurning");
+		//FindObjectOfType<AudioManager>().Mute("LavaRising");
+		//FindObjectOfType<AudioManager>().Mute("FireBurning");
 	}
 	
 	// Update is called once per frame

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Demo/Final Demo 2P.unity
+- path: Assets/Demo/Main Menu.unity
   isLoaded: 1
   isActive: 1

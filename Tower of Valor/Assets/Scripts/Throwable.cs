@@ -67,7 +67,8 @@ public class Throwable : MonoBehaviour {
     // disable movement script
     public void DisableMovement()
     {
-        GetComponent<playerMovement>().enabled = false;  
+        GetComponent<playerMovement>().enabled = false; 
+		GetComponent<Jump> ().enabled = false;
     }
 
     public void EnableMovement()
@@ -75,6 +76,8 @@ public class Throwable : MonoBehaviour {
 		if (gameObject.GetComponent ("playerMovement") as playerMovement != null)
 		{
 			GetComponent<playerMovement> ().enabled = true;
+			GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation;
+			GetComponent<Jump>().enabled = true;
 			GetComponent<Rigidbody2D> ().mass = 1;
 		}
 
@@ -86,7 +89,7 @@ public class Throwable : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.transform.root.tag == "Platform")
+        if (collision.transform.tag == "Platform")
         {
             isGrabbed = false;
             EnableMovement();

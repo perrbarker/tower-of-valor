@@ -9,14 +9,15 @@ public class Leap_Frog : MonoBehaviour {
 	private const float Y_MOVE = 43.2f, OVERLAP = 23; // distance to move each tile
 	private float t1Pos, t2Pos;
 
-	void Start() {
+	void Start() 
+	{
 		t1Pos = tile_1.position.y;
 		t2Pos = tile_2.position.y;
-		}
+	}
 	
 	// update the position of the background tiles in relation to the camera
-	void Update () {
-
+	void Update () 
+	{
 		// camera is above tile 1, player is in front of tile 2
 		if (camPosy.transform.position.y > tile_1.transform.position.y + OVERLAP) {
 			t1Pos += Y_MOVE;
