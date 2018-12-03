@@ -21,22 +21,22 @@ public class Leap_Frog : MonoBehaviour {
 		// camera is above tile 1, player is in front of tile 2
 		if (camPosy.transform.position.y > tile_1.transform.position.y + OVERLAP) {
 			t1Pos += Y_MOVE;
-			tile_1.transform.position = new Vector3(0, t1Pos, 0);
+			tile_1.transform.position = new Vector3(0, t1Pos, 3);
 		}
 		// camera is above tile 2, player is in front of tile 1
 		else if (camPosy.transform.position.y > tile_2.transform.position.y + OVERLAP) {
 			t2Pos += Y_MOVE;
-			tile_2.transform.position = new Vector3(0, t2Pos, 0);
+			tile_2.transform.position = new Vector3(0, t2Pos, 3);
 		}
 		// camera is below tile 1, player is in front of tile 2
 		else if (camPosy.transform.position.y < tile_1.transform.position.y - OVERLAP) {
 			t1Pos -= Y_MOVE;
-			tile_1.transform.position = new Vector3(0, t1Pos, 0);
+			tile_1.transform.position = new Vector3(0, t1Pos, 3);
 		}
 		// camera is below tile 2, plater is in front of tile 1
 		else if (camPosy.transform.position.y < tile_2.transform.position.y - OVERLAP) {
 			t2Pos -= Y_MOVE;
-			tile_2.transform.position = new Vector3(0, t2Pos, 0);
+			tile_2.transform.position = new Vector3(0, t2Pos, 3);
 		}
 	}
 }
