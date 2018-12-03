@@ -8,6 +8,7 @@ TagManager:
   - Bat
   - SpiritArmor
   - Wizard
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

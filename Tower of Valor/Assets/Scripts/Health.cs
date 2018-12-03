@@ -117,7 +117,6 @@ public class Health : MonoBehaviour {
 
 	public void FindSpawn (Transform obj)
 	{
-			
 		tmpX = Mathf.Abs (obj.position.x - spawnPoints [0].transform.position.x);
 		tmpY = Mathf.Abs (obj.position.y - spawnPoints [0].transform.position.y);
 		tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
@@ -138,7 +137,14 @@ public class Health : MonoBehaviour {
 		}
 		if(obj.position.y < spawnPoints[closestSpawn].transform.position.y)
 		{
-			--closestSpawn;
+			if (closestSpawn % 2 == 1)
+			{
+				closestSpawn = closestSpawn - 2; //spawn a point below on right
+			}
+			else
+			{
+				--closestSpawn; //spawn a point below on left
+			}
 		}
 		Spawn respawn = spawnPoints [0].GetComponent<Spawn> ();
 		if (closestSpawn < 0)
@@ -204,7 +210,5 @@ public class Health : MonoBehaviour {
 		{
 			StartCoroutine (Death ());
 		}
-
     }
-
 }

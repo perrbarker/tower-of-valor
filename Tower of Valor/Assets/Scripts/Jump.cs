@@ -118,9 +118,14 @@ public class Jump : MonoBehaviour {
 		else if (col.gameObject.tag == "Platform")
 		{
 			isGrounded = true;
-			//canDoubleJump = false;
+			canDoubleJump = false;
 		}
-        else if (col.gameObject.tag == "Wizard")
+		else if (col.gameObject.tag == "MovingPlatform")
+		{
+			isGrounded = true;
+			canDoubleJump = true;
+		}
+		else if (col.gameObject.tag == "Wizard")
         {
             CheckBottomRaycast();
             isGrounded = true;
@@ -221,7 +226,7 @@ public class Jump : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D collision)
     {
-		if (collision.collider.tag == "Platform")
+		if (collision.collider.tag == "Platform" || collision.collider.tag == "MovingPlatform")
 		{
 			isGrounded = true;
 			canDoubleJump = true;

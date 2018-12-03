@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 95240767185402170}
   m_Layer: 0
   m_Name: 1xPlat
-  m_TagString: Platform
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
