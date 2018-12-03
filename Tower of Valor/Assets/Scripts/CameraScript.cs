@@ -14,13 +14,6 @@ public class CameraScript : MonoBehaviour
 	void Start ()
     {
         transform.position = offset;
-		//FindObjectOfType<AudioManager> ().Stop ("MainMenu");
-		FindObjectOfType<AudioManager> ().Play ("Theme");
-		FindObjectOfType<AudioManager>().Play("LavaRising");
-		FindObjectOfType<AudioManager>().Play("FireBurning");
-
-		FindObjectOfType<AudioManager>().Mute("LavaRising");
-		FindObjectOfType<AudioManager>().Mute("FireBurning");
 	}
 
     void LateUpdate()

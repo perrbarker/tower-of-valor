@@ -19,6 +19,7 @@ public class Jump : MonoBehaviour {
     private bool landedOnPlayer;
 	public float stunDelay;
 	private float origSpeed;
+	private float origJumpHeight;
 
     public Transform leftFoot, rightFoot, leftHeel, rightHeel;
 
@@ -29,6 +30,7 @@ public class Jump : MonoBehaviour {
     void Start () 
 	{
 		origSpeed = GetComponent<playerMovement> ().moveSpeed;
+		origJumpHeight = GetComponent<Jump> ().jumpHeight;
         body = GetComponent<Rigidbody2D>();
         canJump = true;
 	}
@@ -246,7 +248,7 @@ public class Jump : MonoBehaviour {
 		prey.GetComponentInParent<Jump> ().jumpHeight = 0;
 		Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
 		yield return new WaitForSeconds (stunDelay);
-		prey.GetComponentInParent<Jump> ().jumpHeight = jumpHeight;
+		prey.GetComponentInParent<Jump> ().jumpHeight = origJumpHeight;
 		prey.GetComponentInParent<playerMovement> ().moveSpeed = origSpeed;
 	}
 }

@@ -9,6 +9,7 @@ public class Lava : MonoBehaviour {
     public float triggerHeight;
     public float maxHeight;
     private bool isActive = false;
+	public float headStart;
 
     private readonly float offset = -7f; // distance from top of lava to its pivot point (center)
 
@@ -39,6 +40,7 @@ public class Lava : MonoBehaviour {
                 {
                     isActive = true;
                     print("lava activated");
+					transform.position = new Vector2 (0.0f, player1.position.y - headStart);
                 }
             }
 
@@ -48,6 +50,7 @@ public class Lava : MonoBehaviour {
                 {
                     isActive = true;
                     print("lava activated");
+					transform.position = new Vector2 (0.0f, player2.position.y - headStart);
                 }
             }
         }
@@ -77,7 +80,6 @@ public class Lava : MonoBehaviour {
     void RiseLava()
     {
 		FindObjectOfType<AudioManager> ().Mute("Theme");
-		//FindObjectOfType<AudioManager> ().sounds [2].source.Play ();
 		FindObjectOfType<AudioManager>().UnMute("LavaRising");
 		FindObjectOfType<AudioManager>().UnMute("FireBurning");
 		transform.position = transform.position + new Vector3(0f, riseSpeed * Time.deltaTime);

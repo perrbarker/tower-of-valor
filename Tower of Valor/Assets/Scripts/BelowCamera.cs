@@ -15,6 +15,27 @@ public class BelowCamera : MonoBehaviour
 	{
 		player1 = Camera.main.GetComponent<CameraScript> ().player1;
 		player2 = Camera.main.GetComponent<CameraScript> ().player2;
+		if(FindObjectOfType<AudioManager> ().IsPlaying ("Theme") == null)
+		{
+			return;
+		}
+		else if (FindObjectOfType<AudioManager> ().IsPlaying ("Theme"))
+		{
+			FindObjectOfType<AudioManager> ().Play ("LavaRising");
+			FindObjectOfType<AudioManager> ().Play ("FireBurning");
+
+			FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+			FindObjectOfType<AudioManager> ().Mute ("FireBurning");
+		}
+		else
+		{
+			FindObjectOfType<AudioManager> ().Play ("Theme");
+			FindObjectOfType<AudioManager>().Play("LavaRising");
+			FindObjectOfType<AudioManager>().Play("FireBurning");
+
+			FindObjectOfType<AudioManager>().Mute("LavaRising");
+			FindObjectOfType<AudioManager>().Mute("FireBurning");
+		}
 	}
 	
 	// Update is called once per frame
