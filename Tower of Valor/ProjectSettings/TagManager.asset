@@ -42,8 +42,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2100968289
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Platforms
+    uniqueID: 807800753
+    locked: 0
+  - name: Enemies
+    uniqueID: 3211766185
+    locked: 0
+  - name: Players
+    uniqueID: 104419547
     locked: 0
   - name: Lava
     uniqueID: 3860379001

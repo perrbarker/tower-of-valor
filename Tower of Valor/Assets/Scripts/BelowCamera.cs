@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class BelowCamera : MonoBehaviour 
 {
@@ -9,33 +11,13 @@ public class BelowCamera : MonoBehaviour
 	private Transform player2;
 	public float distance;
 	private float distanceApart;
-
+	AsyncOperation sceneCheck;
 	// Use this for initialization
+
 	void Start ()
 	{
 		player1 = Camera.main.GetComponent<CameraScript> ().player1;
 		player2 = Camera.main.GetComponent<CameraScript> ().player2;
-		if(FindObjectOfType<AudioManager> ().IsPlaying ("Theme") == null)
-		{
-			return;
-		}
-		else if (FindObjectOfType<AudioManager> ().IsPlaying ("Theme"))
-		{
-			FindObjectOfType<AudioManager> ().Play ("LavaRising");
-			FindObjectOfType<AudioManager> ().Play ("FireBurning");
-
-			FindObjectOfType<AudioManager> ().Mute ("LavaRising");
-			FindObjectOfType<AudioManager> ().Mute ("FireBurning");
-		}
-		else
-		{
-			FindObjectOfType<AudioManager> ().Play ("Theme");
-			FindObjectOfType<AudioManager>().Play("LavaRising");
-			FindObjectOfType<AudioManager>().Play("FireBurning");
-
-			FindObjectOfType<AudioManager>().Mute("LavaRising");
-			FindObjectOfType<AudioManager>().Mute("FireBurning");
-		}
 	}
 	
 	// Update is called once per frame

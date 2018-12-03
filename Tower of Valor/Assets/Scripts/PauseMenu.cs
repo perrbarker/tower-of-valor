@@ -8,6 +8,30 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+
+	void Start()
+	{
+		/*
+		if (FindObjectOfType<AudioManager> ().IsPlaying ("Theme"))
+		{
+			FindObjectOfType<AudioManager> ().Play ("LavaRising");
+			FindObjectOfType<AudioManager> ().Play ("FireBurning");
+
+			FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+			FindObjectOfType<AudioManager> ().Mute ("FireBurning");
+			return;
+		}
+		else
+		{
+		*/
+			FindObjectOfType<AudioManager> ().Play ("Theme");
+			FindObjectOfType<AudioManager> ().Play ("LavaRising");
+			FindObjectOfType<AudioManager> ().Play ("FireBurning");
+
+			FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+			FindObjectOfType<AudioManager> ().Mute ("FireBurning");
+		//}
+	}
 	// Update is called once per frame
 	void Update ()
     {
@@ -38,10 +62,19 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
+	public void load1Players()
+	{
+		Time.timeScale = 1f;
+		Debug.Log("1Player");
+		FindObjectOfType<AudioManager>().Play("Theme");
+		SceneManager.LoadScene(1);
+	}
+
     public void load2Players()
     {
         Time.timeScale = 1f;
         Debug.Log("2Players");
+		FindObjectOfType<AudioManager>().Play("Theme");
         SceneManager.LoadScene(2);
     }
 
