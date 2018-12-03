@@ -8,7 +8,7 @@ public class Lava : MonoBehaviour {
     public float riseSpeed;
     public float triggerHeight;
     public float maxHeight;
-    private bool isActive = false;
+    public bool lavaIsActive = false;
 	public float headStart;
 
     private readonly float offset = -7f; // distance from top of lava to its pivot point (center)
@@ -24,6 +24,7 @@ public class Lava : MonoBehaviour {
 
 		//FindObjectOfType<AudioManager>().Mute("LavaRising");
 		//FindObjectOfType<AudioManager>().Mute("FireBurning");
+		lavaIsActive = false;
 	}
 	
 	// Update is called once per frame
@@ -32,13 +33,13 @@ public class Lava : MonoBehaviour {
         float lavaHeight = transform.position.y;
 
         // activate lava rise if one of the players reached trigger height
-        if (!isActive)
+		if (!lavaIsActive)
         {
             if (player1 != null)
             {
                 if (player1.position.y >= triggerHeight)
                 {
-                    isActive = true;
+					lavaIsActive = true;
                     print("lava activated");
 					transform.position = new Vector2 (0.0f, player1.position.y - headStart);
                 }
@@ -48,14 +49,14 @@ public class Lava : MonoBehaviour {
             {
                 if (player2.position.y >= triggerHeight)
                 {
-                    isActive = true;
+					lavaIsActive = true;
                     print("lava activated");
 					transform.position = new Vector2 (0.0f, player2.position.y - headStart);
                 }
             }
         }
 
-        if (isActive)
+		if (lavaIsActive)
         {
             RiseLava();
             if (lavaHeight >= maxHeight + offset)

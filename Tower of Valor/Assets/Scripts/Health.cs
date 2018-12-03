@@ -137,13 +137,20 @@ public class Health : MonoBehaviour {
 		}
 		if(obj.position.y < spawnPoints[closestSpawn].transform.position.y)
 		{
-			if (closestSpawn % 2 == 1)
+			if (FindObjectOfType<Lava> ().lavaIsActive == true)
 			{
-				closestSpawn = closestSpawn - 2; //spawn a point below on right
+				Debug.Log("No change, spawn at closest.");
 			}
 			else
 			{
-				--closestSpawn; //spawn a point below on left
+				if (closestSpawn % 2 == 1)
+				{
+					closestSpawn = closestSpawn - 2; //spawn a point below on right
+				}
+				else
+				{
+					--closestSpawn; //spawn a point below on left
+				}
 			}
 		}
 		Spawn respawn = spawnPoints [0].GetComponent<Spawn> ();
