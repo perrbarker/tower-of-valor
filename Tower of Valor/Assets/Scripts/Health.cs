@@ -119,6 +119,7 @@ public class Health : MonoBehaviour {
 			{
 				Destroy (gameObject);
 				FindObjectOfType<GameManager> ().Congratulations ();
+                FindObjectOfType<Timer> ().StopTimer();
 			}
 			else
 			{

@@ -5,13 +5,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
 
-    public Text gameOverText;
-	public Text congratsText;
-    public TextMeshProUGUI congrats;
+    public TextMeshProUGUI congrats, gameover;
     public void GameOver()
 
     {
-        gameOverText.text = "Game Over";
+        gameover.SetText("Game Over");
         Invoke("MainMenu", 5f);
     }
 

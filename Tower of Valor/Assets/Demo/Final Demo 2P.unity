@@ -13688,7 +13688,7 @@ Prefab:
     - target: {fileID: 114812817112666942, guid: 82b39e49434977f4ca326737f9e778ed,
         type: 2}
       propertyPath: headStart
-      value: 22.5
+      value: 23.5
       objectReference: {fileID: 0}
     - target: {fileID: 114812817112666942, guid: 82b39e49434977f4ca326737f9e778ed,
         type: 2}
