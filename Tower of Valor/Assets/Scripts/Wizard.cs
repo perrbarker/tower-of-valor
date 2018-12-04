@@ -8,6 +8,8 @@ public class Wizard : MonoBehaviour {
     private float dist1, dist2;
     private int health1, health2;
 
+    private bool activeWizard;
+
     public Animator anim;
     public float aggroDistance;
     public float attackCoolDown;
@@ -24,9 +26,11 @@ public class Wizard : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         timer = attackCoolDown;
+        activeWizard = false;
     }
     // Update is called once per frame
     void Update () {
+
 
         health = GetComponent<Health>().hitPoints;
         timer += Time.deltaTime;
@@ -35,11 +39,19 @@ public class Wizard : MonoBehaviour {
         {
             dist1 = (Vector2.Distance(p1.position, transform.position));
             health1 = p1.GetComponent<Health>().hitPoints;
+            if (dist1 <= aggroDistance)
+            {
+                activeWizard = true;
+            }
         }
         if (p2 != null)
         {
             dist2 = (Vector2.Distance(p2.position, transform.position));
             health2 = p2.GetComponent<Health>().hitPoints;
+            if (dist2 <= aggroDistance)
+            {
+                activeWizard = true;
+            }
         }
 
         if (health < 3)
@@ -47,57 +59,69 @@ public class Wizard : MonoBehaviour {
             enraged = true;
         }
 
-
-        if (timer > attackCoolDown)
+        if (activeWizard)
         {
-            // at least 1 player in aggroDistance
-            if (((dist1 <= aggroDistance) && (p1 != null)) || ((dist2 <= aggroDistance) && (p2 != null)))
-            { 
-                // both in aggroDistance
-                if (((dist1 <= aggroDistance) && (p1 != null)) && ((dist1 <= aggroDistance) && (p2 != null)))
-                {
+            if (timer > attackCoolDown)
+            {
+                SelectTarget();
+            }
+        }
+    }
 
-                    switch(Random.Range(1,4))
-                    {
-                        // fire at p1
-                        case 1:
-                            anim.SetBool("isAttack", true);
-                            StartCoroutine(SpawnFireball(p1));
-                            timer = 0;
-                            break;
-                        // fire at p2
-                        case 2:
-                            anim.SetBool("isAttack", true);
-                            StartCoroutine(SpawnFireball(p2));
-                            timer = 0;
-                            break;
-                        // fire at both
-                        case 3:
-                            anim.SetBool("isAttack", true);
-                            StartCoroutine(SpawnFireball(p1));
-                            StartCoroutine(SpawnFireball(p2));
-                            timer = 0;
-                            break;
-                    }
-                }
-                
-                // only 1 in aggroDistance
-                // p1
-                else if ((dist1 <= aggroDistance) && (p1 != null))
+    void LevitateDown()
+    {
+
+    }
+
+    void SelectTarget()
+    {
+        // at least 1 player in aggroDistance
+        if (((dist1 <= aggroDistance) && (p1 != null)) || ((dist2 <= aggroDistance) && (p2 != null)))
+        {
+            // both in aggroDistance
+            if (((dist1 <= aggroDistance) && (p1 != null)) && ((dist1 <= aggroDistance) && (p2 != null)))
+            {
+
+                switch (Random.Range(1, 4))
                 {
-                    anim.SetBool("isAttack", true);
-                    StartCoroutine(SpawnFireball(p1));
-                    timer = 0;
-                }
-                // p2
-                else if ((dist2 <= aggroDistance) && (p2 != null))
-                {
-                    anim.SetBool("isAttack", true);
-                    StartCoroutine(SpawnFireball(p2));
-                    timer = 0;
+                    // fire at p1
+                    case 1:
+                        anim.SetBool("isAttack", true);
+                        StartCoroutine(SpawnFireball(p1));
+                        timer = 0;
+                        break;
+                    // fire at p2
+                    case 2:
+                        anim.SetBool("isAttack", true);
+                        StartCoroutine(SpawnFireball(p2));
+                        timer = 0;
+                        break;
+                    // fire at both
+                    case 3:
+                        anim.SetBool("isAttack", true);
+                        StartCoroutine(SpawnFireball(p1));
+                        StartCoroutine(SpawnFireball(p2));
+                        timer = 0;
+                        break;
                 }
             }
-        }   
+
+            // only 1 in aggroDistance
+            // p1
+            else if ((dist1 <= aggroDistance) && (p1 != null))
+            {
+                anim.SetBool("isAttack", true);
+                StartCoroutine(SpawnFireball(p1));
+                timer = 0;
+            }
+            // p2
+            else if ((dist2 <= aggroDistance) && (p2 != null))
+            {
+                anim.SetBool("isAttack", true);
+                StartCoroutine(SpawnFireball(p2));
+                timer = 0;
+            }
+        }
     }
 
     void FireballAOE()
