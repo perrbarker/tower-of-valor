@@ -20,6 +20,7 @@ public class Jump : MonoBehaviour {
 	public float stunDelay;
 	private float origSpeed;
 	private float origJumpHeight;
+	public float jumpBoost;
 
     public Transform leftFoot, rightFoot, leftHeel, rightHeel;
 
@@ -126,6 +127,7 @@ public class Jump : MonoBehaviour {
 		{
 			isGrounded = true;
 			canDoubleJump = true;
+			jumpHeight += jumpBoost;
 		}
 		else if (col.gameObject.tag == "Wizard")
         {
@@ -247,6 +249,7 @@ public class Jump : MonoBehaviour {
     void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
+		jumpHeight = origJumpHeight;
     }
 
 	IEnumerator Stun(GameObject prey)
