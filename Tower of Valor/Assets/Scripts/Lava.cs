@@ -59,7 +59,7 @@ public class Lava : MonoBehaviour {
 		if (lavaIsActive)
         {
             RiseLava();
-            if (lavaHeight >= maxHeight + offset)
+            if (lavaHeight >= maxHeight /*+ offset*/)
             {
                 //print("Reached max height");
                 riseSpeed = 0;
