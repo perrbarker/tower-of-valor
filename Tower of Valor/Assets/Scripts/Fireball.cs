@@ -10,7 +10,8 @@ public class Fireball : MonoBehaviour {
     private Vector2 targetDir;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
         Invoke("DestroyProjectile", lifeTime);
 	}
 	

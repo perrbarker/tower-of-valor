@@ -14,11 +14,10 @@ public class GameManager : MonoBehaviour {
 
     void MainMenu()
     {
-		FindObjectOfType<AudioManager> ().Stop ("Theme");
-		FindObjectOfType<AudioManager>().Play("MainMenu");
-
+		FindObjectOfType<AudioManager> ().Mute ("Theme");
 		FindObjectOfType<AudioManager>().Mute("LavaRising");
 		FindObjectOfType<AudioManager>().Mute("FireBurning");
+		FindObjectOfType<AudioManager>().UnMute("MainMenu");
         SceneManager.LoadScene("Main Menu");
     }
 

@@ -1,26 +1,26 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Fireball.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AudioManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Punch.cs" Line="58" Column="5" />
-      <File FileName="Assets\Scripts\Health.cs" Line="20" Column="45" />
+      <File FileName="Assets\Scripts\Punch.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Health.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\playerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Grab.cs" Line="52" Column="31" />
+      <File FileName="Assets\Scripts\Grab.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Jump.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AudioManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AudioManager.cs" Line="54" Column="1" />
       <File FileName="Assets\Scripts\Sound.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MovingPlatform.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\FallingPlatforms.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Leap_Frog.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Lava.cs" Line="45" Column="18" />
-      <File FileName="Assets\Scripts\Wizard.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Leap_Frog.cs" Line="39" Column="55" />
+      <File FileName="Assets\Scripts\Lava.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Wizard.cs" Line="103" Column="1" />
       <File FileName="Assets\Scripts\MainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PauseMenu.cs" Line="27" Column="1" />
+      <File FileName="Assets\Scripts\PauseMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Throwable.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\BelowCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Fireball.cs" Line="33" Column="1" />
+      <File FileName="Assets\Scripts\Fireball.cs" Line="17" Column="1" />
       <File FileName="Assets\GameManager.cs" Line="18" Column="15" />
       <File FileName="Assets\Scripts\Spawn.cs" Line="15" Column="1" />
     </Files>
