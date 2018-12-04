@@ -246,7 +246,7 @@ MonoBehaviour:
   maxHP: 1
   hitPoints: 0
   lives: 0
-  timeToDestroy: 0.5
+  timeToDestroy: 2
   spawnPoints: []
   player1Died: 0
   player2Died: 0

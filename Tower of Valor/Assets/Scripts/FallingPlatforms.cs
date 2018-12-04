@@ -26,7 +26,7 @@ public class FallingPlatforms : MonoBehaviour
                 //print("FallingPlatforms");
                 Invoke("DropPlatform", fallTimer);
                 Destroy(gameObject, 2f);
-				FindObjectOfType<AudioManager>().Play("DroppingPlatform");
+				FindObjectOfType<AudioManager>().Play("Whoosh");
             }
 		}
 	}

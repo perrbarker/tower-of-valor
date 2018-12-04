@@ -56,10 +56,6 @@ public class Punch : MonoBehaviour {
 				}
 			
 				hitPunch.transform.GetComponent<Rigidbody2D>().AddForce(vecDir * pushBackForce);
-				if (hitPunch.transform.tag == "Player")
-				{
-					FindObjectOfType<AudioManager>().Play("HitArmor");
-				}
                 // Damages SpiritArmor
                 if (hitPunch.transform.tag == "SpiritArmor")
                 {

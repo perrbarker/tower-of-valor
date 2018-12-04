@@ -20,7 +20,6 @@ public class Jump : MonoBehaviour {
 	public float stunDelay;
 	private float origSpeed;
 	private float origJumpHeight;
-	public float jumpBoost;
 
     public Transform leftFoot, rightFoot, leftHeel, rightHeel;
 
@@ -45,7 +44,6 @@ public class Jump : MonoBehaviour {
                 // Jump
                 body.velocity = new Vector2(body.velocity.x, jumpHeight);
                 isGrounded = false;
-				FindObjectOfType<AudioManager> ().Play ("Donk");
                 //animation.SetFloat("Vertical", body.velocity.x); // jump animation
             }
             // on air
@@ -56,7 +54,6 @@ public class Jump : MonoBehaviour {
                     // Jump
                     body.velocity = new Vector2(body.velocity.x, jumpHeight);
                     canDoubleJump = false;
-					FindObjectOfType<AudioManager> ().Play ("Donk");
                 }
             }
         }
@@ -127,7 +124,6 @@ public class Jump : MonoBehaviour {
 		{
 			isGrounded = true;
 			canDoubleJump = true;
-			jumpHeight += jumpBoost;
 		}
 		else if (col.gameObject.tag == "Wizard")
         {
@@ -249,19 +245,15 @@ public class Jump : MonoBehaviour {
     void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
-		jumpHeight = origJumpHeight;
     }
 
 	IEnumerator Stun(GameObject prey)
 	{
-		if (prey != null)
-		{
-			prey.GetComponentInParent<playerMovement> ().moveSpeed = 0;
-			prey.GetComponentInParent<Jump> ().jumpHeight = 0;
-			Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
-			yield return new WaitForSeconds (stunDelay);
-			prey.GetComponentInParent<Jump> ().jumpHeight = origJumpHeight;
-			prey.GetComponentInParent<playerMovement> ().moveSpeed = origSpeed;
-		}
+		prey.GetComponentInParent<playerMovement> ().moveSpeed = 0;
+		prey.GetComponentInParent<Jump> ().jumpHeight = 0;
+		Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
+		yield return new WaitForSeconds (stunDelay);
+		prey.GetComponentInParent<Jump> ().jumpHeight = origJumpHeight;
+		prey.GetComponentInParent<playerMovement> ().moveSpeed = origSpeed;
 	}
 }

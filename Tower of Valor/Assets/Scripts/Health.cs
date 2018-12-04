@@ -72,10 +72,6 @@ public class Health : MonoBehaviour {
 				}
 				*/
 				//WE SHOULD ADD A GAMEOVER CHECK TO SEE IF BOTH PLAYERS ARE DEAD.
-				hearts[0].enabled = false;
-				hearts[1].enabled = false;
-				hearts[2].enabled = false;
-
 				livesDisplay [0].enabled = false;
 				Destroy (gameObject);
 			}
@@ -115,16 +111,7 @@ public class Health : MonoBehaviour {
 		}
 		else
 		{
-			if (gameObject.tag == "Wizard")
-			{
-				Destroy (gameObject);
-				FindObjectOfType<GameManager> ().Congratulations ();
-			}
-			else
-			{
-				Destroy (gameObject);
-			}
-
+			Destroy (gameObject);
 		}
 	}
 
@@ -150,20 +137,13 @@ public class Health : MonoBehaviour {
 		}
 		if(obj.position.y + 5.0 < spawnPoints[closestSpawn].transform.position.y)
 		{
-			if (FindObjectOfType<Lava> ().lavaIsActive == true)
+			if (closestSpawn % 2 == 1)
 			{
-				Debug.Log("No change, spawn at closest.");
+				closestSpawn = closestSpawn - 2; //spawn a point below on right
 			}
 			else
 			{
-				if (closestSpawn % 2 == 1)
-				{
-					closestSpawn = closestSpawn - 2; //spawn a point below on right
-				}
-				else
-				{
-					--closestSpawn; //spawn a point below on left
-				}
+				--closestSpawn; //spawn a point below on left
 			}
 		}
 		Spawn respawn = spawnPoints [0].GetComponent<Spawn> ();
@@ -226,14 +206,9 @@ public class Health : MonoBehaviour {
                 livesDisplay[i].enabled = false;
             }
         }
-    }
-
-    void FixedUpdate()
-    {
-        if (hitPoints <= 0)
-        {
-            StartCoroutine(Death());
-            print("death");
-        }
+		if (hitPoints <= 0)
+		{
+			StartCoroutine (Death ());
+		}
     }
 }

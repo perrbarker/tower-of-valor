@@ -40,15 +40,7 @@ public class AudioManager : MonoBehaviour
 
 	void Start()
 	{
-		Play("Theme");
-		Play ("LavaRising");
-		Play ("MainMenu");
-		Play ("FireBurning");
-
-		//Mute ("MainMenu");
-		Mute ("LavaRising");
-		Mute ("Theme");
-		Mute ("FireBurning");
+		//Play("Theme");
 	}
 	
 	public void Play(string name)
