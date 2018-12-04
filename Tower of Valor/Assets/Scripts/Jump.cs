@@ -44,6 +44,7 @@ public class Jump : MonoBehaviour {
                 // Jump
                 body.velocity = new Vector2(body.velocity.x, jumpHeight);
                 isGrounded = false;
+				FindObjectOfType<AudioManager> ().Play ("Donk");
                 //animation.SetFloat("Vertical", body.velocity.x); // jump animation
             }
             // on air
@@ -54,6 +55,7 @@ public class Jump : MonoBehaviour {
                     // Jump
                     body.velocity = new Vector2(body.velocity.x, jumpHeight);
                     canDoubleJump = false;
+					FindObjectOfType<AudioManager> ().Play ("Donk");
                 }
             }
         }
@@ -249,11 +251,14 @@ public class Jump : MonoBehaviour {
 
 	IEnumerator Stun(GameObject prey)
 	{
-		prey.GetComponentInParent<playerMovement> ().moveSpeed = 0;
-		prey.GetComponentInParent<Jump> ().jumpHeight = 0;
-		Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
-		yield return new WaitForSeconds (stunDelay);
-		prey.GetComponentInParent<Jump> ().jumpHeight = origJumpHeight;
-		prey.GetComponentInParent<playerMovement> ().moveSpeed = origSpeed;
+		if (prey != null)
+		{
+			prey.GetComponentInParent<playerMovement> ().moveSpeed = 0;
+			prey.GetComponentInParent<Jump> ().jumpHeight = 0;
+			Debug.Log ("Jumped on Player. PLAYER IS STUNNED");
+			yield return new WaitForSeconds (stunDelay);
+			prey.GetComponentInParent<Jump> ().jumpHeight = origJumpHeight;
+			prey.GetComponentInParent<playerMovement> ().moveSpeed = origSpeed;
+		}
 	}
 }

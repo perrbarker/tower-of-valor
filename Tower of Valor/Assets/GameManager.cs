@@ -5,12 +5,19 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public Text gameOverText;
+	public Text congratsText;
     
     public void GameOver()
     {
         gameOverText.text = "Game Over";
         Invoke("MainMenu", 2.5f);
     }
+
+	public void Congratulations()
+	{
+		//congratsText.text = "Hooray!/n" + "You defeated the Evil Wizard!";
+		Invoke ("MainMenu", 2.5f);
+	}
 
     void MainMenu()
     {

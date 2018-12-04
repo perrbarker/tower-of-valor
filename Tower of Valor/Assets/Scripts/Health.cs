@@ -72,6 +72,10 @@ public class Health : MonoBehaviour {
 				}
 				*/
 				//WE SHOULD ADD A GAMEOVER CHECK TO SEE IF BOTH PLAYERS ARE DEAD.
+				hearts[0].enabled = false;
+				hearts[1].enabled = false;
+				hearts[2].enabled = false;
+
 				livesDisplay [0].enabled = false;
 				Destroy (gameObject);
 			}
@@ -111,7 +115,16 @@ public class Health : MonoBehaviour {
 		}
 		else
 		{
-			Destroy (gameObject);
+			if (gameObject.tag == "Wizard")
+			{
+				Destroy (gameObject);
+				FindObjectOfType<GameManager> ().Congratulations ();
+			}
+			else
+			{
+				Destroy (gameObject);
+			}
+
 		}
 	}
 

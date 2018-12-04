@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-D:/Unity Projects/CSE440-Team-Retro/Tower of Valor/New folder/Tower of Valor.exe
+C:/Users/User/Documents/GitHub/Project/CSE440-Team-Retro/Tower of Valor/EXE/Tower of Valor.exe
 SceneListBegin?
 Assets/Demo/Main Menu.unity
 Assets/Demo/Final Demo 1P.unity
@@ -186,7 +186,7 @@ aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 8257c2d529c6523ef2b294ac1434d918 Assembly-CSharp.dll:.healthDisplay
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-834994d651660408a068b39f237ffe50 Assembly-CSharp.dll:.Cheats
+79e37fcc732510f0ce58998b9acc4ea9 Assembly-CSharp.dll:.Cheats
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 04b4dded2e1729f08c4fd5f9991a16df Assembly-CSharp.dll:.PauseMenu
