@@ -1837,7 +1837,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4018029975176672, guid: 13f249f158838f14d842e1ccbd1b6dd4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504550063336150, guid: 13f249f158838f14d842e1ccbd1b6dd4,
+        type: 2}
+      propertyPath: punch
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 114409519535243196, guid: 13f249f158838f14d842e1ccbd1b6dd4,
+        type: 2}
+      propertyPath: grab
+      value: 111
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f249f158838f14d842e1ccbd1b6dd4, type: 2}
@@ -8199,9 +8209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713af2d3e7defa74ab2b10357258d501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 809016051}
-  congratsText: {fileID: 0}
   congrats: {fileID: 2084033968}
+  gameover: {fileID: 0}
 --- !u!114 &783144071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8613,12 +8622,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4884958389797798, guid: 5cc543100cd51c84f94158601123df7d,
     type: 2}
   m_PrefabInternal: {fileID: 980096204}
---- !u!114 &809016051 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114853177510960376, guid: d8534cf739295cb48b1f7e709d2768af,
-    type: 2}
-  m_PrefabInternal: {fileID: 1455895594}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &810414971
 Prefab:
   m_ObjectHideFlags: 0

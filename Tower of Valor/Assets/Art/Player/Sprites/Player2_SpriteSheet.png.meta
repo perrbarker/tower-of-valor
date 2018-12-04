@@ -308,9 +308,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 63
-        y: 895
-        width: 228
-        height: 371
+        y: 896
+        width: 233
+        height: 416
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,9 +328,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 382
-        y: 895
-        width: 308
-        height: 371
+        y: 896
+        width: 306
+        height: 415
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,10 +347,10 @@ TextureImporter:
       name: Player2_SpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 895
-        y: 895
-        width: 227
-        height: 403
+        x: 897
+        y: 896
+        width: 229
+        height: 417
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,10 +387,10 @@ TextureImporter:
       name: Player2_SpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 63
-        y: 447
-        width: 307
-        height: 371
+        x: 65
+        y: 445
+        width: 305
+        height: 449
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -408,9 +408,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 447
-        y: 447
-        width: 228
-        height: 403
+        y: 448
+        width: 226
+        height: 447
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,9 +428,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 879
-        y: 447
-        width: 307
-        height: 371
+        y: 448
+        width: 309
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,9 +448,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1279
-        y: 447
-        width: 227
-        height: 371
+        y: 449
+        width: 225
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -470,7 +470,7 @@ TextureImporter:
         x: 63
         y: 0
         width: 228
-        height: 402
+        height: 447
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,7 +490,7 @@ TextureImporter:
         x: 351
         y: 0
         width: 228
-        height: 402
+        height: 447
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
