@@ -41,6 +41,7 @@ public class Fireball : MonoBehaviour {
                 {
                     print("Hit head");
                     obj.parent.GetComponent<Health>().removeHitPoints(damage);
+					FindObjectOfType<AudioManager>().Play("PlayerHit");
                     //obj.GetComponentInParent<Health>().removeHitPoints(damage);
                     FindObjectOfType<AudioManager>().Stop("FireballCast");
                     Destroy(gameObject);

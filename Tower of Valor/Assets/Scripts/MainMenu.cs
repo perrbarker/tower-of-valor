@@ -37,6 +37,6 @@ public class MainMenu : MonoBehaviour
 
 	void Start()
 	{
-		FindObjectOfType<AudioManager> ().Play ("MainMenu");
+		//FindObjectOfType<AudioManager> ().Play ("MainMenu");
 	}
 }

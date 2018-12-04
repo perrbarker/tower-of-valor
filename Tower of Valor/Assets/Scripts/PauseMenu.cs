@@ -85,7 +85,9 @@ public class PauseMenu : MonoBehaviour
     public void loadMainMenu()
     {
         Time.timeScale = 1f;
-        Debug.Log("mainmenu");
+		Debug.Log ("mainmenu");
+		FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+		FindObjectOfType<AudioManager> ().Mute ("FireBurning");;
 		FindObjectOfType<AudioManager>().Mute("Theme");
 		FindObjectOfType<AudioManager>().UnMute("MainMenu");
         SceneManager.LoadScene(0);

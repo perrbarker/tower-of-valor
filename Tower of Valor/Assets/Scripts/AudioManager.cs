@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
 	{
 		Play("Theme");
 		Play ("LavaRising");
-		//Play ("MainMenu");
+		Play ("MainMenu");
 		Play ("FireBurning");
 
 		//Mute ("MainMenu");
