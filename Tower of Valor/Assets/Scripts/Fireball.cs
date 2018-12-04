@@ -37,11 +37,14 @@ public class Fireball : MonoBehaviour {
             if (obj.tag == "Player")
             {
                 // hit body
-                if (obj.name == "P1_Head")
+                if (obj.name == "P1_Head" || obj.name == "P2_Head")
                 {
                     print("Hit head");
-                    obj.GetComponentInParent<Health>().removeHitPoints(damage);
+                    obj.parent.GetComponent<Health>().removeHitPoints(damage);
+                    //obj.GetComponentInParent<Health>().removeHitPoints(damage);
+                    FindObjectOfType<AudioManager>().Stop("FireballCast");
                     Destroy(gameObject);
+
                 }
 
 
@@ -57,6 +60,7 @@ public class Fireball : MonoBehaviour {
 
     void DestroyProjectile()
     {
+        FindObjectOfType<AudioManager>().Stop("FireballCast");
         Destroy(gameObject);
     }
 }

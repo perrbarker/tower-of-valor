@@ -20,6 +20,8 @@ public class Wizard : MonoBehaviour {
     private bool enraged;
 
     public Transform[] teleportPos;
+    private float timerTel;
+    private float teleportRoll = 2f;
     private int lastPos;
 
     private void Start()
@@ -34,6 +36,7 @@ public class Wizard : MonoBehaviour {
 
         health = GetComponent<Health>().hitPoints;
         timer += Time.deltaTime;
+        timerTel += Time.deltaTime;
 
         if (p1 != null)
         {
@@ -61,6 +64,17 @@ public class Wizard : MonoBehaviour {
 
         if (activeWizard)
         {
+            // every 2 sec, rolls for a teleport
+            if (timerTel > teleportRoll)
+            {
+                // 20% chance
+                if (Random.Range(0,10) < 2)
+                {
+                    Teleport();
+                }
+                timerTel = 0f;
+            }
+
             if (timer > attackCoolDown)
             {
                 SelectTarget();
@@ -68,18 +82,20 @@ public class Wizard : MonoBehaviour {
         }
     }
 
-    void LevitateDown()
-    {
-
-    }
 
     void SelectTarget()
     {
         // at least 1 player in aggroDistance
-        if (((dist1 <= aggroDistance) && (p1 != null)) || ((dist2 <= aggroDistance) && (p2 != null)))
+        if ((p1 != null) || (p2 != null))
         {
+            if (enraged)
+            {
+                Invoke("FireballAOE", 1.5f);
+                timer = 0;
+            }
+
             // both in aggroDistance
-            if (((dist1 <= aggroDistance) && (p1 != null)) && ((dist1 <= aggroDistance) && (p2 != null)))
+            if ((p1 != null) &&  (p2 != null))
             {
 
                 switch (Random.Range(1, 4))
@@ -108,14 +124,14 @@ public class Wizard : MonoBehaviour {
 
             // only 1 in aggroDistance
             // p1
-            else if ((dist1 <= aggroDistance) && (p1 != null))
+            else if ((p1 != null))
             {
                 anim.SetBool("isAttack", true);
                 StartCoroutine(SpawnFireball(p1));
                 timer = 0;
             }
             // p2
-            else if ((dist2 <= aggroDistance) && (p2 != null))
+            else if ((p2 != null))
             {
                 anim.SetBool("isAttack", true);
                 StartCoroutine(SpawnFireball(p2));
@@ -152,16 +168,68 @@ public class Wizard : MonoBehaviour {
 
     public void Teleport()
     {
-        switch (Random.Range(0,2))
+        switch (Random.Range(0,5))
         {
             case 0:
+                if (lastPos != 0)
+                {
                     transform.position = teleportPos[0].position;
                     lastPos = 0;
-                break;
+                    break;
+                }
+                else
+                {
+                    Teleport();
+                    break;
+                }
             case 1:
+                if (lastPos != 1)
+                {
                     transform.position = teleportPos[1].position;
                     lastPos = 1;
-                break;
+                    break;
+                }
+                else
+                {
+                    Teleport();
+                    break;
+                }
+            case 2:
+                if (lastPos != 2)
+                {
+                    transform.position = teleportPos[2].position;
+                    lastPos = 2;
+                    break;
+                }
+                else
+                {
+                    Teleport();
+                    break;
+                }
+            case 3:
+                if (lastPos != 3)
+                {
+                    transform.position = teleportPos[3].position;
+                    lastPos = 3;
+                    break;
+                }
+                else
+                {
+                    Teleport();
+                    break;
+                }
+            case 4:
+                if (lastPos != 4)
+                {
+                    transform.position = teleportPos[4].position;
+                    lastPos = 4;
+                    break;
+                }
+                else
+                {
+                    Teleport();
+                    break;
+                }
         }
 
 

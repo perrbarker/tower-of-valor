@@ -213,9 +213,14 @@ public class Health : MonoBehaviour {
                 livesDisplay[i].enabled = false;
             }
         }
-		if (hitPoints <= 0)
-		{
-			StartCoroutine (Death ());
-		}
+    }
+
+    void FixedUpdate()
+    {
+        if (hitPoints <= 0)
+        {
+            StartCoroutine(Death());
+            print("death");
+        }
     }
 }

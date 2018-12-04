@@ -14,8 +14,15 @@ public class Cheats : MonoBehaviour {
 
         if (Input.GetKeyDown(teleport))
         {
-            p1.position = telPosition1.position;
-            p2.position = telPosition2.position;
+            if (p1 != null)
+            {
+                p1.position = telPosition1.position;
+            }
+            if (p2 != null)
+            {
+                p2.position = telPosition2.position;
+
+            }
         }
 
     }

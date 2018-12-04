@@ -40,7 +40,7 @@ public class Lava : MonoBehaviour {
                 if (player1.position.y >= triggerHeight)
                 {
 					lavaIsActive = true;
-                    print("lava activated");
+                    //print("lava activated");
 					transform.position = new Vector2 (0.0f, player1.position.y - headStart);
                 }
             }
@@ -50,7 +50,7 @@ public class Lava : MonoBehaviour {
                 if (player2.position.y >= triggerHeight)
                 {
 					lavaIsActive = true;
-                    print("lava activated");
+                    //print("lava activated");
 					transform.position = new Vector2 (0.0f, player2.position.y - headStart);
                 }
             }
@@ -61,7 +61,7 @@ public class Lava : MonoBehaviour {
             RiseLava();
             if (lavaHeight >= maxHeight + offset)
             {
-                print("Reached max height");
+                //print("Reached max height");
                 riseSpeed = 0;
             }
         }
