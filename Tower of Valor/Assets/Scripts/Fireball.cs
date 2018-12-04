@@ -13,6 +13,7 @@ public class Fireball : MonoBehaviour {
 	void Start () 
 	{
         Invoke("DestroyProjectile", lifeTime);
+        FindObjectOfType<AudioManager>().Play("FireballCast");
 	}
 	
     public void SetTargetDirection(Vector2 dir)
@@ -26,20 +27,32 @@ public class Fireball : MonoBehaviour {
         transform.position += (Vector3) targetDir * speed* Time.deltaTime;
     }
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Transform>().tag == "Player")
+        Transform obj = collision.GetComponent<Transform>();
+
+        if (obj != null)
         {
-            print("Hit player");
-            collision.GetComponent<Health>().removeHitPoints(damage);
-            Destroy(gameObject);
-        }
-        if (collision.GetComponent<Transform>().tag == "Platform")
-        {
-            Destroy(gameObject);
-        }
+            if (obj.tag == "Player")
+            {
+                // hit body
+                if (obj.name == "P1_Head")
+                {
+                    print("Hit head");
+                    obj.GetComponentInParent<Health>().removeHitPoints(damage);
+                    Destroy(gameObject);
+                }
 
 
+            }
+            /*
+            if (collision.GetComponent<Transform>().tag == "Platform")
+            {
+                Destroy(gameObject);
+            }
+            */
+        }
     }
 
     void DestroyProjectile()
