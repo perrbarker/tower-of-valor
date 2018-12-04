@@ -37,9 +37,9 @@ GameObject:
   - component: {fileID: 212552796520698446}
   - component: {fileID: 114275068840998106}
   - component: {fileID: 50390970106556146}
-  - component: {fileID: 251271342316727966}
-  - component: {fileID: 68210512817006102}
   - component: {fileID: 95240767185402170}
+  - component: {fileID: 68385196245457692}
+  - component: {fileID: 251236988673164152}
   m_Layer: 0
   m_Name: 1xPlat
   m_TagString: MovingPlatform
@@ -123,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1147294023393126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.05, y: 19.9095, z: 0.8402054}
+  m_LocalPosition: {x: -5.8001056, y: 19.9095, z: 0.8402054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4380300259494078}
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!68 &68210512817006102
+--- !u!68 &68385196245457692
 EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +164,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: 0, y: 0.2}
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.6, y: 0}
@@ -251,7 +251,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!251 &251271342316727966
+--- !u!251 &251236988673164152
 PlatformEffector2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
