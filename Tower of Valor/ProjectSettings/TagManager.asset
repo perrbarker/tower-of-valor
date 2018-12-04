@@ -9,6 +9,7 @@ TagManager:
   - SpiritArmor
   - Wizard
   - MovingPlatform
+  - StonePlatform
   layers:
   - Default
   - TransparentFX

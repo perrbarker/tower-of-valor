@@ -1825,6 +1825,20 @@ Prefab:
       propertyPath: spawnPoints.Array.data[23]
       value: 
       objectReference: {fileID: 816677320}
+    - target: {fileID: 114964142371857468, guid: 13f249f158838f14d842e1ccbd1b6dd4,
+        type: 2}
+      propertyPath: maxStruggle
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007921895900248, guid: 13f249f158838f14d842e1ccbd1b6dd4,
+        type: 2}
+      propertyPath: stunDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018029975176672, guid: 13f249f158838f14d842e1ccbd1b6dd4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f249f158838f14d842e1ccbd1b6dd4, type: 2}
   m_IsPrefabAsset: 0
@@ -2683,15 +2697,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4857305934831548, guid: d02bd379cfdbb344797b2fe3f622e420, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857305934831548, guid: d02bd379cfdbb344797b2fe3f622e420, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.85349
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1012148150022026, guid: d02bd379cfdbb344797b2fe3f622e420, type: 2}
       propertyPath: m_Name
       value: 1xPlat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012148150022026, guid: d02bd379cfdbb344797b2fe3f622e420, type: 2}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d02bd379cfdbb344797b2fe3f622e420, type: 2}
@@ -20594,7 +20608,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4857305934831548, guid: d02bd379cfdbb344797b2fe3f622e420, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1012148150022026, guid: d02bd379cfdbb344797b2fe3f622e420, type: 2}
       propertyPath: m_Name
@@ -22382,6 +22396,16 @@ Prefab:
       propertyPath: spawnPoints.Array.data[23]
       value: 
       objectReference: {fileID: 816677320}
+    - target: {fileID: 114911149988960488, guid: 6ae185790886f0a4c99416b154fb8f21,
+        type: 2}
+      propertyPath: maxStruggle
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114669292124714624, guid: 6ae185790886f0a4c99416b154fb8f21,
+        type: 2}
+      propertyPath: stunDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae185790886f0a4c99416b154fb8f21, type: 2}
   m_IsPrefabAsset: 0
