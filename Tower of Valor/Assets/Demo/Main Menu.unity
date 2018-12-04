@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 492374609}
   - component: {fileID: 492374608}
   m_Layer: 0
-  m_Name: Credits
+  m_Name: StoryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -830,7 +830,7 @@ MonoBehaviour:
     as a mysterious evil wizard takes the throne and cast a spell over the land. He
     escapes to the top of the castle, leaving behind him many perilous monsters and
     enemies. It's now up to our heroes to traverse the tower of terror and defeat
-    the evil wizard.
+    the evil wizard!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13dc787702775db458688cd88a2001f9, type: 2}
   m_sharedMaterial: {fileID: 21601130094933304, guid: 13dc787702775db458688cd88a2001f9,
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

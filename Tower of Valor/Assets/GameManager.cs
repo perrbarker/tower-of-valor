@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
     public Text gameOverText;
 	public Text congratsText;
-    
+    public TextMeshProUGUI congrats;
     public void GameOver()
+
     {
         gameOverText.text = "Game Over";
-        Invoke("MainMenu", 2.5f);
+        Invoke("MainMenu", 5f);
     }
 
 	public void Congratulations()
 	{
-		//congratsText.text = "Hooray!/n" + "You defeated the Evil Wizard!";
-		Invoke ("MainMenu", 2.5f);
+        congrats.SetText("Congratulations!                         You Win!");
+        Invoke ("MainMenu", 5f);
 	}
 
     void MainMenu()
