@@ -131,7 +131,7 @@ public class Health : MonoBehaviour {
 	public void FindSpawn (Transform obj)
 	{
 		tmpX = Mathf.Abs (obj.position.x - spawnPoints [0].transform.position.x);
-		tmpY = Mathf.Abs (obj.position.y - spawnPoints [0].transform.position.y);
+		tmpY = Mathf.Abs (obj.position.y + 5.0f - spawnPoints [0].transform.position.y);
 		tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
 		distanceFromPlayer = tmpDistance;
 		closestSpawn = 0;
@@ -139,7 +139,7 @@ public class Health : MonoBehaviour {
 		for (int i = 1; i < spawnPoints.Length; ++i)
 		{
 			tmpX = Mathf.Abs (obj.position.x - spawnPoints [i].transform.position.x);
-			tmpY = Mathf.Abs (obj.position.y - spawnPoints [i].transform.position.y);
+			tmpY = Mathf.Abs (obj.position.y + 5.0f - spawnPoints [i].transform.position.y);
 			tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
 
 			if (tmpDistance < distanceFromPlayer)
@@ -148,7 +148,7 @@ public class Health : MonoBehaviour {
 				closestSpawn = i;
 			}
 		}
-		if(obj.position.y < spawnPoints[closestSpawn].transform.position.y)
+		if(obj.position.y + 5.0 < spawnPoints[closestSpawn].transform.position.y)
 		{
 			if (FindObjectOfType<Lava> ().lavaIsActive == true)
 			{
