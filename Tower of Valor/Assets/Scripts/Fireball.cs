@@ -10,8 +10,10 @@ public class Fireball : MonoBehaviour {
     private Vector2 targetDir;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
         Invoke("DestroyProjectile", lifeTime);
+        FindObjectOfType<AudioManager>().Play("FireballCast");
 	}
 	
     public void SetTargetDirection(Vector2 dir)
@@ -25,24 +27,41 @@ public class Fireball : MonoBehaviour {
         transform.position += (Vector3) targetDir * speed* Time.deltaTime;
     }
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Transform>().tag == "Player")
+        Transform obj = collision.GetComponent<Transform>();
+
+        if (obj != null)
         {
-            print("Hit player");
-            collision.GetComponent<Health>().removeHitPoints(damage);
-            Destroy(gameObject);
-        }
-        if (collision.GetComponent<Transform>().tag == "Platform")
-        {
-            Destroy(gameObject);
-        }
+            if (obj.tag == "Player")
+            {
+                // hit body
+                if (obj.name == "P1_Head" || obj.name == "P2_Head")
+                {
+                    print("Hit head");
+                    obj.parent.GetComponent<Health>().removeHitPoints(damage);
+					FindObjectOfType<AudioManager>().Play("PlayerHit");
+                    //obj.GetComponentInParent<Health>().removeHitPoints(damage);
+                    FindObjectOfType<AudioManager>().Stop("FireballCast");
+                    Destroy(gameObject);
+
+                }
 
 
+            }
+            /*
+            if (collision.GetComponent<Transform>().tag == "Platform")
+            {
+                Destroy(gameObject);
+            }
+            */
+        }
     }
 
     void DestroyProjectile()
     {
+        FindObjectOfType<AudioManager>().Stop("FireballCast");
         Destroy(gameObject);
     }
 }

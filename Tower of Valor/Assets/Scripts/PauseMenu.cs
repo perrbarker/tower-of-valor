@@ -24,12 +24,12 @@ public class PauseMenu : MonoBehaviour
 		else
 		{
 		*/
-			FindObjectOfType<AudioManager> ().Play ("Theme");
-			FindObjectOfType<AudioManager> ().Play ("LavaRising");
-			FindObjectOfType<AudioManager> ().Play ("FireBurning");
+			//FindObjectOfType<AudioManager> ().UnMute ("Theme");
+			//FindObjectOfType<AudioManager> ().Play ("LavaRising");
+			//FindObjectOfType<AudioManager> ().Play ("FireBurning");
 
-			FindObjectOfType<AudioManager> ().Mute ("LavaRising");
-			FindObjectOfType<AudioManager> ().Mute ("FireBurning");
+			//FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+			//FindObjectOfType<AudioManager> ().Mute ("FireBurning");
 		//}
 	}
 	// Update is called once per frame
@@ -66,7 +66,9 @@ public class PauseMenu : MonoBehaviour
 	{
 		Time.timeScale = 1f;
 		Debug.Log("1Player");
-		FindObjectOfType<AudioManager>().Play("Theme");
+		FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+		FindObjectOfType<AudioManager> ().Mute ("FireBurning");
+		FindObjectOfType<AudioManager>().UnMute("Theme");
 		SceneManager.LoadScene(1);
 	}
 
@@ -74,16 +76,20 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("2Players");
-		FindObjectOfType<AudioManager>().Play("Theme");
+		FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+		FindObjectOfType<AudioManager> ().Mute ("FireBurning");
+		FindObjectOfType<AudioManager>().UnMute("Theme");
         SceneManager.LoadScene(2);
     }
 
     public void loadMainMenu()
     {
         Time.timeScale = 1f;
-        Debug.Log("mainmenu");
-		FindObjectOfType<AudioManager>().Stop("Theme");
-		FindObjectOfType<AudioManager>().Play("MainMenu");
+		Debug.Log ("mainmenu");
+		FindObjectOfType<AudioManager> ().Mute ("LavaRising");
+		FindObjectOfType<AudioManager> ().Mute ("FireBurning");;
+		FindObjectOfType<AudioManager>().Mute("Theme");
+		FindObjectOfType<AudioManager>().UnMute("MainMenu");
         SceneManager.LoadScene(0);
     }
 
