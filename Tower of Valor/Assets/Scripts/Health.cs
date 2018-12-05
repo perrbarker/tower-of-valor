@@ -18,19 +18,20 @@ public class Health : MonoBehaviour {
 	public bool player1Died;
 	public bool player2Died;
 	private Transform player1, player2, entity;
+	private float spawnCushion;
 
 
-    public Image[] hearts, livesDisplay;
-    public Sprite fullHeart;
+	public Image[] hearts, livesDisplay;
+	public Sprite fullHeart;
 
 
-    void Start()
+	void Start()
 	{
 		hitPoints = maxHP;
 		player1 = Camera.main.GetComponent<CameraScript>().player1;
 		player2 = Camera.main.GetComponent<CameraScript> ().player2;
 	}
-    
+
 	public int HitPoints
 	{
 		get { return hitPoints; }
@@ -44,7 +45,7 @@ public class Health : MonoBehaviour {
 		}
 
 	}
-    
+
 	public void removeHitPoints(int i)
 	{
 		hitPoints -= i;		
@@ -119,7 +120,7 @@ public class Health : MonoBehaviour {
 			{
 				Destroy (gameObject);
 				FindObjectOfType<GameManager> ().Congratulations ();
-                FindObjectOfType<Timer> ().StopTimer();
+				FindObjectOfType<Timer> ().StopTimer();
 			}
 			else
 			{
@@ -131,8 +132,18 @@ public class Health : MonoBehaviour {
 
 	public void FindSpawn (Transform obj)
 	{
+		
+		if (FindObjectOfType<Lava> ().lavaIsActive == true)
+		{
+			spawnCushion = 7.0f;
+		}
+		else
+		{
+			spawnCushion = 2.0f;
+		}
+
 		tmpX = Mathf.Abs (obj.position.x - spawnPoints [0].transform.position.x);
-		tmpY = Mathf.Abs (obj.position.y + 2.0f - spawnPoints [0].transform.position.y);
+		tmpY = Mathf.Abs (obj.position.y + spawnCushion - spawnPoints [0].transform.position.y);
 		tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
 		distanceFromPlayer = tmpDistance;
 		closestSpawn = 0;
@@ -140,7 +151,7 @@ public class Health : MonoBehaviour {
 		for (int i = 1; i < spawnPoints.Length; ++i)
 		{
 			tmpX = Mathf.Abs (obj.position.x - spawnPoints [i].transform.position.x);
-			tmpY = Mathf.Abs (obj.position.y + 2.0f  - spawnPoints [i].transform.position.y); 		//provide 3.0 units of cushion 
+			tmpY = Mathf.Abs (obj.position.y + spawnCushion - spawnPoints [i].transform.position.y); 		//provide 3.0 units of cushion 
 
 			tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
 
@@ -150,13 +161,13 @@ public class Health : MonoBehaviour {
 				closestSpawn = i;
 			}
 		}
-		if(obj.position.y +2.0f < spawnPoints[closestSpawn].transform.position.y)
+		if(obj.position.y < spawnPoints[closestSpawn].transform.position.y) //spawn is above player
 		{
 			if (FindObjectOfType<Lava> ().lavaIsActive == true)
 			{
 				//checks if covered by lava or spawning right in front of it
 				if (spawnPoints [closestSpawn].transform.position.y >= FindObjectOfType<Lava> ().transform.position.y + 16.5f
-				    || spawnPoints [closestSpawn].transform.position.y < FindObjectOfType<Lava> ().transform.position.y - 16.5f)
+					|| spawnPoints [closestSpawn].transform.position.y < FindObjectOfType<Lava> ().transform.position.y - 16.5f)
 				{
 					if (closestSpawn % 2 == 1)
 					{
@@ -187,29 +198,29 @@ public class Health : MonoBehaviour {
 		Spawn respawn = spawnPoints [0].GetComponent<Spawn> ();
 		if (closestSpawn < 0)
 		{
-			 respawn = spawnPoints [0].GetComponent<Spawn> ();
+			respawn = spawnPoints [0].GetComponent<Spawn> ();
 		}
 		else
 		{
-			 respawn = spawnPoints [closestSpawn].GetComponent<Spawn> ();
+			respawn = spawnPoints [closestSpawn].GetComponent<Spawn> ();
 		}
 		respawn.Respawn ();
 	}
-		
-    public GameObject Spawn
-    {
-        get { return spawn; }
-        set
-        {
-            spawn = value;
-        }
-    }
 
-    void Update()
+	public GameObject Spawn
 	{
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            /*
+		get { return spawn; }
+		set
+		{
+			spawn = value;
+		}
+	}
+
+	void Update()
+	{
+		for (int i = 0; i < hearts.Length; i++)
+		{
+			/*
             if (hitPoints > maxHP)
             {
                 hitPoints = maxHP;
@@ -224,34 +235,34 @@ public class Health : MonoBehaviour {
                 // hearts[i].sprite = emptyHeart;
             }
             */
-            if (i < hitPoints)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
-        }
-        for (int i = 0; i < livesDisplay.Length; i++)
-        {
-            if (i < lives)
-            {
-                livesDisplay[i].enabled = true;
-            }
-            else
-            {
-                livesDisplay[i].enabled = false;
-            }
-        }
-    }
+			if (i < hitPoints)
+			{
+				hearts[i].enabled = true;
+			}
+			else
+			{
+				hearts[i].enabled = false;
+			}
+		}
+		for (int i = 0; i < livesDisplay.Length; i++)
+		{
+			if (i < lives)
+			{
+				livesDisplay[i].enabled = true;
+			}
+			else
+			{
+				livesDisplay[i].enabled = false;
+			}
+		}
+	}
 
-    void FixedUpdate()
-    {
-        if (hitPoints <= 0)
-        {
-            StartCoroutine(Death());
-            print("death");
-        }
-    }
+	void FixedUpdate()
+	{
+		if (hitPoints <= 0)
+		{
+			StartCoroutine(Death());
+			print("death");
+		}
+	}
 }
