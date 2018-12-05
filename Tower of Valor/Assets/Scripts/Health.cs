@@ -18,7 +18,7 @@ public class Health : MonoBehaviour {
 	public bool player1Died;
 	public bool player2Died;
 	private Transform player1, player2, entity;
-
+    private float timerDmg;
 
     public Image[] hearts, livesDisplay;
     public Sprite fullHeart;
@@ -29,6 +29,7 @@ public class Health : MonoBehaviour {
 		hitPoints = maxHP;
 		player1 = Camera.main.GetComponent<CameraScript>().player1;
 		player2 = Camera.main.GetComponent<CameraScript> ().player2;
+        timerDmg = 0f;
 	}
     
 	public int HitPoints
@@ -47,8 +48,13 @@ public class Health : MonoBehaviour {
     
 	public void removeHitPoints(int i)
 	{
-		hitPoints -= i;		
-		Debug.Log(gameObject.tag + "'s HP is at " + hitPoints);
+        if (timerDmg > 1f)
+        {
+            hitPoints -= i;
+            Debug.Log(gameObject.tag + "'s HP is at " + hitPoints);
+            timerDmg = 0;
+        }
+
 	}
 
 	IEnumerator Death()
@@ -129,73 +135,160 @@ public class Health : MonoBehaviour {
 		}
 	}
 
-	public void FindSpawn (Transform obj)
-	{
-		tmpX = Mathf.Abs (obj.position.x - spawnPoints [0].transform.position.x);
-		tmpY = Mathf.Abs (obj.position.y + 2.0f - spawnPoints [0].transform.position.y);
-		tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
-		distanceFromPlayer = tmpDistance;
-		closestSpawn = 0;
+    public void FindSpawn(Transform obj)
 
-		for (int i = 1; i < spawnPoints.Length; ++i)
-		{
-			tmpX = Mathf.Abs (obj.position.x - spawnPoints [i].transform.position.x);
-			tmpY = Mathf.Abs (obj.position.y + 2.0f  - spawnPoints [i].transform.position.y); 		//provide 3.0 units of cushion 
+    {
 
-			tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
+        /*
 
-			if (tmpDistance < distanceFromPlayer)
-			{
-				distanceFromPlayer = tmpDistance;
-				closestSpawn = i;
-			}
-		}
-		if(obj.position.y +2.0f < spawnPoints[closestSpawn].transform.position.y)
+		if (FindObjectOfType<Lava> ().lavaIsActive == true)
+
 		{
-			if (FindObjectOfType<Lava> ().lavaIsActive == true)
-			{
-				//checks if covered by lava or spawning right in front of it
-				if (spawnPoints [closestSpawn].transform.position.y >= FindObjectOfType<Lava> ().transform.position.y + 16.5f
-				    || spawnPoints [closestSpawn].transform.position.y < FindObjectOfType<Lava> ().transform.position.y - 16.5f)
-				{
-					if (closestSpawn % 2 == 1)
-					{
-						closestSpawn = closestSpawn + 2; //spawn a point above on right
-					}
-					else
-					{
-						++closestSpawn; //spawn a point below on left
-					}
-				}
-				else
-				{
-					Debug.Log ("No change, spawn at closest.");
-				}
-			}
-			else
-			{
-				if (closestSpawn % 2 == 1)
-				{
-					closestSpawn = closestSpawn - 2; //spawn a point below on right
-				}
-				else
-				{
-					--closestSpawn; //spawn a point below on left
-				}
-			}
+
+			spawnCushion = 7.0f;
+
 		}
-		Spawn respawn = spawnPoints [0].GetComponent<Spawn> ();
-		if (closestSpawn < 0)
-		{
-			 respawn = spawnPoints [0].GetComponent<Spawn> ();
-		}
+
 		else
+
 		{
-			 respawn = spawnPoints [closestSpawn].GetComponent<Spawn> ();
+
+			spawnCushion = 2.0f;
+
 		}
-		respawn.Respawn ();
-	}
-		
+
+		*/
+
+
+
+        tmpX = Mathf.Abs(obj.position.x - spawnPoints[0].transform.position.x);
+
+        tmpY = Mathf.Abs(obj.position.y + 3.0f - spawnPoints[0].transform.position.y);
+
+        tmpDistance = Mathf.Sqrt(Mathf.Pow(tmpX, 2) + Mathf.Pow(tmpY, 2));
+
+        distanceFromPlayer = tmpDistance;
+
+        closestSpawn = 0;
+
+
+
+        for (int i = 1; i < spawnPoints.Length; ++i)
+
+        {
+
+            tmpX = Mathf.Abs(obj.position.x - spawnPoints[i].transform.position.x);
+
+            tmpY = Mathf.Abs(obj.position.y + 3.0f - spawnPoints[i].transform.position.y);      //provide 3.0 units of cushion 
+
+
+
+            tmpDistance = Mathf.Sqrt(Mathf.Pow(tmpX, 2) + Mathf.Pow(tmpY, 2));
+
+
+
+            if (tmpDistance < distanceFromPlayer)
+
+            {
+
+                distanceFromPlayer = tmpDistance;
+
+                closestSpawn = i;
+
+            }
+
+        }
+
+        if (obj.position.y < spawnPoints[closestSpawn].transform.position.y) //spawn is above player
+
+        {
+
+            if (FindObjectOfType<Lava>().lavaIsActive == true)
+
+            {
+
+                //checks if covered by lava or spawning right in front of it
+
+                if (spawnPoints[closestSpawn].transform.position.y >= FindObjectOfType<Lava>().transform.position.y + 16.5f
+
+                    || spawnPoints[closestSpawn].transform.position.y < FindObjectOfType<Lava>().transform.position.y - 16.5f)
+
+                {
+
+                    if (closestSpawn % 2 == 1)
+
+                    {
+
+                        closestSpawn = closestSpawn + 2; //spawn a point above on right
+
+                    }
+
+                    else
+
+                    {
+
+                        ++closestSpawn; //spawn a point below on left
+
+                    }
+
+                }
+
+                else
+
+                {
+
+                    Debug.Log("No change, spawn at closest.");
+
+                }
+
+            }
+
+            else
+
+            {
+
+                if (closestSpawn % 2 == 1)
+
+                {
+
+                    closestSpawn = closestSpawn - 2; //spawn a point below on right
+
+                }
+
+                else
+
+                {
+
+                    --closestSpawn; //spawn a point below on left
+
+                }
+
+            }
+
+        }
+
+        Spawn respawn = spawnPoints[0].GetComponent<Spawn>();
+
+        if (closestSpawn < 0)
+
+        {
+
+            respawn = spawnPoints[0].GetComponent<Spawn>();
+
+        }
+
+        else
+
+        {
+
+            respawn = spawnPoints[closestSpawn].GetComponent<Spawn>();
+
+        }
+
+        respawn.Respawn();
+
+    }
+
     public GameObject Spawn
     {
         get { return spawn; }
@@ -207,6 +300,8 @@ public class Health : MonoBehaviour {
 
     void Update()
 	{
+        timerDmg += Time.deltaTime;
+
         for (int i = 0; i < hearts.Length; i++)
         {
             /*

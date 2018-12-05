@@ -26,6 +26,7 @@ public class Wizard : MonoBehaviour {
 
     private void Start()
     {
+        //GetComponent<Health>().enabled = false;
         anim = GetComponent<Animator>();
         timer = attackCoolDown;
         activeWizard = false;
@@ -79,6 +80,15 @@ public class Wizard : MonoBehaviour {
             {
                 SelectTarget();
             }
+        }
+        else
+        {
+            GetComponent<Health>().hearts[0].enabled = false;
+            GetComponent<Health>().hearts[1].enabled = false;
+            GetComponent<Health>().hearts[2].enabled = false;
+            GetComponent<Health>().hearts[3].enabled = false;
+            GetComponent<Health>().hearts[4].enabled = false;
+
         }
     }
 
