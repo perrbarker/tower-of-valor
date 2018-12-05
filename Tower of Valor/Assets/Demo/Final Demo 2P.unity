@@ -8429,7 +8429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   congrats: {fileID: 2084033968}
-  gameover: {fileID: 1557454211}
+  gameover: {fileID: 0}
 --- !u!114 &783144071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16915,6 +16915,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4286090034637530, guid: af5ff11534c64a54292eca724d4d5cf7,
     type: 2}
   m_PrefabInternal: {fileID: 1547874814}
+<<<<<<< HEAD
 --- !u!1 &1557454209
 GameObject:
   m_ObjectHideFlags: 0
@@ -17072,6 +17073,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1557454209}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> 7e6c407a732219d2ffedcab08455e7242582d2bc
 --- !u!4 &1559599468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4851088260918488, guid: afcea9ef9d094fa458e58272b9847272,
@@ -22912,7 +22915,7 @@ GameObject:
   - component: {fileID: 2084033969}
   - component: {fileID: 2084033968}
   m_Layer: 5
-  m_Name: congrats
+  m_Name: TextMeshPro Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

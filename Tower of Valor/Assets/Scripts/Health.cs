@@ -18,20 +18,25 @@ public class Health : MonoBehaviour {
 	public bool player1Died;
 	public bool player2Died;
 	private Transform player1, player2, entity;
+<<<<<<< HEAD
     private float timerDmg;
+=======
+	private float spawnCushion;
 
-    public Image[] hearts, livesDisplay;
-    public Sprite fullHeart;
+>>>>>>> 7e6c407a732219d2ffedcab08455e7242582d2bc
+
+	public Image[] hearts, livesDisplay;
+	public Sprite fullHeart;
 
 
-    void Start()
+	void Start()
 	{
 		hitPoints = maxHP;
 		player1 = Camera.main.GetComponent<CameraScript>().player1;
 		player2 = Camera.main.GetComponent<CameraScript> ().player2;
         timerDmg = 0f;
 	}
-    
+
 	public int HitPoints
 	{
 		get { return hitPoints; }
@@ -45,7 +50,7 @@ public class Health : MonoBehaviour {
 		}
 
 	}
-    
+
 	public void removeHitPoints(int i)
 	{
         if (timerDmg > 1f)
@@ -125,7 +130,7 @@ public class Health : MonoBehaviour {
 			{
 				Destroy (gameObject);
 				FindObjectOfType<GameManager> ().Congratulations ();
-                FindObjectOfType<Timer> ().StopTimer();
+				FindObjectOfType<Timer> ().StopTimer();
 			}
 			else
 			{
@@ -135,23 +140,96 @@ public class Health : MonoBehaviour {
 		}
 	}
 
+<<<<<<< HEAD
     public void FindSpawn(Transform obj)
 
     {
+=======
+	public void FindSpawn (Transform obj)
+	{
+		
+		if (FindObjectOfType<Lava> ().lavaIsActive == true)
+		{
+			spawnCushion = 7.0f;
+		}
+		else
+		{
+			spawnCushion = 2.0f;
+		}
+
+		tmpX = Mathf.Abs (obj.position.x - spawnPoints [0].transform.position.x);
+		tmpY = Mathf.Abs (obj.position.y + spawnCushion - spawnPoints [0].transform.position.y);
+		tmpDistance = Mathf.Sqrt (Mathf.Pow (tmpX, 2) + Mathf.Pow (tmpY, 2));
+		distanceFromPlayer = tmpDistance;
+		closestSpawn = 0;
+
+		for (int i = 1; i < spawnPoints.Length; ++i)
+		{
+			tmpX = Mathf.Abs (obj.position.x - spawnPoints [i].transform.position.x);
+			tmpY = Mathf.Abs (obj.position.y + spawnCushion - spawnPoints [i].transform.position.y); 		//provide 3.0 units of cushion 
+>>>>>>> 7e6c407a732219d2ffedcab08455e7242582d2bc
 
         /*
 
 		if (FindObjectOfType<Lava> ().lavaIsActive == true)
 
+<<<<<<< HEAD
 		{
 
 			spawnCushion = 7.0f;
 
+=======
+			if (tmpDistance < distanceFromPlayer)
+			{
+				distanceFromPlayer = tmpDistance;
+				closestSpawn = i;
+			}
+		}
+		if(obj.position.y < spawnPoints[closestSpawn].transform.position.y) //spawn is above player
+		{
+			if (FindObjectOfType<Lava> ().lavaIsActive == true)
+			{
+				//checks if covered by lava or spawning right in front of it
+				if (spawnPoints [closestSpawn].transform.position.y >= FindObjectOfType<Lava> ().transform.position.y + 16.5f
+					|| spawnPoints [closestSpawn].transform.position.y < FindObjectOfType<Lava> ().transform.position.y - 16.5f)
+				{
+					if (closestSpawn % 2 == 1)
+					{
+						closestSpawn = closestSpawn + 2; //spawn a point above on right
+					}
+					else
+					{
+						++closestSpawn; //spawn a point below on left
+					}
+				}
+				else
+				{
+					Debug.Log ("No change, spawn at closest.");
+				}
+			}
+			else
+			{
+				if (closestSpawn % 2 == 1)
+				{
+					closestSpawn = closestSpawn - 2; //spawn a point below on right
+				}
+				else
+				{
+					--closestSpawn; //spawn a point below on left
+				}
+			}
+		}
+		Spawn respawn = spawnPoints [0].GetComponent<Spawn> ();
+		if (closestSpawn < 0)
+		{
+			respawn = spawnPoints [0].GetComponent<Spawn> ();
+>>>>>>> 7e6c407a732219d2ffedcab08455e7242582d2bc
 		}
 
 		else
 
 		{
+<<<<<<< HEAD
 
 			spawnCushion = 2.0f;
 
@@ -297,14 +375,35 @@ public class Health : MonoBehaviour {
             spawn = value;
         }
     }
+=======
+			respawn = spawnPoints [closestSpawn].GetComponent<Spawn> ();
+		}
+		respawn.Respawn ();
+	}
+>>>>>>> 7e6c407a732219d2ffedcab08455e7242582d2bc
 
-    void Update()
+	public GameObject Spawn
 	{
+<<<<<<< HEAD
         timerDmg += Time.deltaTime;
 
         for (int i = 0; i < hearts.Length; i++)
         {
             /*
+=======
+		get { return spawn; }
+		set
+		{
+			spawn = value;
+		}
+	}
+
+	void Update()
+	{
+		for (int i = 0; i < hearts.Length; i++)
+		{
+			/*
+>>>>>>> 7e6c407a732219d2ffedcab08455e7242582d2bc
             if (hitPoints > maxHP)
             {
                 hitPoints = maxHP;
@@ -319,34 +418,34 @@ public class Health : MonoBehaviour {
                 // hearts[i].sprite = emptyHeart;
             }
             */
-            if (i < hitPoints)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
-        }
-        for (int i = 0; i < livesDisplay.Length; i++)
-        {
-            if (i < lives)
-            {
-                livesDisplay[i].enabled = true;
-            }
-            else
-            {
-                livesDisplay[i].enabled = false;
-            }
-        }
-    }
+			if (i < hitPoints)
+			{
+				hearts[i].enabled = true;
+			}
+			else
+			{
+				hearts[i].enabled = false;
+			}
+		}
+		for (int i = 0; i < livesDisplay.Length; i++)
+		{
+			if (i < lives)
+			{
+				livesDisplay[i].enabled = true;
+			}
+			else
+			{
+				livesDisplay[i].enabled = false;
+			}
+		}
+	}
 
-    void FixedUpdate()
-    {
-        if (hitPoints <= 0)
-        {
-            StartCoroutine(Death());
-            print("death");
-        }
-    }
+	void FixedUpdate()
+	{
+		if (hitPoints <= 0)
+		{
+			StartCoroutine(Death());
+			print("death");
+		}
+	}
 }
