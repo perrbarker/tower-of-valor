@@ -13,10 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 43
     width: 1366
     height: 685
+=======
+    x: 67
+    y: 55
+    width: 1853
+    height: 1001
+>>>>>>> parent of 6d8fae4... More gameover fixes
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
@@ -109,7 +116,11 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 909
+=======
+  controlID: 1746
+>>>>>>> parent of 6d8fae4... More gameover fixes
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +144,11 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 910
+=======
+  controlID: 1747
+>>>>>>> parent of 6d8fae4... More gameover fixes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +172,11 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 911
+=======
+  controlID: 1748
+>>>>>>> parent of 6d8fae4... More gameover fixes
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +252,11 @@ MonoBehaviour:
   m_MinSize: {x: 336, y: 271}
   m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 1043
+=======
+  controlID: 1669
+>>>>>>> parent of 6d8fae4... More gameover fixes
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -347,10 +370,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -530.5
     m_HBaseRangeMax: 530.5
     m_VBaseRangeMin: -298.5
     m_VBaseRangeMax: 298.5
+=======
+    m_HBaseRangeMin: -405.75
+    m_HBaseRangeMax: 405.75
+    m_VBaseRangeMin: -228.25
+    m_VBaseRangeMax: 228.25
+>>>>>>> parent of 6d8fae4... More gameover fixes
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -368,25 +398,43 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
       width: 1366
       height: 597
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 683, y: 298.5}
+=======
+      width: 1853
+      height: 913
+    m_Scale: {x: 2, y: 2}
+    m_Translation: {x: 926.5, y: 456.5}
+>>>>>>> parent of 6d8fae4... More gameover fixes
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -683
       y: -298.5
       width: 1366
       height: 597
+=======
+      x: -463.25
+      y: -228.25
+      width: 926.5
+      height: 456.5
+>>>>>>> parent of 6d8fae4... More gameover fixes
     m_MinimalGUI: 1
-  m_defaultScale: 1
+  m_defaultScale: 2
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 1366, y: 614}
+=======
+  m_LastWindowPixelSize: {x: 3706, y: 1860}
+>>>>>>> parent of 6d8fae4... More gameover fixes
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000100
@@ -411,6 +459,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 92
     width: 338
@@ -421,6 +470,18 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 627effff387fffff7890ffff9690ffffae90ffff3ea9ffff56f0ffff00000000aa3d00009e460000
+=======
+    x: 67
+    y: 128
+    width: 459
+    height: 524
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 9ceaffff
+    m_LastClickedID: -5476
+    m_ExpandedIDs: 9cebffff000000003e400000444000000242000024430000ce430000f444000084450000
+>>>>>>> parent of 6d8fae4... More gameover fixes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -464,10 +525,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 342
     y: 92
     width: 646
     height: 343
+=======
+    x: 530
+    y: 128
+    width: 878
+    height: 524
+>>>>>>> parent of 6d8fae4... More gameover fixes
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
   lastFramingTime: 1325.2476371999999
@@ -475,9 +543,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.0076199, y: 113.601364, z: 4.470703}
+    m_Target: {x: 0.884051, y: 1.0703678, z: 4.4913826}
     speed: 2
-    m_Value: {x: 3.0076199, y: 113.601364, z: 4.470703}
+    m_Value: {x: 0.884051, y: 1.0703678, z: 4.4913826}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -509,9 +577,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 13.34937
+    m_Target: 9.56899
     speed: 2
-    m_Value: 13.34937
+    m_Value: 9.56899
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -568,10 +636,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 456
     width: 232
     height: 250
+=======
+    x: 67
+    y: 673
+    width: 316
+    height: 385
+>>>>>>> parent of 6d8fae4... More gameover fixes
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -590,15 +665,23 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
+<<<<<<< HEAD
   m_LastProjectPath: C:\Users\User\Documents\GitHub\Project\CSE440-Team-Retro\Tower
     of Valor
+=======
+  m_LastProjectPath: /home/jeremy/Desktop/CSE 440/CSE440-Team-Retro/Tower of Valor
+>>>>>>> parent of 6d8fae4... More gameover fixes
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 60}
     m_SelectedIDs: 522f0000
     m_LastClickedID: 12114
+<<<<<<< HEAD
     m_ExpandedIDs: ffffffff00000000162e0000642f0000862f000018300000f2350000a4360000bc360000d0360000e83600001c3700004e370000523700007837000098370000a0370000b6370000d4370000083800000a3800002e38000044380000aa380000ac38000056390000783900009a390000bc39000016420000184200001a4200001c4200001e420000204200002242000024420000
+=======
+    m_ExpandedIDs: ffffffff00000000a22e0000ae2e00005c2f000052300000ba300000b63200007c360000303b0000443b00006e3b0000a43b0000ce3b0000d23b0000f63b0000183c0000203c0000363c0000803c0000aa3c0000bc3c0000163d0000183d0000c43d0000e43d0000043e0000263e000070460000724600007446000076460000784600007a4600007c4600007e460000
+>>>>>>> parent of 6d8fae4... More gameover fixes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -626,7 +709,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 1777.5447}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: ffffffff00000000162e0000642f0000862f000018300000f2350000a4360000bc360000d0360000e83600001c3700004e370000523700007837000098370000a0370000b6370000d4370000083800000a3800002e38000044380000aa380000ac38000056390000783900009a390000bc39000016420000184200001a4200001c4200001e420000204200002242000024420000
+=======
+    m_ExpandedIDs: ffffffff00000000a22e0000ae2e00005c2f000052300000ba300000b63200007c360000303b0000443b00006e3b0000a43b0000ce3b0000d23b0000f63b0000183c0000203c0000363c0000803c0000aa3c0000bc3c0000163d0000183d0000c43d0000e43d0000043e0000263e000070460000724600007446000076460000784600007a4600007c4600007e460000
+>>>>>>> parent of 6d8fae4... More gameover fixes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Final Demo 1P
@@ -701,10 +788,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 236
     y: 456
     width: 752
     height: 250
+=======
+    x: 387
+    y: 673
+    width: 1021
+    height: 385
+>>>>>>> parent of 6d8fae4... More gameover fixes
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &20
 MonoBehaviour:
@@ -978,7 +1072,11 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: 16548
+=======
+  m_LastSelectedObjectID: -5476
+>>>>>>> parent of 6d8fae4... More gameover fixes
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -999,10 +1097,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 992
     y: 92
     width: 374
     height: 614
+=======
+    x: 1412
+    y: 128
+    width: 508
+    height: 930
+>>>>>>> parent of 6d8fae4... More gameover fixes
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
