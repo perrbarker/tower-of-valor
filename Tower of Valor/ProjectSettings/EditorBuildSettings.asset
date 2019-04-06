@@ -9,13 +9,8 @@ EditorBuildSettings:
     path: Assets/Demo/Main Menu.unity
     guid: 738f37b6d67ea0e488ab188c2904ec3e
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Demo/Final Demo.unity
-    guid: b712e9ee50e045c4c84bb1e7a24b50b0
-=======
-    path: Assets/Demo/Final Demo 1P.unity
-    guid: 274897ab09eefff4b8204416893c8a7e
->>>>>>> 7e6c407a732219d2ffedcab08455e7242582d2bc
+    path: Assets/Demo/Final Demo 1p.unity
+    guid: a48f47d003d0f80459d8071c97d23214
   - enabled: 1
     path: Assets/Demo/Final Demo 2P.unity
     guid: ca84a11b769b27348a71b82be787ed75
