@@ -1,0 +1,17 @@
+Playable prototype is located in the zip file.
+
+Player 1 Controls:
+  Move Left:  A key
+  Move Right: D key
+  Jump:       W key
+  Punch:      R key
+  Grab:       F key
+  Throw:      F key while holding a unit
+
+Player 2 Controls:
+  Move Left:  Left arrow key
+  Move Right: Right arrow key
+  Jump:       Up arrow key
+  Punch:      I key
+  Grab:       O key
+  Throw:      O key while holding a unit
